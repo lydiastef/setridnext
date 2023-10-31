@@ -1,0 +1,28 @@
+@import '../../../variables.scss';
+
+.footercontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $thered;
+    height: 120px;
+    padding: 2rem;
+    color: $thewhite;
+}
+
+.something1, .something2, .something3 {
+    text-align: center;
+    font-size: 14px;
+}
+
+@media only screen and (min-width: 900px){
+    .footercontainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $thered;
+        height: 160px;
+        padding: 2rem 8rem;
+        color: $thewhite;
+    }
+}

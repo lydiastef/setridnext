@@ -1,0 +1,120 @@
+@import './variables.scss'; 
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $lora;
+}
+
+.h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem;
+    color: $thedarkred;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.intro-p {
+    margin: 2rem 4rem;
+    line-height: 25px;
+    letter-spacing: .6px;
+}
+
+.main-img2 {
+    max-width: 75%;
+    display: flex;
+    margin: auto;
+}
+
+.btn-container {
+    margin: 4rem;
+}
+
+.individual-btn {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px rgba(0, 0, 0, 0.257);
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    height: 100px;
+}
+
+.rannsokn-p {
+    margin: 1rem;
+    font-size: 22px;
+    letter-spacing: .5px;
+    text-align: center;
+    color: $thedarkred;
+    text-shadow: .8px .8px 1.5px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (min-width: 768px){
+
+    .h1 {
+        margin: 5rem;
+    }
+
+    .image-and-intro {
+        display: flex;
+        margin-bottom: 6rem;
+    }
+
+    .main-img2 {
+        max-width: 40%;
+        order: 2;
+        margin-right: 4rem;
+    }
+
+    .intro-p {
+        margin: 0 2rem auto 8rem;
+    }
+
+    .btn-pair {
+        display: flex;
+        justify-content: space-around;
+        margin-right: 5rem;
+    }
+
+    .individual-btn {
+        margin: 2rem;
+    }
+
+}
+
+@media only screen and (min-width: 1024px){
+
+    .h1 {
+        font-size: 40px;
+        margin: 6rem;
+    }
+
+    .main-img2 {
+        max-width: 50%;
+        order: 2;
+    }
+
+    .intro-p {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .btn-pair {
+        margin-right: 16rem;
+    }
+
+    .individual-btn {
+        width: 60vh;
+    }
+    
+    .rannsokn-p {
+        font-size: 28px;
+    }
+
+}

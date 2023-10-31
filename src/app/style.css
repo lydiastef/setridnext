@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
+.main-img {
+  max-width: 100%;
+  z-index: -1;
+  position: relative;
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  height: 12rem;
+  background-color: #ffffff;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+}
+
+.phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+  color: #AC0B11;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin: -2rem -4rem 3rem -4rem;
+}
+
+.phone-img {
+  width: 46px;
+}
+
+.info-btn1, .info-btn2 {
+  background-color: #AC0B11;
+  width: 91px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-top: 5rem;
+  cursor: pointer;
+}
+
+.info-btn1 {
+  margin-left: 2rem;
+}
+
+.info-btn2 {
+  margin-right: 2rem;
+}
+
+h2, h3 {
+  margin-bottom: 2rem;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem 4rem 4rem;
+}
+
+p {
+  margin-top: 0.7rem;
+}
+
+.where {
+  max-width: 100%;
+}
+
+.where-h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+}
+
+.where-p {
+  margin: 1rem 0;
+}
+
+.where-img {
+  max-width: 100%;
+  margin: 1rem 0 4rem 0;
+}
+
+.whatissetrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem;
+}
+
+.stjorn-container {
+  margin: 4rem;
+}
+
+.stjorn-h3 {
+  color: #7D070C;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 22px;
+}
+
+@media only screen and (min-width: 700px) {
+  .info-box {
+    height: 14rem;
+    padding: 3rem;
+  }
+  .phone {
+    font-size: 34px;
+    margin: 0 -4rem;
+  }
+  .phone-img {
+    width: 70px;
+  }
+  .info-btn1, .info-btn2 {
+    width: 160px;
+    height: 85px;
+    font-size: 30px;
+    margin-top: 0;
+  }
+  .instructions {
+    padding: 1rem 8rem 4rem 8rem;
+  }
+  .stjorn-container {
+    margin: 3rem 6rem;
+  }
+  .stjorn-h3 {
+    font-size: 26px;
+  }
+  p {
+    margin: 0.5rem 2rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .info-box {
+    height: 16rem;
+    padding: 5rem;
+  }
+  .phone {
+    font-size: 40px;
+    margin: 0 -4rem;
+  }
+  .phone-img {
+    width: 86px;
+  }
+  .info-btn1, .info-btn2 {
+    width: 200px;
+    height: 100px;
+    font-size: 36px;
+    margin-top: 0;
+  }
+  .instructions {
+    padding: 1rem 12rem 4rem 12rem;
+  }
+  .where-h2 {
+    font-size: 40px;
+  }
+}
+@media only screen and (min-width: 1050px) {
+  .info-box {
+    padding: 8rem;
+  }
+  .instructions {
+    padding: 1rem 18rem 4rem 18rem;
+  }
+  .stjorn-container {
+    margin: 3rem 8rem;
+  }
+  .stjorn-h3 {
+    font-size: 30px;
+  }
+  p {
+    margin: 1rem 4rem;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,113 @@
+@import '../../../variables.scss'; 
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $lora;
+}
+
+.logo-img {
+    max-width: 40%;
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 4rem;
+    background-color: $thered;
+    color: $thewhite;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.a-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav a {
+    text-align: center;
+    margin: 2rem;
+    color: $thewhite;
+    text-decoration: none;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 20vh;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 0; /* Initially, the line has zero width */
+    height: 2px;
+    background-color: #f8b8ba;
+    bottom: 0;
+    left: 0; /* Start from the left */
+    transition: width 0.2s;
+}
+
+nav a:hover::before {
+    width: 100%; /* Expand the line width to 100% on hover */
+}
+
+
+header .nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $thewhite;
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media only screen and (max-width: 700px){
+    
+    .logo-img {
+        max-width: 60%;
+    }
+
+    header .nav-btn {
+        visibility: visible;
+        opacity: 1;
+        font-size: 28px;
+    }
+
+    header nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 60%;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $thered;
+        transition: 1s;
+        transform: translateY(-100vh);
+    }
+
+    .a-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        }
+
+    header .responsive_nav {
+        transform: none;
+    }
+
+    nav .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+
+}
