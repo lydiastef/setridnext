@@ -1,15 +1,46 @@
+'use client'
 import './style.css';
 import Navbar from '../components/navbar/page';
 import Footer from '../components/footer/page';
 import Link from 'next/link';
 import supabase from '../config/supabaseClient';
+import { useEffect, useState } from 'react'
 /*import { useRouter } from 'next/navigation';*/
 
 function Landingpage() {
-    console.log(supabase)
+
+    //Fetching data from Supabase - start
+
+    const [fetchError, setFetchError] = useState(null)
+    const [where, setWhere] = useState(null)
+
+    useEffect(() => {
+        const fetchWhere = async () => {
+            const { data, error } = await supabase
+            .from('where') //fetching data from this table in Supabase
+            .select()
+
+            if(error) {
+                setFetchError('Could not fetch Where')
+                setWhere(null)
+                console.log(error)
+            }
+            if (data) {
+                setWhere(data)
+                setFetchError(null)
+            }
+        }
+
+        fetchWhere();
+    }, [])
+
+    //Fetching data from Supabase - end
 
     return (
+    
       <>
+    {fetchError && <p>{fetchError}</p>}
+
         <Navbar/>
         <img className='main-img' src='/reykjavik.avif' alt='stethoscope' />
         <div className='info-box'>
@@ -30,6 +61,11 @@ function Landingpage() {
         </div>
         <div className='instructions'>
             <div className='where'>
+            {where && (
+                <div className='where'>
+                    <p>{where[0].item.title}</p>
+                </div>
+            )}
                 <h2 className='where-h2'>Hvar erum við?</h2>
                 <p className='where-p'>Læknasetrið er staðsett í Mjóddinni. Gengið er inn vinstra megin við Nettó um innganginn sem sést á myndinni hér fyrir neðan.</p>
                 <img className='where-img' src='/Where.png' alt='Image of Læknasetrið from the outside' />
@@ -71,7 +107,7 @@ function Landingpage() {
         </div>
         <Footer/>
       </>
-    );
+    )
   }
   
   export default Landingpage;
