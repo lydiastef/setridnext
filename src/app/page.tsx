@@ -1,15 +1,36 @@
 'use client'
 import './style.css';
-import Navbar from '../components/navbar/page';
+/*import Navbar from '../components/navbar/page';
 import Footer from '../components/footer/page';
 import Link from 'next/link';
-import supabase from '../config/supabaseClient';
+import supabase from '../config/supabaseClient';*/
 import { useEffect, useState } from 'react'
 /*import { useRouter } from 'next/navigation';*/
 
 function Landingpage() {
 
-    //Fetching data from Supabase - start
+    const [content, setContent] = useState({});
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch('/config/supabaseClient.js');
+                if (response.ok) {
+                    const data = await response.json();
+                    setContent(data);
+                } 
+                else {
+                setError('Could not fetch data');
+                }
+            }   catch (error) {
+                setError('Server error');
+            }
+        }
+        fetchData();
+    }, []);
+
+    /*Fetching data from Supabase - start
 
     const [fetchError, setFetchError] = useState(null)
     const [where, setWhere] = useState(null)
@@ -39,8 +60,22 @@ function Landingpage() {
     return (
     
       <>
-    {fetchError && <p>{fetchError}</p>}
+    {fetchError && <p>{fetchError}</p>}*/
 
+    return(
+        <div>
+            {error && <p>{error}</p>}
+            {content && (
+                <div>
+                    <h2>{content.section_title}</h2>
+                    <p>{content.section_text}</p>
+                </div>
+            )}
+        </div>
+    );
+
+
+        /*
         <Navbar/>
         <img className='main-img' src='/reykjavik.avif' alt='stethoscope' />
         <div className='info-box'>
@@ -66,9 +101,9 @@ function Landingpage() {
                     <p>{where[0].item.title}</p>
                 </div>
             )}
-                <h2 className='where-h2'>Hvar erum við?</h2>
-                <p className='where-p'>Læknasetrið er staðsett í Mjóddinni. Gengið er inn vinstra megin við Nettó um innganginn sem sést á myndinni hér fyrir neðan.</p>
-                <img className='where-img' src='/Where.png' alt='Image of Læknasetrið from the outside' />
+                <h2 className='where-h2'>{{section_title}}</h2>
+                <p className='where-p'>{{section.text}}</p>
+                <img className='where-img' src='{{image_source}}' alt='{{image_alt}}' />
                 <p className='where-p'>Hægt er að sjá staðsetningu Læknasetursins á Google Maps með því að smella á kortið hér fyrir neðan.</p>
                 <img className='where-img' src='/Maps.png' alt='Find Læknasetrið on Maps' />
             </div>
@@ -108,6 +143,6 @@ function Landingpage() {
         <Footer/>
       </>
     )
-  }
-  
+  }*/
+}
   export default Landingpage;
