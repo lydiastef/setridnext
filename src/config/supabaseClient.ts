@@ -7,6 +7,8 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 console.log('this is supabase', supabase)
 console.log(supabaseUrl, supabaseKey)
 
+export default supabase;
+/*
 export default async (req, res) => {
     try {
         //Fetch data from Supabase

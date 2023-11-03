@@ -1,36 +1,13 @@
 'use client'
 import './style.css';
-/*import Navbar from '../components/navbar/page';
+import Navbar from '../components/navbar/page';
 import Footer from '../components/footer/page';
 import Link from 'next/link';
-import supabase from '../config/supabaseClient';*/
+import supabase from '../config/supabaseClient';
 import { useEffect, useState } from 'react'
 /*import { useRouter } from 'next/navigation';*/
 
 function Landingpage() {
-
-    const [content, setContent] = useState({});
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await fetch('/config/supabaseClient.js');
-                if (response.ok) {
-                    const data = await response.json();
-                    setContent(data);
-                } 
-                else {
-                setError('Could not fetch data');
-                }
-            }   catch (error) {
-                setError('Server error');
-            }
-        }
-        fetchData();
-    }, []);
-
-    /*Fetching data from Supabase - start
 
     const [fetchError, setFetchError] = useState(null)
     const [where, setWhere] = useState(null)
@@ -56,26 +33,9 @@ function Landingpage() {
     }, [])
 
     //Fetching data from Supabase - end
-
+        
     return (
-    
-      <>
-    {fetchError && <p>{fetchError}</p>}*/
-
-    return(
-        <div>
-            {error && <p>{error}</p>}
-            {content && (
-                <div>
-                    <h2>{content.section_title}</h2>
-                    <p>{content.section_text}</p>
-                </div>
-            )}
-        </div>
-    );
-
-
-        /*
+        <>
         <Navbar/>
         <img className='main-img' src='/reykjavik.avif' alt='stethoscope' />
         <div className='info-box'>
@@ -143,6 +103,48 @@ function Landingpage() {
         <Footer/>
       </>
     )
-  }*/
-}
+  }
+
   export default Landingpage;
+
+
+      /*const [content, setContent] = useState({});
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch('/config/supabaseClient.js');
+                if (response.ok) {
+                    const data = await response.json();
+                    setContent(data);
+                } 
+                else {
+                setError('Could not fetch data');
+                }
+            }   catch (error) {
+                setError('Server error');
+            }
+        }
+        fetchData();
+    }, []);*/
+
+    //Fetching data from Supabase - start
+
+
+        /*return (
+    
+      <> 
+    {fetchError && <p>{fetchError}</p>}
+
+    return(
+        <div>
+            {error && <p>{error}</p>}
+            {content && (
+                <div>
+                    <h2>{content.section_title}</h2>
+                    <p>{content.section_text}</p>
+                </div>
+            )}
+        </div>
+    );*/
