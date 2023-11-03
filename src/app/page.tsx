@@ -2,38 +2,46 @@
 import './style.css';
 /*import Navbar from '../components/navbar/page';
 import Footer from '../components/footer/page';
-import Link from 'next/link';
-import supabase from '../config/supabaseClient';*/
+import Link from 'next/link';*/
+import { Database } from '../../types/supabase';
+import supabase from '../config/supabaseClient';
 import { useEffect, useState } from 'react'
 /*import { useRouter } from 'next/navigation';*/
+
+type Data = {
+    created_at: string;
+    id: number;
+    text: string | null;
+    title: string | null;
+}
 
 function Landingpage() {
 
     const [content, setContent] = useState({});
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await fetch('/config/supabaseClient.js');
-                if (response.ok) {
-                    const data = await response.json();
-                    setContent(data);
-                } 
-                else {
-                setError('Could not fetch data');
-                }
-            }   catch (error) {
-                setError('Server error');
-            }
-        }
-        fetchData();
-    }, []);
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         try {
+    //             const response = await fetch('/config/supabaseClient.js');
+    //             if (response.ok) {
+    //                 const data = await response.json();
+    //                 setContent(data);
+    //             } 
+    //             else {
+    //             setError('Could not fetch data');
+    //             }
+    //         }   catch (error) {
+    //             setError('Server error');
+    //         }
+    //     }
+    //     fetchData();
+    // }, []);
 
-    /*Fetching data from Supabase - start
+    //Fetching data from Supabase - start
 
-    const [fetchError, setFetchError] = useState(null)
-    const [where, setWhere] = useState(null)
+    const [fetchError, setFetchError] = useState("")
+    const [where, setWhere] = useState(null) as [Data[] | null, (where: Data[] | null) => void]
 
     useEffect(() => {
         const fetchWhere = async () => {
@@ -48,7 +56,7 @@ function Landingpage() {
             }
             if (data) {
                 setWhere(data)
-                setFetchError(null)
+                setFetchError("")
             }
         }
 
@@ -57,18 +65,16 @@ function Landingpage() {
 
     //Fetching data from Supabase - end
 
-    return (
-    
-      <>
-    {fetchError && <p>{fetchError}</p>}*/
+    console.log(where)
+    if(fetchError) return <p>{fetchError}</p>
 
     return(
         <div>
             {error && <p>{error}</p>}
-            {content && (
+            {where && (
                 <div>
-                    <h2>{content.section_title}</h2>
-                    <p>{content.section_text}</p>
+                    <h2>{where[0].title}</h2>
+                    <p>{where[0].text}</p>
                 </div>
             )}
         </div>
