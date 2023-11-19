@@ -1,15 +1,23 @@
 'use client'
 import './style.css';
-
+import Navbar from '../components/navbar/page';
+import Footer from '../components/footer/page';
 import supabase from '../config/supabaseClient';
 import { useEffect, useState } from 'react'
+import Link from 'next/link';
+import WhereImage from '../../public/Where.png';
+
 /*import { useRouter } from 'next/navigation';*/
 
 type Data = {
     created_at: string;
     id: number;
-    text: string | null;
-    title: string | null;
+    where_text: string | null;
+    where_title: string | null;
+    phone: string | null;
+    maps_text: string | null;
+    opening_hours: string | null;
+    opening_hours_title: string | null;
 }
 
 function Landingpage() {
@@ -17,71 +25,40 @@ function Landingpage() {
     const [content, setContent] = useState({});
     const [error, setError] = useState(null);
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const response = await fetch('/config/supabaseClient.js');
-    //             if (response.ok) {
-    //                 const data = await response.json();
-    //                 setContent(data);
-    //             } 
-    //             else {
-    //             setError('Could not fetch data');
-    //             }
-    //         }   catch (error) {
-    //             setError('Server error');
-    //         }
-    //     }
-    //     fetchData();
-    // }, []);
-
-    //Fetching data from Supabase - start
-
     const [fetchError, setFetchError] = useState("")
-    const [where, setWhere] = useState(null) as [Data[] | null, (where: Data[] | null) => void]
+    const [landingpage, setLandingpage] = useState(null) as [Data[] | null, (landingpage: Data[] | null) => void]
 
     useEffect(() => {
-        const fetchWhere = async () => {
+        const fetchLandingpage = async () => {
             const { data, error } = await supabase
-            .from('where') //fetching data from this table in Supabase
+            .from('landingpage') //fetching data from this table in Supabase
             .select()
 
             if(error) {
                 setFetchError('Could not fetch Where')
-                setWhere(null)
+                setLandingpage(null)
                 console.log(error)
             }
             if (data) {
-                setWhere(data)
+                setLandingpage(data)
                 setFetchError("")
             }
         }
 
-        fetchWhere();
+        fetchLandingpage();
     }, [])
 
     //Fetching data from Supabase - end
 
-    console.log(where)
+    console.log(landingpage)
     if(fetchError) return <p>{fetchError}</p>
 
     return(
         <div>
-            {error && <p>{error}</p>}
-            {where && (
-                <div>
-                    <h2>{where[0].title}</h2>
-                    <p>{where[0].text}</p>
-                </div>
-            )}
-        </div>
-    );
-            }
+            <Navbar/>
+            <img className='main-img' src='/reykjavik.avif' alt='stethoscope' />
 
-        /*
-        <Navbar/>
-        <img className='main-img' src='/reykjavik.avif' alt='stethoscope' />
-        <div className='info-box'>
+            <div className='info-box'>
             <Link href='/laeknar'>
                 <div>
                     <button className='info-btn1'>Læknar</button>
@@ -89,7 +66,14 @@ function Landingpage() {
             </Link>
             <div className='phone'>
                 <img className='phone-img' src='/phone-icon.png' alt='phone'/>
-                535-7700
+                
+                {error && <p>{error}</p>}
+                    {landingpage && landingpage[0]?.phone && (
+                        <div>
+                            <h2>{landingpage[0].phone}</h2>
+                        </div>
+                    )}
+
             </div>
             <Link href='/rannsoknir'>
               <div>
@@ -97,13 +81,57 @@ function Landingpage() {
               </div>
             </Link>
         </div>
-        <div className='instructions'>
-            <div className='where'>
-            {where && (
-                <div className='where'>
-                    <p>{where[0].item.title}</p>
+
+
+        {error && <p>{error}</p>}
+        {landingpage && (
+            <h2 className='where-h2'>{landingpage[0].where_title}</h2>
+        )}
+            
+        <div className='where'>
+            <div className='where1'>
+                {error && <p>{error}</p>}
+                {landingpage && (
+                    <div className='instructions'>
+                        <p className='where-p'>{landingpage[0].where_text}</p>
+                    </div>
+                )}
+            
+            <img className='where-img' src='/Where.png' alt='{image_alt}' />
+            </div>
+
+            <div className='where1'>
+                {error && <p>{error}</p>}
+                {landingpage && (
+                <div className='instructions'>
+                    <p className='where-p'>{landingpage[0].maps_text}</p>
                 </div>
+                )}
+
+                <iframe className='where-img1'
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1742.1994490448126!2d-21.844938723532373!3d64.10894471970752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d6736832b01681%3A0xad9986d263da471d!2zTMOma25hc2V0cmnDsA!5e0!3m2!1sen!2sis!4v1699990097702!5m2!1sen!2sis" 
+                    style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+            {error && <p>{error}</p>}
+            {landingpage && (
+            <div className='instructions'>
+                <h2 className='where-h2'>{landingpage[0].opening_hours_title}</h2>
+                <p className='where-p'>{landingpage[0].opening_hours}</p>
+            </div>
             )}
+
+        <Footer/>
+
+        </div>
+    );
+            }
+
+    export default Landingpage;
+
+    /*        
                 <h2 className='where-h2'>{{section_title}}</h2>
                 <p className='where-p'>{{section.text}}</p>
                 <img className='where-img' src='{{image_source}}' alt='{{image_alt}}' />

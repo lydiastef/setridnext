@@ -1,15 +1,77 @@
+'use client'
 import './style.scss';
 import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
+import supabase from '../../config/supabaseClient';
+import { useEffect, useState } from 'react'
 
-function Laeknar() {
-    return (
-      <>
+type Data = {
+    created_at: string;
+    id: number;
+    staff_title: string | null;
+    staff_intro: string | null;
+    name: string | null;
+    position: string | null;
+}
+
+function fetchData() {
+
+    //Fetching data from Supabase - start
+
+  const [content, setContent] = useState({});
+  const [error, setError] = useState(null);
+
+  const [fetchError, setFetchError] = useState("")
+  const [fetchData, setFetchData] = useState(null) as [Data[] | null, (laeknar: Data[] | null) => void]
+
+  useEffect(() => {
+    const fetchDataFromTable = async (table: string)=>{
+      //const fetchLaeknar = async () => {
+          const { data, error } = await supabase
+          .from('table') //fetching data from this table in Supabase
+          .select()
+
+          if(error) {
+              setFetchError(`Could not fetch ${table}`);
+              setFetchData(null)
+              console.log(error)
+          }
+          if (data) {
+              setFetchData(data)
+              setFetchError("")
+          }
+      };
+
+      fetchDataFromTable('doctors');
+
+      fetchDataFromTable('staff');
+  }, []);
+
+  //Fetching data from Supabase - end
+
+  console.log(fetchData)
+  if(fetchError) return <p>{fetchError}</p>
+
+  return(
+    <>
       <Navbar/>
-      <h1 className='h1'>Læknar/Starfsfólk</h1>
+        <div>
+          {error && <p>{error}</p>}
+            {fetchData && fetchData[0]?.staff_title && (
+              <div>
+                <h1 className='h1'>{fetchData[0].staff_title}</h1>
+              </div>
+            )}
+        </div>
+
       <div className='image-and-intro'>
         <img className='main-img2' src='/laeknar.avif' alt='two doctors' />
-          <p className='intro-p'>Fjöldi lækna starfa hjá Læknasetrinu í hinum ýmsu greinum. Hér fyrir neðan er yfirlit yfir lækna sem starfa hjá Læknasetrinu.</p>
+        {error && <p>{error}</p>}
+          {fetchData && fetchData[0]?.staff_intro && (
+           <div>
+            <p className='intro-p'>{fetchData[0].staff_intro}</p>
+            </div>
+            )}
       </div>
           <div className='laeknar-container'>
             <h2 className='laeknar-h2'>Blóðlæknar</h2>
@@ -57,6 +119,6 @@ function Laeknar() {
     );
 }
 
-export default Laeknar;
+export default fetchData;
 
   
