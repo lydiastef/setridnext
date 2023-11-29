@@ -1,20 +1,39 @@
 'use client'
-import './style.scss';
+import './style.css';
 import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
 import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 
-type Data = {
+type Content = {
     created_at: string;
     id: number;
-    staff_title: string | null;
-    staff_intro: string | null;
     name: string | null;
-    position: string | null;
+    value: string | null;
 }
 
+type Staff = {
+  created_at: string;
+  id: number;
+  name: string | null;
+  doctor: string | null;
+  image: string | null;
+  position: string | null;
+}
+
+type Position = {
+  created_at: string;
+  id: number;
+  name: string | null;
+  staff: Staff[] | null;
+}
+
+
 function fetchData() {
+
+  const FontLink = () => (
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" />
+  );
 
     //Fetching data from Supabase - start
 
@@ -22,103 +41,89 @@ function fetchData() {
   const [error, setError] = useState(null);
 
   const [fetchError, setFetchError] = useState("")
-  const [fetchData, setFetchData] = useState(null) as [Data[] | null, (laeknar: Data[] | null) => void]
+  const [doctorspage, setDoctorspage] = useState(null) as [Content[] | null, (laeknar: Content[] | null) => void]
+  const [position, setPosition] = useState(null) as [Position[] | null, (laeknar: Position[] | null) => void]
+
+  const get=(name:string) => {
+    return doctorspage?.filter(content => content.name === name) [0].value as string
+}
 
   useEffect(() => {
-    const fetchDataFromTable = async (table: string)=>{
+    const fetchDataFromTable = async (table: string) => {
       //const fetchLaeknar = async () => {
+        let setState = table === 'position'? setPosition:setDoctorspage
+
+        let query=table === 'position'?'name, staff(name, image, doctor)':undefined
           const { data, error } = await supabase
-          .from('table') //fetching data from this table in Supabase
-          .select()
+          .from(table) //fetching data from this table in Supabase
+          .select(query)
 
           if(error) {
               setFetchError(`Could not fetch ${table}`);
-              setFetchData(null)
+              setState(null)
               console.log(error)
           }
           if (data) {
-              setFetchData(data)
+            //@ts-ignore
+              setState(data)
               setFetchError("")
           }
       };
 
-      fetchDataFromTable('doctors');
+      fetchDataFromTable('doctorspage');
 
-      fetchDataFromTable('staff');
+      fetchDataFromTable('position');
   }, []);
 
   //Fetching data from Supabase - end
 
-  console.log(fetchData)
+  console.log(doctorspage)
   if(fetchError) return <p>{fetchError}</p>
 
   return(
     <>
       <Navbar/>
         <div>
-          {error && <p>{error}</p>}
-            {fetchData && fetchData[0]?.staff_title && (
-              <div>
-                <h1 className='h1'>{fetchData[0].staff_title}</h1>
-              </div>
-            )}
+          <div className='title-h1'>{error && <p>{error}</p>}
+            <h1 className='h1'>{get('title')}</h1>
+          </div>
+          
+          <div className='image-and-intro'>
+            <img className='main-img2' src='/laeknar.avif' alt='two doctors' />
+            {error && <p>{error}</p>}
+            <p className='intro-p'>{get('intro text')}</p>
+          </div>
         </div>
 
-      <div className='image-and-intro'>
-        <img className='main-img2' src='/laeknar.avif' alt='two doctors' />
-        {error && <p>{error}</p>}
-          {fetchData && fetchData[0]?.staff_intro && (
-           <div>
-            <p className='intro-p'>{fetchData[0].staff_intro}</p>
-            </div>
-            )}
-      </div>
           <div className='laeknar-container'>
-            <h2 className='laeknar-h2'>Blóðlæknar</h2>
-              <div className='cards'>
-                <div className='individual-card'>
-                  <img className='card-img' src='/man.avif' alt='doctor' />
-                  <p className='doctors-p'>Brynjar Viðarsson - Blóðlæknir</p>
-                </div>
-                <div className='individual-card'>
-                  <img className='card-img' src='/man.avif' alt='doctor' />
-                  <p className='doctors-p'>Guðmundur Rúnarsson - Blóðlæknir</p>
-                </div>
-                <div className='individual-card'>
-                  <img className='card-img' src='/woman.avif' alt='doctor' />
-                  <p className='doctors-p'>Sigrún Reykdal - Blóðlæknir</p>
-                </div>
-              </div>
-
-              <h2 className='laeknar-h2'>Gigtlæknar</h2>
-              <div className='cards'>
-                <div className='individual-card'>
-                  <img className='card-img' src='/man.avif' alt='doctor' />
-                  <p className='doctors-p'>Árni Jón Geirsson - Gigtlæknir</p>
-                </div>
-              </div>
-
-              <h2 className='laeknar-h2'>Hjartalæknar</h2>
-              <div className='cards'>
-                <div className='individual-card'>
-                  <img className='card-img' src='/man.avif' alt='doctor' />
-                  <p className='doctors-p'>Atli Einarsson - hjartasjúkdómar</p>
-                </div>
-                <div className='individual-card'>
-                  <img className='card-img' src='/man.avif' alt='doctor' />
-                  <p className='doctors-p'>Geir Hirlekar</p>
-                </div>
-                <div className='individual-card'>
-                  <img className='card-img' src='/man.avif' alt='doctor' />
-                  <p className='doctors-p'>Daníel Ásgeirsson - lyflækningar, hjarta- og nýrnasjúkdómar</p>
-                </div>
-              </div>
+            
+                    {error && <p>{error}</p>}
+                    {position?.map((pos) => {
+                      const staff = pos.staff
+                      return(
+                        <div>
+                          <h1 className='laeknar-h1'>{pos.name}</h1>
+                      
+                  <div className='cards'>
+                    {staff?.map((person) => { //Filter what type of doctor appears where
+                        return(
+                            <div className='individual-cards'>
+                            <img className='card-img' src={person.image || undefined} alt='doctor' />
+                            <p className='doctors-p'>{person.doctor}</p>
+                            <p className='doctors-p'>{person.position}</p>
+                          </div>
+                        )
+                    })}
+                  </div>
+                    </div>
+                    )})}    
           </div>
         <Footer/>
       </>
-    );
+  );
 }
 
 export default fetchData;
 
+  
   

@@ -21,8 +21,8 @@ function Navbar() {
 
     return (
         <header>
-            <Link href='../../app/page.tsx' style={{ textDecoration: 'none' }}>
-                <img className='logo-img' src='/logo.png' alt='logo' />
+            <Link href='../app/page.tsx' style={{ textDecoration: 'none' }}>
+                <img className='logo-img' src='/logo.avif' alt='logo' />
             </Link>
             <nav ref={navRef}> 
                 <div className='a-container'>

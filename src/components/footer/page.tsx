@@ -2,13 +2,13 @@
 import './style.css';
 import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
+import {FooterContainer} from './style'
 
 type Data = {
     created_at: string;
     id: number;
-    column_1: string | null;
-    column_2: string | null;
-    column_3: string | null;
+    name: string | null;
+    value: string | null;
 }
 
 function Footer() {
@@ -19,6 +19,10 @@ function Footer() {
     const [fetchError, setFetchError] = useState("")
     const [footer, setFooter] = useState(null) as [Data[] | null, (footer: Data[] | null) => void]
 
+    const get=(name:string) => {
+        return footer?.filter(content => content.name === name) [0].value as string
+    }
+
     useEffect(() => {
         const fetchFooter = async () => {
             const { data, error } = await supabase
@@ -26,7 +30,7 @@ function Footer() {
             .select()
 
             if(error) {
-                setFetchError('Could not fetch Where')
+                setFetchError('Could not fetch footer')
                 setFooter(null)
                 console.log(error)
             }
@@ -46,28 +50,35 @@ function Footer() {
 
     return(
         <footer>
-            <div className='footercontainer'>
-                    
-                {error && <p>{error}</p>}
-                    {footer && footer[0]?.column_1 && (
-                        <div className='something1'>
-                            <p>{footer[0].column_1}</p>
-                        </div>
-                    )}
+            {error && <p>{error}</p>}
+            <div className='footer-container'>
+                <div className='footer-container1'>
+                    <p className='footer-p'>Læknasetrið ehf.</p>
+                    <p className='footer1'>{get('address')}</p>
+                    <p className='footer1'>{get('phone')}</p>
+                    <p className='footer1'>{get('email')}</p>
+                    <p className='footer1'>{get('kt')}</p>
+                </div>
 
                 {error && <p>{error}</p>}
-                    {footer && footer[0]?.column_2 && (
-                        <div className='something2'>
-                            <p>{footer[0].column_2}</p>
-                        </div>
-                    )}
+                <div className='footer-container1'>
+                <p className='footer-p'>Opnunartímar</p>
+                    <p className='footer2'>{get('oh setrid')}</p>
+                    <p className='footer2'>{get('oh setrid mán-fim')}</p>
+                    <p className='footer1'>{get('oh setrid föstud')}</p>
+                    <p className='footer2'>{get('oh blodtaka')}</p>
+                    <p className='footer1'>{get('oh blodtaka mán-fös')}</p>
+                    <p className='footer2'>{get('oh rontgen')}</p>
+                    <p className='footer1'>{get('oh rontgen mán-fös')}</p>
+                </div>
 
                 {error && <p>{error}</p>}
-                    {footer && footer[0]?.column_3 && (
-                        <div className='something3'>
-                            <p>{footer[0].column_3}</p>
-                        </div>
-                    )}
+                <div className='footer-container1'>
+                <p className='footer-p'>Tímapantanir</p>
+                    <p className='footer1'>{get('book phone')}</p>
+                    <p className='footer1'>{get('book email')}</p>
+                    <p className='footer1'>{get('book no show')}</p>
+                </div>
             </div>
         </footer>
     )

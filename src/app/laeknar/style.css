@@ -1,23 +1,19 @@
-@import './variables.scss'; 
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
+
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: $lora;
-}
-
-.laeknar-container {
-    margin: 2rem 4rem;
+    font-family: 'Lora', serif;
 }
 
 .h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 3rem;
-    color: $thedarkred;
+    font-size: 32px;
+    margin: 2rem;
+    color: #7D070C;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -27,32 +23,56 @@
     letter-spacing: .6px;
 }
 
+/*for the edit page*/
+
+.edit-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 2rem;
+}
+
+.edit {
+    width: 2.5rem;
+    margin-left: -1rem;
+    cursor: pointer;
+}
+
+.edit-cards {
+    display: flex;
+    margin: 0 auto 1rem auto;
+    width: 2.5rem;
+    cursor: pointer;
+}
+
 .main-img2 {
-    max-width: 75%;
+    max-width: 100%;
     display: flex;
     margin: auto;
 }
 
-.laeknar-h2 {
-    color: $thedarkred;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    font-size: 24px;
+.laeknar-container {
+    margin: 2rem 4rem;
+}
+
+.laeknar-h1 {
+    color: #7D070C;
+    margin: 2rem;
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 30px;
     align-items: stretch;
+    position: relative;
 }
 
-.individual-card {
+.individual-cards {
     border: solid 1px rgba(0, 0, 0, 0.300);
     border-radius: 8px;
     margin-bottom: 6rem;
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
-    width: 250px;
 }
 
 .card-img {
@@ -61,23 +81,23 @@
 }
 
 .doctors-p {
-    margin: 1rem 2rem 4rem 2rem;
+    margin: 1rem 2rem 2rem 2rem;
 }
-
 
 @media only screen and (min-width: 768px){
     .laeknar-container {
-        margin: 3rem 8rem;
+        margin: 3rem 12rem;
     }
 
     .h1 {
-        margin: 5rem;
+        margin: 4rem;
+        font-size: 40px;
     }
 
     .image-and-intro {
         display: flex;
+        flex-direction: row;
         margin-bottom: 6rem;
-
     }
 
     .main-img2 {
@@ -95,13 +115,16 @@
     }
 
     .cards {
-        margin: -2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 50px;
+        align-items: stretch;
+        position: relative;
     }
-
-    .individual-card {
+        
+    .individual-cards {
         border: solid 1px rgba(0, 0, 0, 0.457);
         border-radius: 8px;
-        margin: 2rem;
     }
     
 }
@@ -110,7 +133,7 @@
 
     .h1 {
         font-size: 40px;
-        margin: 6rem;
+        margin: 5rem;
     }
 
     .main-img2 {
@@ -125,6 +148,14 @@
     
     .laeknar-h2 {
         font-size: 30px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-gap: 80px;
+        align-items: stretch;
+        position: relative;
     }
 
 }

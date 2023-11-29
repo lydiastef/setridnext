@@ -63,7 +63,15 @@ h2, h3 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 4rem 4rem 4rem;
+  padding: 1rem 4rem 1.5rem 4rem;
+}
+
+.instructions1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem 1.5rem 4rem;
 }
 
 p {
@@ -89,6 +97,11 @@ p {
 }
 
 .where-img {
+  max-width: 80%;
+  margin: 0 4rem 4rem 4rem;
+}
+
+.where-img1 {
   max-width: 80%;
   margin: 0 4rem 4rem 4rem;
 }
@@ -130,7 +143,10 @@ p {
     margin-top: 0;
   }
   .instructions {
-    padding: 1rem 8rem 4rem 8rem;
+    padding: 1rem 8rem 1.5rem 8rem;
+  }
+  .instructions1 {
+    padding: 1rem 8rem 1.5rem 8rem;
   }
   .stjorn-container {
     margin: 3rem 6rem;
@@ -168,7 +184,11 @@ p {
   }
 
   .instructions {
-    padding: 0 6rem 4rem 6rem;
+    padding: 0 6rem 2rem 6rem;
+  }
+
+  .instructions1 {
+    padding: 0 6rem 2rem 6rem;
   }
 
   .where {
@@ -217,4 +237,64 @@ p {
     margin: 1rem 2rem;
   }
 
-}/*# sourceMappingURL=style.css.map */
+}
+
+@media only screen and (min-width: 1300px) {
+  .main-img {
+    width: 100%;
+    height: 800px;
+
+  }
+
+  .info-box {
+    height: 16rem;
+    padding: 2rem;
+  }
+  
+  .info-btn1 {
+    margin-left: 32rem;
+  }
+  
+  .info-btn2 {
+    margin-right: 32rem;
+  }
+  
+  h2, h3 {
+    margin-bottom: 2rem;
+  }
+  
+  .instructions {
+    padding: 1rem 16rem 4rem 24rem;
+  }
+
+  .instructions1 {
+    padding: 1rem 24rem 4rem 16rem;
+  }
+  
+  .where-img {
+    max-width: 80%;
+    margin: 0 16rem 4rem 24rem;
+  }
+
+  .where-img1 {
+    width: 800px;
+    height: 500px;
+    margin: 0 24rem 4rem 16rem;
+  }
+  
+  .whatissetrid {
+    margin: 8rem;
+  }
+  
+  .stjorn-container {
+    margin: 8rem;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  
+}
+
+/*# sourceMappingURL=style.css.map */

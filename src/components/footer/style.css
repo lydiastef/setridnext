@@ -1,29 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
-.footercontainer {
+
+.footer-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+  font-size: 12px;
   background-color: #AC0B11;
-  height: 200px;
-  padding: 2rem;
-  color: #ffffff;
+  height: 500px;
+  padding: 2rem 4rem;
+  color: white;
 }
 
-.something1, .something2, .something3 {
-  text-align: center;
-  font-size: 12px;
+.footer2 {
+  margin-bottom: -.7rem;
+}
+
+.footer-p {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 14px;
 }
 
 @media only screen and (min-width: 900px) {
-  .footercontainer {
+  .footer-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: #AC0B11;
-    height: 160px;
-    padding: 2rem 8rem;
-    color: #ffffff;
+    font-size: 14px;
+    height: 250px;
+    padding: 0 12rem;
+  }
+
+  .footer-container1 {
+    width: 33.3%;
+  }
+
+  .footer1 {
+    margin-bottom: 1rem;
+  }
+
+  .footer2 {
+    margin-bottom: 0;
+  }
+
+  .footer-p {
+    font-size: 16px;
+    margin-bottom: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */
