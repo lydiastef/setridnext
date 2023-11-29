@@ -4,6 +4,8 @@ import Navbar from '../../../components/navbar/page';
 import Footer from '../../../components/footer/page';
 import supabase from '../../../config/supabaseClient';
 import { useEffect, useState } from 'react'
+import TitleModal from '../../../components/modal/titlemodal';
+
 
 type Content = {
   created_at: string;
@@ -39,10 +41,19 @@ const [error, setError] = useState(null);
 const [fetchError, setFetchError] = useState("")
 const [doctorspage, setDoctorspage] = useState(null) as [Content[] | null, (laeknar: Content[] | null) => void]
 const [position, setPosition] = useState(null) as [Position[] | null, (laeknar: Position[] | null) => void]
+const [isModalOpen, setIsModalOpen] = useState(false);
 
 const get=(name:string) => {
   return doctorspage?.filter(content => content.name === name) [0].value as string
 }
+
+const openModal = () => {
+  setIsModalOpen(true);
+};
+
+const closeModal = () => {
+  setIsModalOpen(false);
+};
 
 useEffect(() => {
   const fetchDataFromTable = async (table: string) => {
@@ -82,7 +93,9 @@ return(
       <div>
         <div className='edit-content'>{error && <p>{error}</p>}
           <h1 className='h1'>{get('title')}</h1>
-          <img className='edit' src='/edit.avif' alt='edit button'/>
+          <img className='edit' onClick={openModal} src='/edit.avif' alt='edit button' />
+          {isModalOpen && <TitleModal closeModal={closeModal} />}
+
         </div>
         <div className='image-and-intro'>
           <img className='main-img2' src='/laeknar.avif' alt='two doctors'/>
