@@ -1,14 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
 
+.modal-content {
+    margin: 2rem;
+}
+
+.edit-text-h2 {
+    color: #7D070C;
+}
 
 .title-textarea {
-
+    padding: .5rem;
+    border: solid 1.5px #AC0B11;
+    border-radius: 5px;
 }
 
 .save-btn {
-    border: solid red;
+    border: solid 1.5px #AC0B11;
+    background-color: white;
+    color: #AC0B11;
+    width: 64px;
+    padding: .5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: .1rem .5rem 1rem 0;
 }
 
 .cancel-btn {
-
+    border: solid 1.5px #AC0B11;
+    background-color: white;
+    color: #AC0B11;
+    width: 64px;
+    padding: .5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: .1rem 1rem 1rem 1rem;
 }

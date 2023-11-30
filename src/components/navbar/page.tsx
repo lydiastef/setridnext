@@ -2,9 +2,8 @@
 import {FaBars, FaTimes} from 'react-icons/fa';
 import {useRef} from 'react';
 import './style.css';
-import Link from 'next/link';
+//import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-
 
 function Navbar() {
 
@@ -14,16 +13,17 @@ function Navbar() {
         navRef.current.classList.toggle('responsive_nav');
     } // Switch between hamburger menu and nav items on screen after screen size
     
-    const router = useRouter();      
+    //Access the router for navigation
+    const router = useRouter();  
+    
     function handleClick() {
         router.push('/laeknar');
     } // Click logo to go back to landingpage
 
     return (
         <header>
-            <Link href='../app/page.tsx' style={{ textDecoration: 'none' }}>
-                <img className='logo-img' src='/logo.avif' alt='logo' />
-            </Link>
+            <img src='../../../public/logosetrid.svg' alt="Logo" width={187} height={37} />
+
             <nav ref={navRef}> 
                 <div className='a-container'>
                     <a href='/rannsoknir'>Rannsóknir</a>

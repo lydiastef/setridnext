@@ -20,7 +20,7 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Edit Text</h2>
+        <h2 className='edit-text-h2'>Edit Text</h2>
         <textarea className='title-textarea'
           value={newText}
           onChange={(e) => setNewText(e.target.value)}
