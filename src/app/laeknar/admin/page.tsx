@@ -102,7 +102,9 @@ return(
           <div className='edit-content'>
             {error && <p>{error}</p>}
             <p className='intro-p'>{get('intro text')}</p>
-            <img className='edit' src='/edit.avif' alt='edit button'/>
+            <img className='edit' onClick={openModal} src='/edit.avif' alt='edit button'/>
+            {isModalOpen && <TitleModal closeModal={closeModal} />}
+
           </div>
         </div>
       </div>
