@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 
-const SearchBar = ({ onSearch }) => {
+
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSearch = () => {
-    onSearch(searchTerm);
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+
+    // Add logic to filter and display content based on searchTerm
+    const contentElements = document.querySelectorAll('.searchable-content');
+    contentElements.forEach((element) => {
+      const contentText = element.textContent.toLowerCase();
+      const isVisible = contentText.includes(searchTerm.toLowerCase());
+      element.style.display = isVisible ? 'block' : 'none';
+    });
   };
 
   return (
@@ -13,9 +22,8 @@ const SearchBar = ({ onSearch }) => {
         type="text"
         placeholder="Search..."
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleSearch}
       />
-      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };

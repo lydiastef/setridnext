@@ -37,3 +37,7 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal }) => {
 };
 
 export default TitleModal;
+
+//The closeModal function is a prop
+//The 'page' component is a parent to the 'TitleModal' component
+//The buttons (save and cancel) can be considered children

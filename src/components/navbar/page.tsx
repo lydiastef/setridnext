@@ -4,6 +4,8 @@ import {useRef} from 'react';
 import './style.css';
 //import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import SearchBar from '../searchbar/page';
+
 
 function Navbar() {
 
@@ -29,6 +31,7 @@ function Navbar() {
                     <a href='/rannsoknir'>Rannsóknir</a>
                     <a href='/laeknar'>Starfsfólk</a>
                     <a href='/covid'>Covid-19</a>
+                    <SearchBar />
                     <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                         <FaTimes/>
                     </button>

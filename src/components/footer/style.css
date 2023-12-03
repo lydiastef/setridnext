@@ -5,10 +5,12 @@
   flex-direction: column;
   justify-content: space-between;
   font-size: 12px;
-  background-color: #AC0B11;
+  background-color: white;
   height: 500px;
   padding: 2rem 4rem;
-  color: white;
+  color: #AC0B11;
+  border-top: solid 2px #AC0B11;
+  margin: auto 6rem;
 }
 
 .footer2 {
@@ -29,7 +31,7 @@
     justify-content: space-between;
     font-size: 14px;
     height: 250px;
-    padding: 0 12rem;
+    padding: 0 6rem;
   }
 
   .footer-container1 {

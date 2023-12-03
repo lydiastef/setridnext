@@ -41,19 +41,22 @@ const [error, setError] = useState(null);
 const [fetchError, setFetchError] = useState("")
 const [doctorspage, setDoctorspage] = useState(null) as [Content[] | null, (laeknar: Content[] | null) => void]
 const [position, setPosition] = useState(null) as [Position[] | null, (laeknar: Position[] | null) => void]
-const [isModalOpen, setIsModalOpen] = useState(false);
+
+//States for the modals (open and close the edit feature)
+const [isModalOpen1, setIsModalOpen1] = useState(false);
+const [isModalOpen2, setIsModalOpen2] = useState(false);
+
 
 const get=(name:string) => {
   return doctorspage?.filter(content => content.name === name) [0].value as string
 }
 
-const openModal = () => {
-  setIsModalOpen(true);
-};
+//Open close modals
+const openModal1 = () => {setIsModalOpen1(true);};
+const closeModal1 = () => {setIsModalOpen1(false);};
 
-const closeModal = () => {
-  setIsModalOpen(false);
-};
+const openModal2 = () => {setIsModalOpen2(true);};
+const closeModal2 = () => {setIsModalOpen2(false);};
 
 useEffect(() => {
   const fetchDataFromTable = async (table: string) => {
@@ -93,8 +96,8 @@ return(
       <div>
         <div className='edit-content'>{error && <p>{error}</p>}
           <h1 className='h1'>{get('title')}</h1>
-          <img className='edit' onClick={openModal} src='/edit.avif' alt='edit button' />
-          {isModalOpen && <TitleModal closeModal={closeModal} />}
+          <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
+          {isModalOpen1 && <TitleModal closeModal={closeModal1} />}
 
         </div>
         <div className='image-and-intro'>
@@ -102,8 +105,8 @@ return(
           <div className='edit-content'>
             {error && <p>{error}</p>}
             <p className='intro-p'>{get('intro text')}</p>
-            <img className='edit' onClick={openModal} src='/edit.avif' alt='edit button'/>
-            {isModalOpen && <TitleModal closeModal={closeModal} />}
+            <img className='edit' onClick={openModal2} src='/edit.avif' alt='edit button'/>
+            {isModalOpen2 && <TitleModal closeModal={closeModal2} />}
 
           </div>
         </div>
@@ -143,6 +146,10 @@ return(
 }
 
 export default fetchData;
+
+//In the first return part, the h1, img and TitleModal are children
+//In the second return part, the p, img and TitleModal are children
+//The parents to them are the 'edit content' divs around them
 
 
   
