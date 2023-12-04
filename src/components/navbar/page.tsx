@@ -6,7 +6,6 @@ import './style.css';
 import { useRouter } from 'next/navigation';
 import SearchBar from '../searchbar/page';
 
-
 function Navbar() {
 
     const navRef = useRef <HTMLElement | null>(null); 
@@ -24,7 +23,7 @@ function Navbar() {
 
     return (
         <header>
-            <img src='../../../public/logosetrid.svg' alt="Logo" width={187} height={37} />
+            <img className='logo-img' src='../../../logosetrid.svg' alt='Logo' />
 
             <nav ref={navRef}> 
                 <div className='a-container'>
