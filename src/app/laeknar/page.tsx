@@ -43,6 +43,21 @@ function fetchData() {
   const [fetchError, setFetchError] = useState("")
   const [doctorspage, setDoctorspage] = useState(null) as [Content[] | null, (laeknar: Content[] | null) => void]
   const [position, setPosition] = useState(null) as [Position[] | null, (laeknar: Position[] | null) => void]
+  
+  //Pop-up start
+  const [selectedPerson, setSelectedPerson] = useState<Staff | null>(null);
+  const openPopup = (person: Staff) => {
+    setSelectedPerson(person);
+  };
+  const closePopup = () => {
+    setSelectedPerson(null);
+  };
+  const PopupCard: React.FC<{ person: Staff; onClose: () => void }> = ({ person, onClose }) => {
+
+  }
+  //Pop-up end
+
+  
 
   const get=(name:string) => {
     return doctorspage?.filter(content => content.name === name) [0].value as string
@@ -107,16 +122,26 @@ function fetchData() {
                   <div className='cards'>
                     {staff?.map((person) => { //Filter what type of doctor appears where
                         return(
-                            <div className='individual-cards'>
-                            <img className='card-img' src={person.image || undefined} alt='doctor' />
+                          <div key={person.id} className='individual-cards' onClick={() => openPopup(person)}>
+                          <img className='card-img' src={person.image || undefined} alt='doctor' />
                             <p className='doctors-p'>{person.doctor}</p>
                             <p className='doctors-p'>{person.position}</p>
                           </div>
                         )
                     })}
                   </div>
+                  {selectedPerson && (
+                    <>
+                    <div className="overlay" onClick={closePopup}></div>
+                      <div className="popup-card">
+                        <img className="popup-img" src={selectedPerson.image || undefined} alt="doctor" />
+                        <p className="popup-doctors-p">{selectedPerson.doctor}</p>
+                        <p className="popup-doctors-p">{selectedPerson.position}</p>
+                        <button onClick={closePopup}>Close</button>
+                      </div>
+                    </>                  )}
                     </div>
-                    )})}    
+                  )})}    
           </div>
         <Footer/>
       </>

@@ -4,23 +4,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
   font-size: 12px;
   background-color: white;
   height: 500px;
   padding: 2rem 4rem;
   color: #AC0B11;
   border-top: solid 2px #AC0B11;
-  margin: auto 6rem;
+  margin: auto 5rem;
 }
 
-.footer2 {
-  margin-bottom: -.7rem;
+.footer1 {
+  margin-bottom: .7rem;
 }
 
 .footer-p {
   font-weight: bold;
   text-decoration: underline;
   font-size: 14px;
+  margin: .5rem auto;
 }
 
 @media only screen and (min-width: 900px) {

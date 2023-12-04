@@ -8,8 +8,9 @@
 }
 
 .logo-img {
-  max-width: 20%;
+  max-width: 40%;
   margin-left: 2rem;
+  cursor: pointer;
 }
 
 header {
@@ -32,7 +33,7 @@ header {
 
 nav a {
   text-align: center;
-  margin: 1.5rem;
+  margin: 1rem;
   color: #AC0B11;
   text-decoration: none;
   font-size: 20px;
@@ -108,6 +109,14 @@ header .nav-btn {
     top: 1rem;
     right: 1rem;
   }
+}
+
+@media only screen and (min-width: 1000px) {
+
+.logo-img {
+  max-width: 30%;
+  margin-left: 2rem;
+}
 }
 
 /*# sourceMappingURL=style.css.map */

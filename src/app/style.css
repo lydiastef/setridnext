@@ -3,6 +3,7 @@
   max-width: 100%;
   z-index: -1;
   position: relative;
+  margin-bottom: -8rem;
 }
 
 .info-box {
@@ -10,7 +11,7 @@
   align-items: center;
   justify-content: space-between;
   max-width: 100%;
-  height: 14rem;
+  height: 10rem;
   background-color: #ffffff;
   box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
   padding: 2rem;
@@ -121,10 +122,16 @@ p {
 }
 
 @media only screen and (min-width: 700px) {
-  .info-box {
-    height: 14rem;
-    padding: 3rem;
+  .main-img {
+    margin-top: -10rem;
   }
+  
+  .info-box {
+    height: 12rem;
+    padding: 3rem;
+    margin-bottom: -6rem;
+  }
+
   .phone {
     font-size: 24px;
     margin: 0 -4rem;
@@ -137,37 +144,41 @@ p {
     height: 72px;
     font-size: 24px;
   }
+  
+  .where-h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10rem auto 2rem auto;
+  }
+
   .instructions {
     padding: 1rem 8rem 1.5rem 8rem;
   }
   .instructions1 {
     padding: 1rem 8rem 1.5rem 8rem;
   }
-  .stjorn-container {
-    margin: 3rem 6rem;
-  }
-  .stjorn-h3 {
-    font-size: 26px;
-  }
-  p {
-    margin: 0.5rem 2rem;
-  }
+
 }
 @media only screen and (min-width: 900px) {
 
+  .main-img {
+    margin-top: -16rem;
+  }
+
   .info-box {
-    height: 16rem;
+    height: 10rem;
     padding: 5rem;
+    margin-top: -2rem;
   }
 
   .phone {
-    font-size: 28px;
-    margin: 0 -4rem;
+    font-size: 24px;
+    margin: 2rem -4rem 0 -4rem;
   }
 
   .phone-img {
-    width: 80px;
-    margin-bottom: 1rem;
+    width: 60px;
   }
 
   .info-btn1, .info-btn2 {
@@ -199,7 +210,7 @@ p {
 
   .where-h2 {
     font-size: 40px;
-    margin: 6rem auto 4rem auto;
+    margin: 10rem auto 4rem auto;
   }
 
   .where-img {
@@ -216,20 +227,13 @@ p {
 
 @media only screen and (min-width: 1050px) {
 
+  .main-img {
+    margin-top: -18rem;
+  }
+
   .info-box {
-    padding: 8rem;
-  }
-
-  .stjorn-container {
-    margin: 3rem 8rem;
-  }
-
-  .stjorn-h3 {
-    font-size: 30px;
-  }
-
-  p {
-    margin: 1rem 2rem;
+    padding: 7rem;
+    margin-top: -6rem;
   }
 
 }
@@ -238,11 +242,10 @@ p {
   .main-img {
     width: 100%;
     height: 800px;
-
   }
 
   .info-box {
-    height: 16rem;
+    height: 14rem;
     padding: 2rem;
   }
   
@@ -275,19 +278,6 @@ p {
     width: 800px;
     height: 500px;
     margin: 0 24rem 4rem 16rem;
-  }
-  
-  .whatissetrid {
-    margin: 8rem;
-  }
-  
-  .stjorn-container {
-    margin: 8rem;
-  }
-
-  p {
-    font-size: 20px;
-    line-height: 32px;
   }
   
 }

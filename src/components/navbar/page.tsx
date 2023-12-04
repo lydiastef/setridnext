@@ -2,7 +2,7 @@
 import {FaBars, FaTimes} from 'react-icons/fa';
 import {useRef} from 'react';
 import './style.css';
-//import Link from 'next/link';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import SearchBar from '../searchbar/page';
 
@@ -23,7 +23,7 @@ function Navbar() {
 
     return (
         <header>
-            <img className='logo-img' src='../../../logosetrid.svg' alt='Logo' />
+            <img className="logo-img" src="../../../logosetrid.svg" alt="Logo" />
 
             <nav ref={navRef}> 
                 <div className='a-container'>

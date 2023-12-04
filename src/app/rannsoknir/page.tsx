@@ -82,64 +82,19 @@ useEffect(() => {
 
 
 
-                      
-        <div className='btn-container'>
-            <div className='individual-btn'>
-            {error && <p>{error}</p>}
-            <p className='btn-p'>{get('Hjartaómskoðun')}</p>
+        {rannsoknircards?.map(rannsokn => {
+            return (
+            <div className='btn-container'>
+                <div className='individual-btn'>
+                {error && <p>{error}</p>}
+                <p className='btn-p'>{rannsokn.name}</p>
+                </div>
             </div>
-        </div>
+            )
+        })}          
     <Footer/>
     </>
   );
 }
 
   export default Rannsoknir;
-
-/*
-
-
-        <div className='btn-container'>
-            <div className='individual-btn'>
-                {error && <p>{error}</p>}
-                {rannsoknircards?.map((cards) => (
-                <p className='cards-p'>{cards.name}</p>
-                ))}
-            </div>
-        </div>
-    <Footer/>
-    </>
-  );
-}
-
-export default Rannsoknir;
-
-        
-
-
-        ))}
-
-
-
-</div>
-      <div className='btn-container'>
-        <div className='individual-btn'>
-            <p className='rannsokn-p'>Hjartaómskoðun</p>
-        </div>
-        <div className='individual-btn'>
-            <p className='rannsokn-p'>Áreynslupróf</p>
-        </div>
-        <div className='individual-btn'>
-            <p className='rannsokn-p'>24-klst blóðþrýstingsmælingar</p>
-        </div>
-        <div className='individual-btn'>
-            <p className='rannsokn-p'>24 eða 48 klst Holter (hjartasíriti)</p>
-        </div>
-        <div className='individual-btn'>
-            <p className='rannsokn-p'>Snjallsíma-Holter</p>
-        </div>
-        <div className='individual-btn'>
-            <p className='rannsokn-p'>Lungnarannsóknir - spirometria</p>
-        </div>
-      </div>
-*/
