@@ -137,7 +137,7 @@ function fetchData() {
                         <img className="popup-img" src={selectedPerson.image || undefined} alt="doctor" />
                         <p className="popup-doctors-p">{selectedPerson.doctor}</p>
                         <p className="popup-doctors-p">{selectedPerson.position}</p>
-                        <button onClick={closePopup}>Close</button>
+                        <button className='close-btn' onClick={closePopup}>X</button>
                       </div>
                     </>                  )}
                     </div>

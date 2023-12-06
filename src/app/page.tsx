@@ -120,15 +120,13 @@ function Frontpage() {
 
             {error && <p>{error}</p>}
 
-            <div className='instructions'>
-                <h2 className='where-h2'>Opnunartímar</h2>
+            <div className='oh-container'>
+                <h2 className='oh-h2'>Opnunartímar</h2>
                 <p className='where-p'>Mánudagar {get('oh Monday')}</p>
                 <p className='where-p'>Þriðjudagar {get('oh Tuesday')}</p>
                 <p className='where-p'>Miðvikudagar {get('oh Wednesday')}</p>
                 <p className='where-p'>Fimmtudagar {get('oh Thursday')}</p>
                 <p className='where-p'>Föstudagar {get('oh Friday')}</p>
-                <p className='where-p'>Laugadagar {get('oh Saturday')}</p>
-                <p className='where-p'>Sunnudagar {get('oh Sunday')}</p>
             </div>
 
 

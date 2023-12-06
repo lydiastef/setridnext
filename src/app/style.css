@@ -55,6 +55,14 @@ h2, h3 {
   color: #AC0B11;
 }
 
+.oh-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 9rem 3rem 9rem;
+}
+
 .instructions {
   display: flex;
   flex-direction: column;
@@ -87,10 +95,22 @@ p {
   align-items: center;
   justify-content: center;
   margin: 4rem auto 2rem auto;
+  color: #AC0B11;
+}
+
+.oh-h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 2rem auto;
+  color: #AC0B11;
+  border: solid #AC0B11;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
 .where-p {
-  margin: .3rem;
+  margin: .5rem;
 }
 
 .where-img {
@@ -108,17 +128,6 @@ p {
   flex-direction: column;
   align-items: center;
   margin: 4rem;
-}
-
-.stjorn-container {
-  margin: 4rem;
-}
-
-.stjorn-h3 {
-  color: #7D070C;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  font-size: 22px;
 }
 
 @media only screen and (min-width: 700px) {
@@ -195,6 +204,14 @@ p {
 
   .instructions1 {
     padding: 0 6rem 2rem 6rem;
+  }
+
+  .oh-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4rem 9rem 3rem 9rem;
   }
 
   .where {

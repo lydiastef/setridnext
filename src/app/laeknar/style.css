@@ -88,6 +88,40 @@
     margin: 1rem 2rem 2rem 2rem;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(53, 53, 53, 0.151); /* Semi-transparent black background */
+    z-index: 1000; /* Ensure it's above other elements */
+  }
+
+.popup-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff; /* White background for the card */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle lift */
+    z-index: 1001; /* Ensure it's above the overlay */
+  }
+
+  .popup-img {
+    width: 250px;
+    height: 200px;
+  }
+
+  .close-btn {
+    padding: .3rem;
+    background-color: white;
+    border-radius: 8%;
+    float: right;
+  }
+
 
 
 @media only screen and (min-width: 768px){
@@ -150,6 +184,10 @@
         font-size: 18px;
         line-height: 30px;
     }
+
+    .laeknar-container {
+        margin: 2rem 6rem;
+    }
     
     .laeknar-h1 {
         font-size: 30px;
@@ -168,5 +206,10 @@
         border-radius: 8px;
         margin-bottom: 4rem;
     }
+
+    .popup-img {
+        width: 550px;
+        height: 400px;
+      }
 
 }
