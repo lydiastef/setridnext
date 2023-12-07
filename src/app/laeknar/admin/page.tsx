@@ -45,6 +45,7 @@ const [position, setPosition] = useState(null) as [Position[] | null, (laeknar: 
 //States for the modals (open and close the edit feature)
 const [isModalOpen1, setIsModalOpen1] = useState(false);
 const [isModalOpen2, setIsModalOpen2] = useState(false);
+const [isModalOpenp, setIsModalOpenp] = useState(false);
 
 
 const get=(name:string) => {
@@ -57,6 +58,9 @@ const closeModal1 = () => {setIsModalOpen1(false);};
 
 const openModal2 = () => {setIsModalOpen2(true);};
 const closeModal2 = () => {setIsModalOpen2(false);};
+
+const openModalp = () => {setIsModalOpenp(true);};
+const closeModalp = () => {setIsModalOpenp(false);};
 
 useEffect(() => {
   const fetchDataFromTable = async (table: string) => {
@@ -97,7 +101,7 @@ return(
         <div className='edit-content'>{error && <p>{error}</p>}
           <h1 className='h1'>{get('title')}</h1>
           <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
-          {isModalOpen1 && <TitleModal closeModal={closeModal1} />}
+          {isModalOpen1 && <TitleModal closeModal={closeModal1} tableName='doctorspage' what='title' />}
 
         </div>
         <div className='image-and-intro'>
@@ -126,10 +130,11 @@ return(
                       return(
                         <div className='edit-content'>
                           <div className='individual-cards'>
-                          <img className='edit-cards' src='/edit.avif' alt='edit button'/>
+                          <img className='edit-cards' onClick={openModalp} src='/edit.avif' alt='edit button'/>
                           <img className='card-img' src={person.image || undefined} alt='doctor' />
                           <p className='doctors-p'>{person.doctor}</p>
                           <p className='doctors-p'>{person.position}</p>
+                          {isModalOpenp && <TitleModal closeModal={closeModalp} />}
                           
                         </div>
                       </div>

@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import './stylemodal.css';
+import supabase from '../../config/supabaseClient';
+
 
 interface TitleModalProps {
   closeModal: () => void;
+  tableName?: string;
+  what?: string;
 }
 
-const TitleModal: React.FC<TitleModalProps> = ({ closeModal }) => {
+const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) => {
   const [newText, setNewText] = useState('');
-
-  const handleSave = () => {
-    // Logic to save the new text (you can use an API call or any state management approach)
-    // For simplicity, let's just log the new text to the console in this example.
+  if(!tableName) return
+  const handleSave = async () => {
+    const { error } = await supabase
+    .from(tableName)
+    .update({ value: newText })
+    .eq('name', what)
+    // Logic to save the new text
     console.log('New text:', newText);
 
     // Close the modal
@@ -38,6 +45,8 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal }) => {
 
 export default TitleModal;
 
-//The closeModal function is a prop
+/*The closeModal function is a prop (prperties) because its function is passed between 
+      a parent and a child component (Page and Titlemodal). The function of openModal 
+      is not passed between parent and child and is therefore not a prop.*/
 //The 'page' component is a parent to the 'TitleModal' component
 //The buttons (save and cancel) can be considered children

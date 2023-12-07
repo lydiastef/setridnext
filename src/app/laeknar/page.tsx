@@ -52,9 +52,7 @@ function fetchData() {
   const closePopup = () => {
     setSelectedPerson(null);
   };
-  const PopupCard: React.FC<{ person: Staff; onClose: () => void }> = ({ person, onClose }) => {
-
-  }
+  
   //Pop-up end
 
   
