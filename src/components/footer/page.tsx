@@ -4,6 +4,8 @@ import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import {FooterContainer} from './style'
 import Login from '../../app/login/page'
+import Link from 'next/link';
+
 
 type Data = {
     created_at: string;
@@ -79,7 +81,9 @@ function Footer() {
                     <p className='footer1'>{get('book phone')}</p>
                     <p className='footer1'>{get('book email')}</p>
                     <p className='footer1'>{get('book no show')}</p>
-                    <Login/>
+                    <Link className='admin-login' href='/login'>
+                    Admin Login
+                    </Link>
                 </div>
             </div>
         </footer>

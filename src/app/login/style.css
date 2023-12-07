@@ -3,27 +3,45 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 250px;
+    margin: 8rem auto auto auto;
+    border: solid #AC0B11;
+    border-radius: 8px;
+}
+
+p {
+    margin: 2rem auto 1rem auto;
+    font-size: 16px;
+    font-weight: bold;
+    color: #AC0B11;
 }
 
 .email {
     margin: .5rem;
-    border: solid 1px #AC0B11;
-    padding: 3px;
-    border-radius: 8px;
+    border: solid 1px;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 .password {
     margin: .5rem;
-    border: solid 1px #AC0B11;
-    padding: 3px;
-    border-radius: 8px;
+    border: solid 1px;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 .login-btn {
-    margin: .5rem;
-    background-color: white;
-    padding: .5rem;
-    border-radius: 8px;
-    border: solid 1px #AC0B11;
-    color: #AC0B11;
+    margin: .5rem .5rem 2rem .5rem;
+    padding: 8px;
+    border-radius: 5px;
+    border: solid 1px;
+    cursor: pointer;
+    border: solid #AC0B11;
+    background-color: #AC0B11;
+    width: 180px;
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: #7D070C;
 }

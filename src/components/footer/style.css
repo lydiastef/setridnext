@@ -25,6 +25,10 @@
   margin: .5rem auto;
 }
 
+.admin-login {
+  color: #AC0B11;
+}
+
 @media only screen and (min-width: 900px) {
   .footer-container {
     display: flex;
