@@ -3,6 +3,7 @@ import './style.css';
 import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import {FooterContainer} from './style'
+import Login from '../../app/login/page'
 
 type Data = {
     created_at: string;
@@ -78,6 +79,7 @@ function Footer() {
                     <p className='footer1'>{get('book phone')}</p>
                     <p className='footer1'>{get('book email')}</p>
                     <p className='footer1'>{get('book no show')}</p>
+                    <Login/>
                 </div>
             </div>
         </footer>

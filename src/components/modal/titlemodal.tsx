@@ -17,6 +17,7 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) 
     .from(tableName)
     .update({ value: newText })
     .eq('name', what)
+    location.reload()
     // Logic to save the new text
     console.log('New text:', newText);
 

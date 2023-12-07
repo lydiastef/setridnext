@@ -19,6 +19,8 @@ type Staff = {
   doctor: string | null;
   image: string | null;
   position: string | null;
+  education: string | null;
+  experience: string | null;
 }
 
 type Position = {
@@ -66,7 +68,7 @@ function fetchData() {
       //const fetchLaeknar = async () => {
         let setState = table === 'position'? setPosition:setDoctorspage
 
-        let query=table === 'position'?'name, staff(name, image, doctor)':undefined
+        let query=table === 'position'?'name, staff(name, image, doctor, education, experience)':undefined
           const { data, error } = await supabase
           .from(table) //fetching data from this table in Supabase
           .select(query)
@@ -133,8 +135,10 @@ function fetchData() {
                     <div className="overlay" onClick={closePopup}></div>
                       <div className="popup-card">
                         <img className="popup-img" src={selectedPerson.image || undefined} alt="doctor" />
-                        <p className="popup-doctors-p">{selectedPerson.doctor}</p>
-                        <p className="popup-doctors-p">{selectedPerson.position}</p>
+                        <p className="popup-doctors-p1">{selectedPerson.doctor}</p>
+                        <p className="popup-doctors-p2">{selectedPerson.position}</p>
+                        <p className="popup-doctors-p3">{selectedPerson.education}</p>
+                        <p className="popup-doctors-p4">{selectedPerson.experience}</p>
                         <button className='close-btn' onClick={closePopup}>X</button>
                       </div>
                     </>                  )}
