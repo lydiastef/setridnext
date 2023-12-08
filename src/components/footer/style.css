@@ -9,7 +9,6 @@
   background-color: white;
   height: 500px;
   padding: 2rem 4rem;
-  color: #AC0B11;
   border-top: solid 2px #AC0B11;
   margin: auto 5rem;
 }
@@ -23,6 +22,7 @@
   text-decoration: underline;
   font-size: 14px;
   margin: .5rem auto;
+  color: #AC0B11;
 }
 
 .admin-login {
