@@ -2,6 +2,9 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useState, useEffect } from 'react';
 import './style.css';
+import Navbar from '../../components/navbar/page';
+import Footer from '../../components/footer/page';
+
 //import { useRouter } from '/auth/callback/route';
 
 
@@ -58,6 +61,7 @@ export default function LoginPage() {
 
     return (
         <main>
+            <Navbar/>
             <div className='login-container'>
                 <p>Admin Login</p>
                 <input className='email'
@@ -76,6 +80,7 @@ export default function LoginPage() {
                 />
                 <button className='login-btn' onClick={handleSignIn}>Sign In</button>
             </div>
+            <Footer/>
         </main>
     )
 }

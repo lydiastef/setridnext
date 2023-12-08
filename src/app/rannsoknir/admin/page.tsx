@@ -1,8 +1,9 @@
 'use client'
-import './style.scss';
-import Navbar from '../../components/navbar/page';
-import Footer from '../../components/footer/page';
-import supabase from '../../config/supabaseClient';
+import '../../rannsoknir/style.scss';
+import Navbar from '../../../components/navbar/page';
+import Footer from '../../../components/footer/page';
+import supabase from '../../../config/supabaseClient';
+import TitleModal from '../../../components/modal/titlemodal';
 import { useEffect, useState } from 'react'
 
 type Intro = {
@@ -31,10 +32,26 @@ const [fetchError, setFetchError] = useState("")
 const [rannsoknir, setRannsoknir] = useState(null) as [Intro[] | null, (rannsoknir: Intro[] | null) => void]
 const [rannsoknircards, setRannsoknircards] = useState(null) as [Cards[] | null, (rannsoknircards: Cards[] | null) => void]
 
+//States for the modals (open and close the edit feature)
+const [isModalOpen1, setIsModalOpen1] = useState(false);
+const [isModalOpen2, setIsModalOpen2] = useState(false);
+//const [isModalOpenp, setIsModalOpenp] = useState(-1);
+
 const get = (name: string) => {
     const filteredContent = rannsoknir?.filter(content => content.name === name);
     return filteredContent && filteredContent.length > 0 ? filteredContent[0].value as string : "";
     };
+
+//Open close modals
+const openModal1 = () => {setIsModalOpen1(true);};
+const closeModal1 = () => {setIsModalOpen1(false);};
+
+const openModal2 = () => {setIsModalOpen2(true);};
+const closeModal2 = () => {setIsModalOpen2(false);};
+
+//const openModalp = (id:number) => {setIsModalOpenp(id);};
+//const closeModalp = () => {setIsModalOpenp(-1);};
+  
 
 useEffect(() => {
     const fetchDataFromTable = async (table: string) => {
@@ -75,8 +92,12 @@ useEffect(() => {
       </div>  
         <div className='image-and-intro-rannsoknir'>
             <img className='main-img3' src='/rannsoknir.avif' alt='two doctors' />
-            {error && <p>{error}</p>}
-            <p className='intro-p'>{get('intro')}</p>
+            <div className='edit-content'>
+                {error && <p>{error}</p>}
+                <p className='intro-p'>{get('intro')}</p>
+                <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
+                {isModalOpen1 && <TitleModal closeModal={closeModal1} tableName='rannsoknir' what='intro' />}
+            </div>
         </div>
 
 

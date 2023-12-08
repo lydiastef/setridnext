@@ -56,6 +56,30 @@
     font-size: 20px;
 }
 
+/*for the edit page*/
+
+.edit-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 2rem;
+}
+
+.edit {
+    width: 2.5rem;
+    margin: auto 4rem auto -3rem;
+    cursor: pointer;
+}
+
+.edit-cards {
+    display: flex;
+    margin: 0 auto 1rem auto;
+    width: 2.5rem;
+    cursor: pointer;
+}
+
+/* edit page end*/
+
 @media only screen and (min-width: 768px){
 
     .h1 {
