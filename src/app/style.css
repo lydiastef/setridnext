@@ -17,37 +17,46 @@
   padding: 2rem;
 }
 
+.iconbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto 2rem;
+}
+
+.icon {
+  width: 60px;
+}
+
 .phone {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #AC0B11;
   font-size: 16px;
+  margin: 2rem 0 0 0;
 }
 
-.phone-img {
-  width: 40px;
-  margin-bottom: .5rem;
+.phonenumber {
+  margin-top: .8rem;
 }
 
 .info-btn1, .info-btn2 {
   background-color: white;
   width: 100px;
   height: 48px;
-  border: solid 1.5px #AC0B11;
+  border: none;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #AC0B11;
   cursor: pointer;
+
 }
 
-.info-btn1 {
-  margin-left: 2rem;
-}
-
-.info-btn2 {
-  margin-right: 2rem;
+.info-btn1:hover, .info-btn2:hover {
+  font-size: 20px;
 }
 
 h2, h3 {
@@ -141,17 +150,22 @@ p {
     margin-bottom: -6rem;
   }
 
+  .iconbtn {
+    margin: 3rem 2rem 2rem 2rem;
+  }
+
   .phone {
     font-size: 24px;
-    margin: 0 -4rem;
-  }
-  .phone-img {
-    width: 64px;
+    margin: 2rem 0 0 0;
   }
   .info-btn1, .info-btn2 {
     width: 152px;
     height: 72px;
     font-size: 24px;
+  }
+
+  .info-btn1:hover, .info-btn2:hover {
+    font-size: 28px;
   }
   
   .where-h2 {
@@ -177,17 +191,21 @@ p {
 
   .info-box {
     height: 10rem;
-    padding: 5rem;
+    padding: 5rem; 
     margin-top: -2rem;
+  }
+
+  .iconbtn {
+    margin-top: 4rem;
+  }
+
+  .icon {
+    width: 80px;
   }
 
   .phone {
     font-size: 24px;
-    margin: 2rem -4rem 0 -4rem;
-  }
-
-  .phone-img {
-    width: 60px;
+    margin: 2rem -8rem 0 -8rem;
   }
 
   .info-btn1, .info-btn2 {
@@ -197,6 +215,11 @@ p {
     margin-top: 0;
     letter-spacing: 1.5px;
   }
+
+  .info-btn1:hover, .info-btn2:hover {
+    font-size: 32px;
+  }
+
 
   .instructions {
     padding: 0 6rem 2rem 6rem;
@@ -249,7 +272,7 @@ p {
   }
 
   .info-box {
-    padding: 7rem;
+    padding: 8rem 12rem;
     margin-top: -6rem;
   }
 

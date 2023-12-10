@@ -59,26 +59,31 @@ function Frontpage() {
             <img className='main-img' src='/main.avif' alt='stethoscope' />
 
             <div className='info-box'>
-            <Link href='/laeknar'>
-                <div>
-                    <button className='info-btn1'>Læknar</button>
-                </div>
-            </Link>
-            <div className='phone'>
-                <img className='phone-img' src='/phone-icon.png' alt='phone'/>
-                
-                {error && <p>{error}</p>}
+                <div className='iconbtn'>
+                    <img className='icon' src='/icon1.avif' alt='doctor icon' />
+                    <Link href='/laeknar'>
                         <div>
-                            <h2>{get('Phone number')}</h2>
+                            <button className='info-btn1'>Læknar</button>
+                        </div>
+                    </Link>
+                </div>
+                <div className='phone'>
+                    <img className='icon' src='/icon3.avif' alt='phone'/>
+                    {error && <p>{error}</p>}
+                        <div>
+                            <h2 className='phonenumber'>{get('Phone number')}</h2>
                         </div>
 
+                </div>
+                <div className='iconbtn'>
+                    <img className='icon' src='/icon2.avif' alt='doctor icon' />
+                    <Link href='/rannsoknir'>
+                        <div>
+                            <button className='info-btn2'>Rannsóknir</button>
+                        </div>
+                    </Link>
+                </div>
             </div>
-            <Link href='/rannsoknir'>
-              <div>
-                <button className='info-btn2'>Rannsóknir</button>
-              </div>
-            </Link>
-        </div>
 
 
         {error && <p>{error}</p>}
