@@ -1,10 +1,11 @@
 'use client'
 import './style.css';
-import Navbar from '../components/navbar/page';
-import Footer from '../components/footer/page';
-import supabase from '../config/supabaseClient';
+import Navbar from '../../components/navbar/page';
+import Footer from '../../components/footer/page';
+import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import Link from 'next/link';
+
 
 /*import { useRouter } from 'next/navigation';*/
 
@@ -15,60 +16,59 @@ type Data = {
     value: string | null;
 }
 
-function Frontpage() {
+function English() {
 
     const [content, setContent] = useState({});
     const [error, setError] = useState(null);
 
     const [fetchError, setFetchError] = useState("")
-    const [frontpage, setFrontpage] = useState(null) as [Data[] | null, (frontpage: Data[] | null) => void]
+    const [english, setEnglish] = useState(null) as [Data[] | null, (english: Data[] | null) => void]
 
     const get=(name:string) => {
-        return frontpage?.filter(content => content.name === name) [0].value as string
+        return english?.filter(content => content.name === name) [0].value as string
     }
 
     useEffect(() => {
-        const fetchFrontpage = async () => {
+        const fetchEnglish = async () => {
             const { data, error } = await supabase
-            .from('frontpage') //fetching data from this table in Supabase
+            .from('english') //fetching data from this table in Supabase
             .select()
 
             if(error) {
                 setFetchError('Could not fetch Where')
-                setFrontpage(null)
+                setEnglish(null)
                 console.log(error)
             }
             if (data) {
-                setFrontpage(data)
+                setEnglish(data)
                 setFetchError("")
             }
         }
 
-        fetchFrontpage();
+        fetchEnglish();
     }, [])
 
     //Fetching data from Supabase - end
 
-    console.log(frontpage)
+    console.log(english)
     if(fetchError) return <p>{fetchError}</p>
 
     return(
         <div>
             <Navbar/>
-            <h1 className='welcome-h1'>Velkomin í<br/> <span>Læknasetrið</span></h1>
-            <img className='main-img' src='/main.jpg' alt='stethoscope' />
+            <img className='main-img' src='/main.avif' alt='stethoscope' />
 
             <div className='info-box'>
                 <div className='iconbtn'>
-                    <img className='icon' src='/icondoctors.svg' alt='doctor icon' />
+                    <img className='icon' src='/icon1.avif' alt='doctor icon' />
                     <Link href='/laeknar'>
                         <div>
-                            <p className='info-btn1'>Læknar</p>
+                            <button className='info-btn1'>Doctors</button>
                         </div>
                     </Link>
                 </div>
                 <div className='phone'>
-                    <img className='icon' src='/iconphone.svg' alt='phone'/>
+                    <img className='icon' src='/icon3.avif' alt='phone'/>
                     {error && <p>{error}</p>}
                         <div>
                             <h2 className='phonenumber'>{get('Phone number')}</h2>
@@ -76,10 +76,10 @@ function Frontpage() {
 
                 </div>
                 <div className='iconbtn'>
-                    <img className='icon' src='/iconheart2.svg' alt='doctor icon' />
+                    <img className='icon' src='/icon2.avif' alt='doctor icon' />
                     <Link href='/rannsoknir'>
                         <div>
-                            <p className='info-btn2'>Rannsóknir</p>
+                            <button className='info-btn2'>Tests</button>
                         </div>
                     </Link>
                 </div>
@@ -126,12 +126,12 @@ function Frontpage() {
             {error && <p>{error}</p>}
 
             <div className='oh-container'>
-                <h2 className='oh-h2'>Opnunartímar</h2>
-                <p className='where-p'>Mánudagar {get('oh Monday')}</p>
-                <p className='where-p'>Þriðjudagar {get('oh Tuesday')}</p>
-                <p className='where-p'>Miðvikudagar {get('oh Wednesday')}</p>
-                <p className='where-p'>Fimmtudagar {get('oh Thursday')}</p>
-                <p className='where-p'>Föstudagar {get('oh Friday')}</p>
+                <h2 className='oh-h2'>Opening Hours</h2>
+                <p className='where-p'>Monday {get('oh Monday')}</p>
+                <p className='where-p'>Tuesday {get('oh Tuesday')}</p>
+                <p className='where-p'>Wednesday {get('oh Wednesday')}</p>
+                <p className='where-p'>Thursday {get('oh Thursday')}</p>
+                <p className='where-p'>Friday {get('oh Friday')}</p>
             </div>
 
 
@@ -141,4 +141,4 @@ function Frontpage() {
     );
             }
 
-    export default Frontpage;
+    export default English;
