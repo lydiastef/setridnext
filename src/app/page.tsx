@@ -59,14 +59,14 @@ function Frontpage() {
             <img className='main-img' src='/main.jpg' alt='stethoscope' />
 
             <div className='info-box'>
+
                 <div className='iconbtn'>
                     <img className='icon' src='/icondoctors.svg' alt='doctor icon' />
                     <Link href='/laeknar'>
-                        <div>
-                            <p className='info-btn1'>Læknar</p>
-                        </div>
+                        <p className='info-btn2'>Læknar</p>
                     </Link>
                 </div>
+
                 <div className='phone'>
                     <img className='icon' src='/iconphone.svg' alt='phone'/>
                     {error && <p>{error}</p>}
