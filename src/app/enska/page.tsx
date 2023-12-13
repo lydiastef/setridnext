@@ -56,19 +56,20 @@ function English() {
     return(
         <div>
             <Navbar/>
-            <img className='main-img' src='/main.avif' alt='stethoscope' />
+            <h1 className='welcome-h1'>Welcome to<br/> <span>Læknasetrið</span></h1>
+            <img className='main-img' src='/main.jpg' alt='stethoscope' />
 
             <div className='info-box'>
                 <div className='iconbtn'>
-                    <img className='icon' src='/icon1.avif' alt='doctor icon' />
+                    <img className='icon' src='/icondoctors.svg' alt='doctor icon' />
                     <Link href='/laeknar'>
                         <div>
-                            <button className='info-btn1'>Doctors</button>
+                            <div className='info-btn2'>Doctors</div>
                         </div>
                     </Link>
                 </div>
                 <div className='phone'>
-                    <img className='icon' src='/icon3.avif' alt='phone'/>
+                    <img className='icon' src='/iconphone.svg' alt='phone'/>
                     {error && <p>{error}</p>}
                         <div>
                             <h2 className='phonenumber'>{get('Phone number')}</h2>
@@ -76,10 +77,10 @@ function English() {
 
                 </div>
                 <div className='iconbtn'>
-                    <img className='icon' src='/icon2.avif' alt='doctor icon' />
+                    <img className='icon' src='/iconheart2.svg' alt='doctor icon' />
                     <Link href='/rannsoknir'>
                         <div>
-                            <button className='info-btn2'>Tests</button>
+                            <div className='info-btn2'>Tests</div>
                         </div>
                     </Link>
                 </div>
