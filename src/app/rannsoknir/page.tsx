@@ -1,5 +1,5 @@
 'use client'
-import './style.scss';
+import './style.css';
 import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
 import supabase from '../../config/supabaseClient';
@@ -80,17 +80,16 @@ useEffect(() => {
         </div>
 
 
-
+      <div className='btn-container'>
         {rannsoknircards?.map(rannsokn => {
             return (
-            <div className='btn-container'>
                 <div className='individual-btn'>
                 {error && <p>{error}</p>}
                 <p className='btn-p'>{rannsokn.name}</p>
                 </div>
-            </div>
             )
         })}          
+      </div>
     <Footer/>
     </>
   );

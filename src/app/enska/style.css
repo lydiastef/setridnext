@@ -168,186 +168,188 @@ p {
 }
 
 @media only screen and (min-width: 700px) {
-  .main-img {
-    margin-top: -10rem;
+    .main-img {
+    }
+  
+    .welcome-h1 {
+      margin: 7rem 0 0 4rem;
+      font-size: 28px;
+    }
+  
+    span {
+      font-size: 36px;
+    }
+    
+    .info-box {
+      height: 12rem;
+      padding: 3rem;
+      margin-bottom: -6rem;
+    }
+  
+    .iconbtn {
+      margin: 2rem 3rem;
+    }
+  
+    .phone {
+      font-size: 20px;
+      margin: 2rem 0 0 0;
+    }
+    .info-btn1, .info-btn2 {
+      font-size: 24px;
+    }
+  
+    .info-btn1:hover, .info-btn2:hover {
+      font-size: 28px;
+    }
+    
+    .where-h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10rem auto 2rem auto;
+    }
+  
+    .instructions {
+      padding: 1rem 8rem 1.5rem 8rem;
+    }
+    .instructions1 {
+      padding: 1rem 8rem 1.5rem 8rem;
+    }
+  
+  }
+  @media only screen and (min-width: 900px) {
+  
+    .main-img {
+    }
+  
+    .info-box {
+      height: 10rem;
+      padding: 5rem; 
+      margin-top: -2rem;
+    }
+  
+    .iconbtn {
+      margin-top: 2rem;
+    }
+  
+    .icon {
+      width: 80px;
+    }
+  
+    .phone {
+      font-size: 22px;
+      margin: 2rem -8rem 0 -8rem;
+    }
+  
+    .info-btn1, .info-btn2 {
+      font-size: 28px;
+      margin-top: 0;
+      letter-spacing: 1.5px;
+    }
+  
+    .info-btn1:hover, .info-btn2:hover {
+      font-size: 32px;
+    }
+  
+  
+    .instructions {
+      padding: 0 6rem 2rem 6rem;
+    }
+  
+    .instructions1 {
+      padding: 0 6rem 2rem 6rem;
+    }
+  
+    .oh-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin: 4rem 9rem 3rem 9rem;
+    }
+  
+    .where {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .where1 {
+      width: 50%;
+    }
+  
+    .where-h2 {
+      font-size: 40px;
+      margin: 10rem auto 4rem auto;
+    }
+  
+    .where-img {
+      max-width: 80%;
+      margin: 0 4rem 0 6rem;
+    }
+  
+    .where-img1 {
+      width: 450px;
+      height: 250px;
+      margin: 0 6rem 0 4rem;
+    }
   }
   
-  .info-box {
-    height: 12rem;
-    padding: 3rem;
-    margin-bottom: -6rem;
-  }
-
-  .iconbtn {
-    margin: 3rem 2rem 2rem 2rem;
-  }
-
-  .phone {
-    font-size: 24px;
-    margin: 2rem 0 0 0;
-  }
-  .info-btn1, .info-btn2 {
-    width: 152px;
-    height: 72px;
-    font-size: 24px;
-  }
-
-  .info-btn1:hover, .info-btn2:hover {
-    font-size: 28px;
+  @media only screen and (min-width: 1050px) {
+  
+    .welcome-h1 {
+      font-size: 36px;
+      margin: 7rem 0 0 6rem;
+    }
+  
+    span {
+      font-size: 48px;
+    }
+  
+    .main-img {
+    }
+  
+    .info-box {
+      padding: 8rem 12rem;
+      margin-top: -6rem;
+    }
+  
   }
   
-  .where-h2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10rem auto 2rem auto;
-  }
-
-  .instructions {
-    padding: 1rem 8rem 1.5rem 8rem;
-  }
-  .instructions1 {
-    padding: 1rem 8rem 1.5rem 8rem;
-  }
-
-}
-@media only screen and (min-width: 900px) {
-
-  .main-img {
-    margin-top: -16rem;
-  }
-
-  .info-box {
-    height: 10rem;
-    padding: 5rem; 
-    margin-top: -2rem;
-  }
-
-  .iconbtn {
-    margin-top: 4rem;
-  }
-
-  .icon {
-    width: 80px;
-  }
-
-  .phone {
-    font-size: 24px;
-    margin: 2rem -8rem 0 -8rem;
-  }
-
-  .info-btn1, .info-btn2 {
-    width: 208px;
-    height: 88px;
-    font-size: 28px;
-    margin-top: 0;
-    letter-spacing: 1.5px;
-  }
-
-  .info-btn1:hover, .info-btn2:hover {
-    font-size: 32px;
-  }
-
-
-  .instructions {
-    padding: 0 6rem 2rem 6rem;
-  }
-
-  .instructions1 {
-    padding: 0 6rem 2rem 6rem;
-  }
-
-  .oh-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin: 4rem 9rem 3rem 9rem;
-  }
-
-  .where {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .where1 {
-    width: 50%;
-  }
-
-  .where-h2 {
-    font-size: 40px;
-    margin: 10rem auto 4rem auto;
-  }
-
-  .where-img {
-    max-width: 80%;
-    margin: 0 4rem 0 6rem;
-  }
-
-  .where-img1 {
-    width: 450px;
-    height: 250px;
-    margin: 0 6rem 0 4rem;
-  }
-}
-
-@media only screen and (min-width: 1050px) {
-
-  .main-img {
-    margin-top: -18rem;
-  }
-
-  .info-box {
-    padding: 8rem 12rem;
-    margin-top: -6rem;
-  }
-
-}
-
-@media only screen and (min-width: 1300px) {
-  .main-img {
-    width: 100%;
-    height: 800px;
-  }
-
-  .info-box {
-    height: 14rem;
-    padding: 2rem;
-  }
+  @media only screen and (min-width: 1300px) {
+    .main-img {
+      width: 100%;
+      height: 800px;
+    }
   
-  .info-btn1 {
-    margin-left: 32rem;
-  }
+    .info-box {
+      height: 14rem;
+      padding: 2rem;
+    }
+    
+    h2, h3 {
+      margin-bottom: 2rem;
+    }
+    
+    .instructions {
+      padding: 1rem 16rem 4rem 24rem;
+    }
   
-  .info-btn2 {
-    margin-right: 32rem;
-  }
+    .instructions1 {
+      padding: 1rem 24rem 4rem 16rem;
+    }
+    
+    .where-img {
+      max-width: 80%;
+      margin: 0 16rem 4rem 24rem;
+    }
   
-  h2, h3 {
-    margin-bottom: 2rem;
+    .where-img1 {
+      width: 800px;
+      height: 500px;
+      margin: 0 24rem 4rem 16rem;
+    }
+    
   }
-  
-  .instructions {
-    padding: 1rem 16rem 4rem 24rem;
-  }
-
-  .instructions1 {
-    padding: 1rem 24rem 4rem 16rem;
-  }
-  
-  .where-img {
-    max-width: 80%;
-    margin: 0 16rem 4rem 24rem;
-  }
-
-  .where-img1 {
-    width: 800px;
-    height: 500px;
-    margin: 0 24rem 4rem 16rem;
-  }
-  
-}
-
 /*# sourceMappingURL=style.css.map */

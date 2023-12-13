@@ -1,11 +1,9 @@
-@import './variables.scss'; 
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: $lora;
 }
 
 .h1 {
@@ -13,7 +11,7 @@
     align-items: center;
     justify-content: center;
     margin: 3rem;
-    color: $thedarkred;
+    color: #AC0B11;
 }
 
 .intro-p {
@@ -34,19 +32,19 @@
     grid-gap: 20px;
     align-items: stretch;
     position: relative;
-    margin: 3rem 4rem;
+    margin: 3rem 8rem;
 }
 
 .individual-btn {
     display: flex;
-    //flex: 1;
+    flex: 1;
     align-items: center;
     justify-content: center;
     border: solid 1px rgba(0, 0, 0, 0.257);
     border-radius: 8px;
-    //margin-bottom: 3rem;
+    margin-bottom: 2rem;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-    width: 236px;
+    width: 244px;
     height: 72px;
     cursor: pointer;
     font-size: 16px;
@@ -102,7 +100,7 @@
     }
 
     .individual-btn {
-        //margin: 1rem 4rem;
+        margin: 1rem 4rem;
     }
 
     .btn-container {
@@ -111,7 +109,7 @@
         grid-gap: 20px;
         align-items: stretch;
         position: relative;
-        margin-left: 6rem;
+        margin: 2rem 6rem;
     }
 
 }
@@ -139,10 +137,13 @@
         grid-gap: 20px;
         align-items: stretch;
         position: relative;
-        //margin: 2rem;
+        margin: 2rem 8rem;
     }
 
     .individual-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
     }
     
