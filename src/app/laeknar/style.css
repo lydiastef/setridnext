@@ -150,7 +150,7 @@ p {
     }
 
     .main-img2 {
-        max-width: 40%;
+        max-width: 30%;
         order: 2;
         margin-right: 4rem;
     }
@@ -171,6 +171,7 @@ p {
         grid-gap: 50px;
         align-items: stretch;
         position: relative;
+        margin-left: 6rem;
     }
         
     .individual-cards {

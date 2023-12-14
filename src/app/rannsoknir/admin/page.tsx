@@ -18,7 +18,8 @@ type Cards = {
     id: number;
     name: string | null;
     value: string | null;
-
+    icon: string | null;
+    info: string | null;
   }
 
 function Rannsoknir() {
@@ -90,8 +91,8 @@ useEffect(() => {
       <div>
         <h1 className='h1'>Rannsóknir</h1>
       </div>  
-        <div className='image-and-intro-rannsoknir'>
-            <img className='main-img3' src='/rannsoknir.avif' alt='two doctors' />
+        <div className='image-and-intro'>
+            <img className='main-img2' src='/rannsoknir.avif' alt='two doctors' />
             <div className='edit-content'>
                 {error && <p>{error}</p>}
                 <p className='intro-p'>{get('intro')}</p>
@@ -102,16 +103,18 @@ useEffect(() => {
 
 
 
+        <div className='btn-container'>
         {rannsoknircards?.map(rannsokn => {
             return (
-            <div className='btn-container'>
                 <div className='individual-btn'>
+                    <img className='card-icon' src={rannsokn.icon || undefined} alt='icon' />
                 {error && <p>{error}</p>}
-                <p className='btn-p'>{rannsokn.name}</p>
+                <h2 className='btn-h2'>{rannsokn.name}</h2>
+                <p className='btn-p'>{rannsokn.info}</p>
                 </div>
-            </div>
             )
         })}          
+      </div>        
     <Footer/>
     </>
   );

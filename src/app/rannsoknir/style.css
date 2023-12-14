@@ -20,7 +20,7 @@
     letter-spacing: .6px;
 }
 
-.main-img3 {
+.main-img2 {
     max-width: 75%;
     display: flex;
     margin: auto;
@@ -32,7 +32,7 @@
     grid-gap: 20px;
     align-items: stretch;
     position: relative;
-    margin: 3rem 8rem;
+    margin: 3rem 4rem;
 }
 
 .individual-btn {
@@ -44,14 +44,23 @@
     border-radius: 8px;
     margin-bottom: 2rem;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-    width: 244px;
-    height: 72px;
+    width: 268px;
+    height: 120px;
     cursor: pointer;
     font-size: 16px;
 }
 
 .individual-btn:hover {
     font-size: 20px;
+}
+
+.btn-h2 {
+    font-size: 16px;
+    color: #AC0B11;
+}
+
+.btn-p {
+    font-size: 14px;
 }
 
 /*for the edit page*/
@@ -86,13 +95,14 @@
 
     .image-and-intro {
         display: flex;
+        flex-direction: row;
         margin-bottom: 6rem;
     }
 
     .main-img2 {
-        max-width: 40%;
+        max-width: 30%;
         order: 2;
-        margin-right: 4rem;
+        margin-right: 6rem;
     }
 
     .intro-p {
@@ -121,14 +131,22 @@
         margin: 4rem;
     }
 
+    .image-and-intro {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 6rem;
+    }
+
     .main-img2 {
-        max-width: 50%;
+        max-width: 30%;
         order: 2;
+        margin-right: 8rem;
     }
 
     .intro-p {
         font-size: 18px;
         line-height: 30px;
+        margin: 1rem 4rem auto 8rem;
     }
 
     .btn-container {
