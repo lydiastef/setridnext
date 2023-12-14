@@ -1,5 +1,5 @@
 'use client'
-import '../../rannsoknir/style.scss';
+import '../../rannsoknir/style.css';
 import Navbar from '../../../components/navbar/page';
 import Footer from '../../../components/footer/page';
 import supabase from '../../../config/supabaseClient';
