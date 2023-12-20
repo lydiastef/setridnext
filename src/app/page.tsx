@@ -56,29 +56,42 @@ function Frontpage() {
         <div>
             <Navbar/>
             <h1 className='welcome-h1'>Velkomin í<br/> <span>Læknasetrið</span></h1>
-            <img className='main-img' src='/main.jpg' alt='stethoscope' />
+            <img className='main-img' src='/main3.avif' alt='stethoscope' />
 
             <div className='info-box'>
 
                 <div className='iconbtn'>
-                    <img className='icon' src='/icondoctors.svg' alt='doctor icon' />
                     <Link href='/laeknar'>
-                        <p className='info-btn2'>Læknar</p>
+                        <div className='icon-box'>
+                            <img className='icon' src='/icondoctors.svg' alt='doctor icon' />
+                            <p className='info-btn2'>Læknar</p>
+                        </div>
                     </Link>
                 </div>
 
-                <div className='phone'>
-                    <img className='icon' src='/iconphone.svg' alt='phone'/>
-                    {error && <p>{error}</p>}
-                        <div>
-                            <h2 className='phonenumber'>{get('Phone number')}</h2>
-                        </div>
-
-                </div>
                 <div className='iconbtn'>
-                    <img className='icon' src='/iconheart2.svg' alt='doctor icon' />
-                    <Link href='/rannsoknir'>
+                    <div className='icon-box'>
+                        <img className='icon' src='/iconphone.svg' alt='phone'/>
+                        {error && <p>{error}</p>}
                         <div>
+                            <p className='info-btn2'>{get('Phone number')}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='iconbtn'>
+                    <Link href='/laeknar'>
+                        <div className='icon-box'>
+                            <img className='icon' src='/iconclock.svg' alt='opening hours icon' />
+                            <p className='info-btn2'>Opnunartímar</p>
+                        </div>
+                    </Link>
+                </div>
+
+                <div className='iconbtn'>
+                    <Link href='/rannsoknir'>
+                        <div className='icon-box'>
+                            <img className='icon' src='/iconheart2.svg' alt='doctor icon' />
                             <p className='info-btn2'>Rannsóknir</p>
                         </div>
                     </Link>
