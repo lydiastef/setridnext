@@ -63,7 +63,7 @@ function Frontpage() {
                 <div className='iconbtn'>
                     <Link href='/laeknar'>
                         <div className='icon-box'>
-                            <img className='icon' src='/icondoctors.svg' alt='doctor icon' />
+                            <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
                             <p className='info-btn2'>Læknar</p>
                         </div>
                     </Link>
@@ -71,7 +71,7 @@ function Frontpage() {
 
                 <div className='iconbtn'>
                     <div className='icon-box'>
-                        <img className='icon' src='/iconphone.svg' alt='phone'/>
+                        <img className='icon' src='/phoneicon.png' alt='phone'/>
                         {error && <p>{error}</p>}
                         <div>
                             <p className='info-btn2'>{get('Phone number')}</p>
@@ -82,7 +82,7 @@ function Frontpage() {
                 <div className='iconbtn'>
                     <Link href='/laeknar'>
                         <div className='icon-box'>
-                            <img className='icon' src='/iconclock.svg' alt='opening hours icon' />
+                            <img className='icon' src='/clockicon.png' alt='opening hours icon' />
                             <p className='info-btn2'>Opnunartímar</p>
                         </div>
                     </Link>
@@ -91,7 +91,7 @@ function Frontpage() {
                 <div className='iconbtn'>
                     <Link href='/rannsoknir'>
                         <div className='icon-box'>
-                            <img className='icon' src='/iconheart2.svg' alt='doctor icon' />
+                            <img className='icon' src='/ecgicon.png' alt='doctor icon' />
                             <p className='info-btn2'>Rannsóknir</p>
                         </div>
                     </Link>
