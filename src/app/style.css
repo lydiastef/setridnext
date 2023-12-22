@@ -27,14 +27,13 @@ span {
 
 .info-box {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   max-width: 100%;
-  height: 18rem;
+  height: 172px;
   background-color: #ffffff;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
-  padding: 1rem 5rem;
+  padding: 1rem 4rem;
 }
 
 .icon-box {
@@ -44,8 +43,8 @@ span {
   justify-content: center;
   border: solid 1px rgb(167, 166, 166);
   border-radius: 8px;
-  width: 6rem;
-  height: 6rem;
+  width: 88px;
+  height: 88px;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
@@ -69,7 +68,7 @@ span {
 }
 
 .info-btn2 {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: #AC0B11;
   cursor: pointer;
@@ -169,12 +168,12 @@ h2, h3 {
   
   .info-box {
     height: 240px;
-    padding: 3rem;
-    margin-bottom: -6rem;
+    padding: 2rem 4rem;
   }
 
   .icon-box {
     width: 136px;
+    height: 136px;
     margin: .2rem .1rem 1.3rem .1rem; 
   }
 
@@ -208,7 +207,7 @@ h2, h3 {
 
   .info-box {
     height: 256px;
-    padding: 3rem; 
+    padding: 2.5rem 6rem; 
   }
 
   .iconbtn {
@@ -291,7 +290,7 @@ h2, h3 {
   }
 
   .info-box {
-    padding: 4rem;
+    padding: 2rem 8rem;
     margin-top: -6rem;
     height: 296px;
   }
