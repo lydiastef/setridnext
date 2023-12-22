@@ -14,7 +14,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3rem 0 0 2rem;
+  margin: 1rem 0 0 15rem;
   font-size: 16px;
   z-index: 1;
   position: absolute;
@@ -23,6 +23,7 @@ a {
 span {
   color: #AC0B11;
   font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .info-box {
@@ -41,7 +42,7 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: solid 1px rgb(167, 166, 166);
+  border: solid 1px rgb(212, 212, 212);
   border-radius: 8px;
   width: 88px;
   height: 88px;
@@ -158,12 +159,12 @@ h2, h3 {
   }
 
   .welcome-h1 {
-    margin: 7rem 0 0 4rem;
-    font-size: 28px;
+    margin: 2rem 0 0 20rem;
+    font-size: 20px;
   }
 
   span {
-    font-size: 36px;
+    font-size: 26px;
   }
   
   .info-box {
@@ -274,12 +275,12 @@ h2, h3 {
 @media only screen and (min-width: 1050px) {
 
   .welcome-h1 {
-    font-size: 36px;
-    margin: 7rem 0 0 6rem;
+    font-size: 28px;
+    margin: 2rem 0 0 40rem;
   }
 
   span {
-    font-size: 48px;
+    font-size: 40px;
   }
 
   .main-img {
@@ -296,7 +297,6 @@ h2, h3 {
   }
 
   .icon-box {
-    border: solid 1px rgb(167, 166, 166);
     width: 200px;
     height: 176px;
   }

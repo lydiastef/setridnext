@@ -56,7 +56,7 @@ function Frontpage() {
         <div>
             <Navbar/>
             <h1 className='welcome-h1'>Velkomin í<br/> <span>Læknasetrið</span></h1>
-            <img className='main-img' src='/main3.avif' alt='stethoscope' />
+            <img className='main-img' src='/main5.avif' alt='stethoscope' />
 
             <div className='info-box'>
 
