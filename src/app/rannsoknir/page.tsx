@@ -1,5 +1,5 @@
 'use client'
-import '../style.css';
+import './style.css';
 import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
 import supabase from '../../config/supabaseClient';
