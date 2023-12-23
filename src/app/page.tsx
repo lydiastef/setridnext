@@ -56,19 +56,9 @@ function Frontpage() {
         <div>
             <Navbar/>
             <h1 className='welcome-h1'>Velkomin í<br/> <span>Læknasetrið</span></h1>
-            <img className='main-img' src='/main5.avif' alt='stethoscope' />
+            <img className='main-img' src='/main8.avif' alt='stethoscope' />
 
-            <div className='info-box'>
-
-                <div className='iconbtn'>
-                    <Link href='/laeknar'>
-                        <div className='icon-box'>
-                            <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
-                            <p className='info-btn2'>Læknar</p>
-                        </div>
-                    </Link>
-                </div>
-
+            <div className='phoneclockcontainer'>
                 <div className='iconbtn'>
                     <div className='icon-box'>
                         <img className='icon' src='/phoneicon.png' alt='phone'/>
@@ -87,16 +77,26 @@ function Frontpage() {
                         </div>
                     </Link>
                 </div>
+            </div>
 
-                <div className='iconbtn'>
+        <p>Aðeins um læknasetrið</p>
+
+        <div className='midsectioncontainer'>
+            <div className='midsectionbtn'>
+                    <Link href='/laeknar'>
+                        <img className='icon2' src='/doctorsicon.png' alt='doctor icon' />
+                        <p className='info-btn2'>Læknar</p>
+                    </Link>
+                </div>
+
+                <div className='midsectionbtn'>
                     <Link href='/rannsoknir'>
-                        <div className='icon-box'>
-                            <img className='icon' src='/ecgicon.png' alt='doctor icon' />
-                            <p className='info-btn2'>Rannsóknir</p>
-                        </div>
+                        <img className='icon2' src='/ecgicon.png' alt='doctor icon' />
+                        <p className='info-btn2'>Rannsóknir</p>
                     </Link>
                 </div>
             </div>
+
 
 
         {error && <p>{error}</p>}
