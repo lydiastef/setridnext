@@ -164,8 +164,15 @@ function Frontpage() {
 
             </div>
         </div>
+        <Footer/>
 
-            {error && <p>{error}</p>}
+        </div>
+    );
+            }
+
+    export default Frontpage;
+
+    /*{error && <p>{error}</p>}
 
             <div className='oh-container'>
                 <h2 className='oh-h2'>Opnunartímar</h2>
@@ -174,13 +181,4 @@ function Frontpage() {
                 <p className='where-p'>Miðvikudagar {get('oh Wednesday')}</p>
                 <p className='where-p'>Fimmtudagar {get('oh Thursday')}</p>
                 <p className='where-p'>Föstudagar {get('oh Friday')}</p>
-            </div>
-
-
-        <Footer/>
-
-        </div>
-    );
-            }
-
-    export default Frontpage;
+            </div>*/
