@@ -23,9 +23,20 @@ function Frontpage() {
     const [fetchError, setFetchError] = useState("")
     const [frontpage, setFrontpage] = useState(null) as [Data[] | null, (frontpage: Data[] | null) => void]
 
-    const get=(name:string) => {
-        return frontpage?.filter(content => content.name === name) [0].value as string
-    }
+    const get = (name: string) => {
+        // Check if frontpage is not null and not empty
+        if (frontpage && frontpage.length > 0) {
+          const filteredContent = frontpage.filter(item => item.name === name);
+          // Check if any matching content was found
+          if (filteredContent.length > 0) {
+            return filteredContent[0].value as string;
+          } else {
+            return ""; // Return an empty string if no matching content found
+          }
+        } else {
+          return ""; // Return an empty string if frontpage is empty or null
+        }
+      };
 
     useEffect(() => {
         const fetchFrontpage = async () => {
@@ -62,6 +73,7 @@ function Frontpage() {
                 <div className='iconbtn'>
                     <div className='icon-box'>
                         <img className='icon' src='/phoneicon.png' alt='phone'/>
+                        <p>Símanúmer Læknasetursins er</p>
                         {error && <p>{error}</p>}
                         <div>
                             <p className='info-btn2'>{get('Phone number')}</p>
@@ -70,30 +82,47 @@ function Frontpage() {
                 </div>
 
                 <div className='iconbtn'>
+                {error && <p>{error}</p>}
                     <Link href='/laeknar'>
                         <div className='icon-box'>
                             <img className='icon' src='/clockicon.png' alt='opening hours icon' />
                             <p className='info-btn2'>Opnunartímar</p>
+                            <p className='oh'>{get('oh Monday')}</p>
+                            <p className='oh'>{get('oh Friday')}</p>
                         </div>
                     </Link>
                 </div>
             </div>
 
-        <p>Aðeins um læknasetrið</p>
-
+        <h2>Velkomin í Læknasetrið</h2>
+        <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+            officia deserunt mollit anim id est laborum.</p>
         <div className='midsectioncontainer'>
             <div className='midsectionbtn'>
+                <img className='icon2' src='/doctorsicon.png' alt='doctor icon' />
+                <div className='textandbtn'>
+                    <p className='info-btn2'>Læknar</p>
+                    <p>Sjáðu alla lækna og annað starfsfólk sem starfar 
+                    í Læknasetrinu</p>
                     <Link href='/laeknar'>
-                        <img className='icon2' src='/doctorsicon.png' alt='doctor icon' />
-                        <p className='info-btn2'>Læknar</p>
+                        <button>Læknar</button>
                     </Link>
                 </div>
+            </div>
 
                 <div className='midsectionbtn'>
-                    <Link href='/rannsoknir'>
-                        <img className='icon2' src='/ecgicon.png' alt='doctor icon' />
+                    <img className='icon2' src='/ecgicon.png' alt='doctor icon' />
+                    <div className='textandbtn'>
                         <p className='info-btn2'>Rannsóknir</p>
-                    </Link>
+                        <p>Lestu um allar þær rannsóknir sem gerðar
+                        eru í Læknasetrinu</p>
+                        <Link href='/rannsoknir'>
+                            <button>Rannsóknir</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
 
@@ -101,7 +130,7 @@ function Frontpage() {
 
         {error && <p>{error}</p>}
  
-            <h2 className='where-h2'>{get('title')}</h2>
+            <h2>{get('title')}</h2>
             
         <div className='where'>
             <div className='where1'>

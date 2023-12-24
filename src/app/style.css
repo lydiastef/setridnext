@@ -4,6 +4,30 @@ a {
   text-decoration: none;
 }
 
+h1, h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-top: 4rem;
+}
+
+p {
+  font-size: 12px;
+  text-align: center;
+  color: black;
+  margin: .5rem 1rem;
+}
+
+button {
+  margin: 1rem 0;
+  padding: .5rem;
+  background-color: #AC0B11;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
 .main-img {
   max-width: 100%;
   z-index: -1;
@@ -40,7 +64,8 @@ span {
   border: solid 1px rgb(212, 212, 212);
   border-radius: 8px;
   width: 168px;
-  height: 144px;
+  height: 200px;
+  padding: 1rem;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   margin: 2rem 1rem 4rem 1rem;
@@ -56,18 +81,29 @@ span {
 }
 
 .icon2 {
-  width: 48px;
-  margin-bottom: 4px;
+  width: 80px;
+  margin: 0 1rem 0 2rem;
+}
+
+.textandbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .info-btn2 {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: #AC0B11;
   cursor: pointer;
   text-decoration: none;
   position: relative;
-  padding: 2px;
+  margin: .5rem 0;
+}
+
+.oh {
+  color: black;
+  text-align: center;
 }
 
 h2, h3 {
@@ -75,8 +111,15 @@ h2, h3 {
   color: #AC0B11;
 }
 
+.text {
+  margin: 1rem 4rem;
+  letter-spacing: .3px;
+  line-height: 20px;
+}
+
 .midsectioncontainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 4rem;
@@ -86,8 +129,8 @@ h2, h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
-  height: 160px;
+  width: 100%;
+  height: 168px;
   border: solid #AC0B11;
 }
 
@@ -163,6 +206,14 @@ h2, h3 {
 }
 
 @media only screen and (min-width: 700px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
   .main-img {
   }
 
@@ -176,8 +227,8 @@ h2, h3 {
   }
 
   .icon-box {
-    width: 240px;
-    height: 200px;
+    width: 264px;
+    height: 216px;
     margin: 1rem 
   }
 
@@ -188,7 +239,7 @@ h2, h3 {
 
   .icon2 {
     width: 72px;
-    margin-bottom: 4px;
+    margin-left: 2rem;
   }
 
   .phone {
@@ -197,6 +248,15 @@ h2, h3 {
   }
   .info-btn1, .info-btn2 {
     font-size: 18px;
+  }
+
+  .midsectioncontainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .midsectionbtn {
+    height: 200px;
   }
   
   .where-h2 {
@@ -215,6 +275,13 @@ h2, h3 {
 
 }
 @media only screen and (min-width: 900px) {
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 14px;
+  }
 
   .main-img {
   }
@@ -286,6 +353,14 @@ h2, h3 {
 }
 
 @media only screen and (min-width: 1050px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  button {
+    padding: .8rem;
+    font-size: 15px;
+  }
 
   .welcome-h1 {
     font-size: 28px;
@@ -306,6 +381,10 @@ h2, h3 {
 
   .icon2 {
     width: 96px;
+  }
+
+  .midsectionbtn {
+    height: 240px;
   }
 
 }
