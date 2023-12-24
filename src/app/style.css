@@ -26,6 +26,14 @@ button {
   color: white;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  width: 112px;
+  letter-spacing: .5px;
+}
+
+button:hover {
+  background-color: #81090D;
+  font-weight: 900;
 }
 
 .main-img {
