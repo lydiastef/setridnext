@@ -19,7 +19,7 @@ header {
   justify-content: space-between;
   max-width: 100%;
   height: 100px;
-  padding: 0 4rem;
+  padding: 0 2rem;
   background-color: white;
   color: #AC0B11;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
@@ -33,12 +33,11 @@ header {
 
 nav a {
   text-align: center;
-  margin: 0;
+  margin: 1rem;
   color: #AC0B11;
   text-decoration: none;
   font-size: 16px;
   position: relative;
-  width: 20vh;
 }
 
 nav a::before {
@@ -84,7 +83,7 @@ header .nav-btn {
     position: fixed;
     top: 0;
     right: 0;
-    height: 60%;
+    height: 65%;
     width: 50%;
     display: flex;
     align-items: center;
@@ -92,14 +91,16 @@ header .nav-btn {
     background-color: white;
     transition: 1s;
     transform: translateY(-100vh);
-    border: solid 1px #AC0B11;
+    border: solid .5px #ac0b1053;
     border-radius: 0 0 5px 5px;
 
   }
   .a-container {
     display: flex;
     flex-direction: column;
+    margin-top: 3rem;
   }
+  
   header .responsive_nav {
     transform: none;
   }

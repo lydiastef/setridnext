@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './style.css';
 
 
 const SearchBar = () => {
@@ -20,9 +21,10 @@ const SearchBar = () => {
     <div>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Leita..."
         value={searchTerm}
         onChange={handleSearch}
+        className="search-bar"
       />
     </div>
   );
