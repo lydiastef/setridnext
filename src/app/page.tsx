@@ -83,14 +83,12 @@ function Frontpage() {
 
                 <div className='iconbtn'>
                 {error && <p>{error}</p>}
-                    <Link href='/laeknar'>
-                        <div className='icon-box'>
-                            <img className='icon' src='/clockicon.png' alt='opening hours icon' />
-                            <p className='info-btn2'>Opnunartímar</p>
-                            <p className='oh'>{get('oh Monday')}</p>
-                            <p className='oh'>{get('oh Friday')}</p>
-                        </div>
-                    </Link>
+                    <div className='icon-box'>
+                        <img className='icon' src='/clockicon.png' alt='opening hours icon' />
+                        <p className='info-btn2'>Opnunartímar</p>
+                        <p className='oh'>{get('oh Monday')}</p>
+                        <p className='oh'>{get('oh Friday')}</p>
+                    </div>
                 </div>
             </div>
 
