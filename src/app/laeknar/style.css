@@ -14,7 +14,6 @@
     font-size: 32px;
     margin: 2rem;
     color: #7D070C;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 p {
@@ -80,7 +79,12 @@ p {
     border: solid 1px rgba(0, 0, 0, 0.300);
     border-radius: 8px;
     margin-bottom: 4rem;
-    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.individual-cards:hover {
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 .card-img {
@@ -217,7 +221,7 @@ p {
 
     .cards {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         grid-gap: 80px;
         align-items: stretch;
         position: relative;

@@ -43,7 +43,7 @@
     border: solid 1px rgba(0, 0, 0, 0.257);
     border-radius: 8px;
     margin-bottom: 2rem;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     width: 268px;
     height: 120px;
     cursor: pointer;
@@ -51,7 +51,7 @@
 }
 
 .individual-btn:hover {
-    font-size: 20px;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .btn-h2 {
