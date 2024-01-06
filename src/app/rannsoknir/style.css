@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:ital,wght@0,500;0,700;1,300&display=swap');
 
 * {
     padding: 0;
@@ -39,23 +39,28 @@
     display: flex;
     flex: 1;
     align-items: center;
-    justify-content: center;
     border: solid 1px rgba(0, 0, 0, 0.257);
     border-radius: 8px;
     margin-bottom: 2rem;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-    width: 268px;
+    width: 272px;
     height: 120px;
     cursor: pointer;
     font-size: 16px;
+    padding: 1rem;
 }
 
 .individual-btn:hover {
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
 }
 
+.card-icon {
+    width: 56px;
+    margin: auto .6rem;
+}
+
 .btn-h2 {
-    font-size: 16px;
+    font-size: 14px;
     color: #AC0B11;
 }
 
@@ -115,7 +120,7 @@
 
     .btn-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
         grid-gap: 20px;
         align-items: stretch;
         position: relative;
@@ -161,8 +166,6 @@
     .individual-btn {
         display: flex;
         align-items: center;
-        justify-content: center;
-
     }
     
     .rannsokn-p {

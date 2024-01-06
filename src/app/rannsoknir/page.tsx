@@ -42,7 +42,7 @@ useEffect(() => {
       //const fetchLaeknar = async () => {
         let setState = table === 'rannsoknircards'? setRannsoknircards:setRannsoknir;
 
-        let query = table === 'rannsoknircards'?'name, value':undefined
+        let query = table === 'rannsoknircards'?'name, value, icon':undefined
           const { data, error } = await supabase
           .from(table) //fetching data from this table in Supabase
           .select(query)
@@ -83,6 +83,7 @@ useEffect(() => {
 
       <div className='btn-container'>
         {rannsoknircards?.map(rannsokn => {
+          console.log(rannsokn);
             return (
                 <div className='individual-btn'>
                     <img className='card-icon' src={rannsokn.icon || undefined} alt='icon' />

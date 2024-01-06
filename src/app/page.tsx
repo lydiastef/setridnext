@@ -66,31 +66,33 @@ function Frontpage() {
     return(
         <div>
             <Navbar/>
-            <h1 className='welcome-h1'>Velkomin í<br/> <span>Læknasetrið</span></h1>
-            <img className='main-img' src='/main8.avif' alt='stethoscope' />
+            <img className='main-img' src='/main1.avif' alt='stethoscope' />
 
             <div className='phoneclockcontainer'>
+
+                <Link href='/laeknar'>
+                    <div className='iconbtn'> 
+                    <img className='icon2' src='/doctorsicon.png' alt='doctor icon' />
+                        <p className='info-btn2'>Læknar</p>
+                    </div>
+                </Link>
+
                 <div className='iconbtn'>
-                    <div className='icon-box'>
-                        <img className='icon' src='/phoneicon.png' alt='phone'/>
-                        <p>Símanúmer Læknasetursins er</p>
+                    <img className='icon2' src='/phoneicon.png' alt='phone'/>
                         {error && <p>{error}</p>}
                         <div>
                             <p className='info-btn2'>{get('Phone number')}</p>
                         </div>
-                    </div>
                 </div>
 
-                <div className='iconbtn'>
-                {error && <p>{error}</p>}
-                    <div className='icon-box'>
-                        <img className='icon' src='/clockicon.png' alt='opening hours icon' />
-                        <p className='info-btn2'>Opnunartímar</p>
-                        <p className='oh'>{get('oh Monday')}</p>
-                        <p className='oh'>{get('oh Friday')}</p>
+                <Link href='/rannsoknir'>
+                    <div className='iconbtn'>
+                    <img className='icon2' src='/ecgicon.png' alt='doctor icon' />
+                        <p className='info-btn2'>Rannsóknir</p>
                     </div>
-                </div>
+                </Link>
             </div>
+            
 
         <h2>Velkomin í Læknasetrið</h2>
         <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
@@ -98,9 +100,11 @@ function Frontpage() {
             aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
             dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
             officia deserunt mollit anim id est laborum.</p>
+        
+        
         <div className='midsectioncontainer'>
             <div className='midsectionbtn'>
-                <img className='icon2' src='/doctorsicon.png' alt='doctor icon' />
+                <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
                 <div className='textandbtn'>
                     <p className='info-btn2'>Læknar</p>
                     <p>Sjáðu alla lækna og annað starfsfólk sem starfar 
@@ -112,7 +116,7 @@ function Frontpage() {
             </div>
 
                 <div className='midsectionbtn'>
-                    <img className='icon2' src='/ecgicon.png' alt='doctor icon' />
+                    <img className='icon' src='/ecgicon.png' alt='doctor icon' />
                     <div className='textandbtn'>
                         <p className='info-btn2'>Rannsóknir</p>
                         <p>Lestu um allar þær rannsóknir sem gerðar
@@ -124,6 +128,13 @@ function Frontpage() {
                 </div>
             </div>
 
+            <div className='oh-container'>
+                {error && <p>{error}</p>}
+                    <img className='icon2' src='/clockicon.png' alt='opening hours icon' />
+                    <p className='info-btn2'>Opnunartímar</p>
+                    <p className='oh'>{get('oh Monday')}</p>
+                    <p className='oh'>{get('oh Friday')}</p>
+            </div>
 
 
         {error && <p>{error}</p>}

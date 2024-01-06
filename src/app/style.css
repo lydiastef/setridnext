@@ -1,4 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:ital,wght@0,500;0,700;1,300&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+}
 
 a {
   text-decoration: none;
@@ -63,17 +68,23 @@ span {
   align-items: center;
   justify-content: center;
   border: solid 1px #cdcdcd;
+  padding: 1.5rem;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.icon-box {
+.iconbtn {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 168px;
+  width: 96px;
+  height: 96px;
   padding: .5rem;
-  margin: .5rem;
+  margin: .6rem;
+  border: solid 1px #c6c3c3;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .icon {
@@ -81,8 +92,7 @@ span {
 }
 
 .icon2 {
-  width: 80px;
-  margin: 0 1rem 0 2rem;
+  width: 48px;
 }
 
 .textandbtn {
@@ -92,13 +102,19 @@ span {
 }
 
 .info-btn2 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   color: #AC0B11;
-  cursor: pointer;
   text-decoration: none;
   position: relative;
   margin: .2rem 0;
+}
+
+.oh-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .oh {
@@ -231,11 +247,12 @@ h2, h3 {
     font-size: 26px;
   }
 
-  .icon-box {
-    width: 264px;
-    height: 216px;
-    margin: 1rem 
+  .iconbtn {
+    width: 136px;
+    height: 136px;
+    margin: 2rem;
   }
+
 
   .icon {
     width: 56px;
@@ -243,8 +260,7 @@ h2, h3 {
   }
 
   .icon2 {
-    width: 72px;
-    margin-left: 2rem;
+    width: 64px;
   }
 
   .phone {
@@ -252,7 +268,7 @@ h2, h3 {
     margin: 2rem 0 0 0;
   }
   .info-btn1, .info-btn2 {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .midsectioncontainer {
@@ -278,38 +294,31 @@ h2, h3 {
     padding: 1rem 8rem 1.5rem 8rem;
   }
 
+  .oh-container {
+    margin: 4rem 0 6rem 0;
+  }
+
 }
 @media only screen and (min-width: 900px) {
   h2 {
     font-size: 22px;
   }
 
-  p {
-    font-size: 14px;
-  }
-
   .main-img {
   }
 
   .iconbtn {
-  }
-
-  .icon {
-    width: 80px;
+    width: 152px;
+    height: 152px;
+    margin: 2rem;
   }
 
   .icon2 {
-    width: 96px;
-  }
-
-  .icon-box {
-    width: 280px;
-    height: 240px;
-    margin-bottom: 4rem;
+    width: 72px;
   }
 
   .info-btn1, .info-btn2 {
-    font-size: 20px;
+    font-size: 16px;
     letter-spacing: 1.5px;
   }
 
@@ -321,13 +330,14 @@ h2, h3 {
     padding: 0 6rem 2rem 6rem;
   }
 
+  /*
   .oh-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     margin: 4rem 9rem 3rem 9rem;
-  }
+  }*/
 
   .where {
     display: flex;
@@ -381,6 +391,12 @@ h2, h3 {
   }
 
   .main-img {
+  }
+
+  .iconbtn {
+    width: 200px;
+    height: 200px;
+    margin: 2rem;
   }
 
   .icon-box {
