@@ -19,6 +19,7 @@ type Cards = {
     value: string | null;
     icon: string | null;
     info: string | null;
+    type: string | null;
   }
 
 function Rannsoknir() {
@@ -89,7 +90,7 @@ useEffect(() => {
                     <img className='card-icon' src={rannsokn.icon || undefined} alt='icon' />
                 {error && <p>{error}</p>}
                 <h2 className='btn-h2'>{rannsokn.name}</h2>
-                <p className='btn-p'>{rannsokn.info}</p>
+                <p className='btn-p'>{rannsokn.type}</p>
                 </div>
             )
         })}          

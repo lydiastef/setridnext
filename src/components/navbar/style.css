@@ -36,7 +36,7 @@ nav a {
   margin: 1rem;
   color: #AC0B11;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 20px;
   position: relative;
 }
 
@@ -77,7 +77,6 @@ header .nav-btn {
     visibility: visible;
     opacity: 1;
     font-size: 28px;
-    margin-right: 2rem;
   }
 
   header nav {

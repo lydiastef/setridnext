@@ -41,6 +41,10 @@ button:hover {
   font-weight: 900;
 }
 
+.imgandtext {
+  display: flex;
+}
+
 .main-img {
   max-width: 100%;
   z-index: -1;
@@ -51,15 +55,15 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 4rem 1rem 0 4rem;
-  font-size: 18px;
+  margin: 3rem 2rem 0 2rem;
+  font-size: 16px;
   z-index: 1;
   position: absolute;
 }
 
 span {
   color: #AC0B11;
-  font-size: 20px;
+  font-size: 18px;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
@@ -81,10 +85,7 @@ span {
   height: 96px;
   padding: .5rem;
   margin: .6rem;
-  border: solid 1px #c6c3c3;
   border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .icon {
@@ -148,7 +149,7 @@ h2, h3 {
   justify-content: center;
   width: 100%;
   height: 200px;
-  border: solid 1.5px #AC0B11;
+  border: solid 1px #AC0B11;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
@@ -239,7 +240,7 @@ h2, h3 {
   }
 
   .welcome-h1 {
-    margin: 4rem 0 0 4rem;
+    margin: 6rem 0 0 4rem;
     font-size: 20px;
   }
 
@@ -267,8 +268,13 @@ h2, h3 {
     font-size: 20px;
     margin: 2rem 0 0 0;
   }
+
   .info-btn1, .info-btn2 {
-    font-size: 14px;
+    font-size: 18px;
+  }
+
+  .text {
+    margin: auto 6rem;
   }
 
   .midsectioncontainer {
@@ -278,6 +284,8 @@ h2, h3 {
 
   .midsectionbtn {
     height: 200px;
+    width: 264px;
+    border: none;
   }
   
   .where-h2 {
@@ -313,13 +321,26 @@ h2, h3 {
     margin: 2rem;
   }
 
+  .icon {
+    width: 64px;
+  }
+
   .icon2 {
     width: 72px;
   }
 
   .info-btn1, .info-btn2 {
-    font-size: 16px;
+    font-size: 24px;
     letter-spacing: 1.5px;
+  }
+
+  .text {
+    margin: auto 10rem;
+  }
+
+  .midsectionbtn {
+    width: 400px;
+    margin: 2rem;
   }
 
   .instructions {
@@ -382,12 +403,13 @@ h2, h3 {
   }
 
   .welcome-h1 {
-    font-size: 28px;
-    margin: 4rem 0 0 8rem;
+    font-size: 32px;
+    margin: 10rem 0 0 8rem;
   }
 
   span {
     font-size: 40px;
+    margin: .5rem;
   }
 
   .main-img {

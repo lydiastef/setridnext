@@ -29,7 +29,6 @@ function Navbar() {
                 <div className='a-container'>
                     <a href='/rannsoknir'>Rannsóknir</a>
                     <a href='/laeknar'>Starfsfólk</a>
-                    <a href='/covid'>Covid-19</a>
                     <a href='/enska'>English</a>
                     <SearchBar />
                     <button className='nav-btn nav-close-btn' onClick={showNavbar}>

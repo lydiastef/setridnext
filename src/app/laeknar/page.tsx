@@ -21,6 +21,7 @@ type Staff = {
   position: string | null;
   education: string | null;
   experience: string | null;
+  type: string | null;
 }
 
 type Position = {
@@ -68,7 +69,7 @@ function fetchData() {
       //const fetchLaeknar = async () => {
         let setState = table === 'position'? setPosition:setDoctorspage
 
-        let query=table === 'position'?'name, staff(name, image, doctor, education, experience)':undefined
+        let query=table === 'position'?'name, staff(name, image, type, doctor, education, experience)':undefined
           const { data, error } = await supabase
           .from(table) //fetching data from this table in Supabase
           .select(query)
@@ -125,7 +126,7 @@ function fetchData() {
                           <div key={person.id} className='individual-cards' onClick={() => openPopup(person)}>
                           <img className='card-img' src={person.image || undefined} alt='doctor' />
                             <p className='doctors-p'>{person.doctor}</p>
-                            <p className='doctors-p'>{person.position}</p>
+                            <p className='doctors-p'>{person.type}</p>
                           </div>
                         )
                     })}
@@ -136,12 +137,13 @@ function fetchData() {
                       <div className="popup-card">
                         <img className="popup-img" src={selectedPerson.image || undefined} alt="doctor" />
                         <p className="popup-doctors-p1">{selectedPerson.doctor}</p>
-                        <p className="popup-doctors-p2">{selectedPerson.position}</p>
+                        <p className="popup-doctors-p2">{selectedPerson.type}</p>
                         <p className="popup-doctors-p3">{selectedPerson.education}</p>
                         <p className="popup-doctors-p4">{selectedPerson.experience}</p>
                         <button className='close-btn' onClick={closePopup}>X</button>
                       </div>
-                    </>                  )}
+                    </>                  
+                    )}
                     </div>
                   )})}    
           </div>
