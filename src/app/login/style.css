@@ -9,36 +9,34 @@
     border-radius: 8px;
 }
 
-p {
-    margin: 2rem auto 1rem auto;
-    font-size: 16px;
-    font-weight: bold;
-    color: #AC0B11;
+h1 {
+    font-size: 24px;
+    margin: 2rem;
 }
 
 .email {
-    margin: .5rem;
+    margin: .2rem auto .7rem auto;
     border: solid 1px;
     padding: 8px;
     border-radius: 5px;
 }
 
 .password {
-    margin: .5rem;
+    margin: .2rem auto .7rem auto;
     border: solid 1px;
     padding: 8px;
     border-radius: 5px;
 }
 
 .login-btn {
-    margin: .5rem .5rem 2rem .5rem;
+    margin: 1rem .5rem 2rem .5rem;
     padding: 8px;
     border-radius: 5px;
     border: solid 1px;
     cursor: pointer;
     border: solid #AC0B11;
     background-color: #AC0B11;
-    width: 180px;
+    width: 172px;
     color: white;
 }
 

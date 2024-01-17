@@ -9,7 +9,7 @@ a {
   text-decoration: none;
 }
 
-h1, h2 {
+h1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,11 +22,20 @@ p {
   text-align: center;
   color: black;
   margin: .5rem 1rem;
+  line-height: 24px;
+}
+
+.undericon {
+  color: #AC0B11;
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 button {
   margin: 1rem 0;
-  padding: .5rem;
+  padding: .8rem;
   background-color: #AC0B11;
   color: white;
   border: none;
@@ -34,11 +43,11 @@ button {
   cursor: pointer;
   width: 112px;
   letter-spacing: .5px;
+  font-size: 14px;
 }
 
 button:hover {
   background-color: #81090D;
-  font-weight: 900;
 }
 
 .imgandtext {
@@ -81,19 +90,25 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 96px;
+  width: 104px;
   height: 96px;
   padding: .5rem;
-  margin: .6rem;
+  margin: 1rem;
   border-radius: 8px;
 }
 
 .icon {
-  width: 48px;
+  width: 64px;
 }
 
 .icon2 {
   width: 48px;
+}
+
+.icon3 {
+  width: 56px;
+  margin-bottom: .3rem;
+  margin-top: .5rem;
 }
 
 .textandbtn {
@@ -103,12 +118,11 @@ span {
 }
 
 .info-btn2 {
-  font-size: 12px;
-  font-weight: 700;
-  color: #AC0B11;
+  font-size: 14px;
+  font-weight: 500;
   text-decoration: none;
   position: relative;
-  margin: .2rem 0;
+  margin: 0;
 }
 
 .oh-container {
@@ -125,6 +139,10 @@ span {
 }
 
 h2, h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
   margin-bottom: 2rem;
   color: #AC0B11;
 }
@@ -132,7 +150,7 @@ h2, h3 {
 .text {
   margin: 1rem 4rem;
   letter-spacing: .3px;
-  line-height: 20px;
+  line-height: 24px;
 }
 
 .midsectioncontainer {
@@ -140,7 +158,7 @@ h2, h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 4rem;
+  margin: 4rem 4rem 6rem 4rem;
 }
 
 .midsectionbtn {
@@ -148,10 +166,10 @@ h2, h3 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 200px;
+  height: 216px;
   border: solid 1px #AC0B11;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 /*
@@ -230,13 +248,16 @@ h2, h3 {
 @media only screen and (min-width: 700px) {
   h2 {
     font-size: 20px;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
   }
 
   p {
     font-size: 14px;
   }
 
-  .main-img {
+  .undericon {
+    font-size: 18px;
   }
 
   .welcome-h1 {
@@ -253,7 +274,6 @@ h2, h3 {
     height: 136px;
     margin: 2rem;
   }
-
 
   .icon {
     width: 56px;
@@ -283,9 +303,8 @@ h2, h3 {
   }
 
   .midsectionbtn {
-    height: 200px;
+    height: 224px;
     width: 264px;
-    border: none;
   }
   
   .where-h2 {
@@ -312,11 +331,13 @@ h2, h3 {
     font-size: 22px;
   }
 
-  .main-img {
+  .undericon {
+    font-size: 20px;
+    margin-bottom: 1rem;
   }
 
   .iconbtn {
-    width: 152px;
+    width: 160px;
     height: 152px;
     margin: 2rem;
   }
@@ -330,7 +351,7 @@ h2, h3 {
   }
 
   .info-btn1, .info-btn2 {
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: 1.5px;
   }
 
@@ -390,7 +411,7 @@ h2, h3 {
 
 @media only screen and (min-width: 1050px) {
   h2 {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   p {
@@ -398,8 +419,10 @@ h2, h3 {
   }
 
   button {
-    padding: .8rem;
-    font-size: 15px;
+    padding: 1rem;
+    font-size: 18px;
+    margin: 2rem;
+    width: 136px;
   }
 
   .welcome-h1 {
@@ -412,13 +435,10 @@ h2, h3 {
     margin: .5rem;
   }
 
-  .main-img {
-  }
-
   .iconbtn {
     width: 200px;
     height: 200px;
-    margin: 2rem;
+    margin: 4rem;
   }
 
   .icon-box {
@@ -430,13 +450,32 @@ h2, h3 {
     width: 96px;
   }
 
+  .icon {
+    margin: 1rem;
+  }
+
+  .icon3 {
+    margin: 1rem;
+  }
+
   .midsectionbtn {
-    height: 240px;
+    height: 296px;
+    padding: 1rem;
+  }
+
+  .text {
+    margin: auto 10rem;
   }
 
 }
 
 @media only screen and (min-width: 1300px) {
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
   .main-img {
     width: 100%;
     height: 800px;
@@ -469,7 +508,22 @@ h2, h3 {
     height: 500px;
     margin: 0 24rem 4rem 16rem;
   }
+
+  .text {
+    margin: auto 20rem;
+    font-size: 18px;
+    line-height: 28px;
+  }
   
+}
+
+@media only screen and (min-width: 1450px) {
+  .text {
+    margin: auto 30rem;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
 }
 
 /*# sourceMappingURL=style.css.map */

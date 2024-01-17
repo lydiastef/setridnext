@@ -1,8 +1,8 @@
 'use client'
-import './style.css';
-import Navbar from '../components/navbar/page';
-import Footer from '../components/footer/page';
-import supabase from '../config/supabaseClient';
+import './frontpageadmin.css';
+import Navbar from '../navbar/page';
+import Footer from '../footer/page';
+import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import Link from 'next/link';
 
@@ -67,7 +67,7 @@ function Frontpage() {
         <div>
             <Navbar/>
             <div className='imgandtext'>
-                <h1 className='welcome-h1'>Velkomin...</h1>
+                <h1 className='welcome-h1'>Velkomin í <span>Læknasetrið</span></h1>
                 <img className='main-img' src='/main8.avif' alt='stethoscope' />
             </div>
 
@@ -75,28 +75,28 @@ function Frontpage() {
 
             <div className='iconbtn'> 
                 <img className='icon2' src='/emailicon.png' alt='email icon' />
-                <h2 className='undericon'>Tölvupóstur</h2>
+                <p>Tölvupóstur</p>
                 {error && <p>{error}</p>}
                     <div>
                         <p className='info-btn2'>{get('email')}</p>
                     </div>
             </div>
 
-            <div className='iconbtn'>
-                    <img className='icon2' src='/clockicon.png' alt='clock icon' />
-                    <h2 className='undericon'>Opnunartímar</h2>
-                    {error && <p>{error}</p>}
-                    <p className='info-btn2'>{get('oh Monday')}</p>
-                    <p className='info-btn2'>{get('oh Friday')}</p>
-                </div>
-
                 <div className='iconbtn'>
                     <img className='icon2' src='/phoneicon.png' alt='phone'/>
-                    <h2 className='undericon'>Símanúmer</h2>
+                    <p>Símanúmer</p>
                         {error && <p>{error}</p>}
                         <div>
                             <p className='info-btn2'>{get('Phone number')}</p>
                         </div>
+                </div>
+
+                <div className='iconbtn'>
+                    <img className='icon2' src='/clockicon.png' alt='clock icon' />
+                    <p>Opnunartímar</p>
+                    {error && <p>{error}</p>}
+                    <p className='oh'>{get('oh Monday')}</p>
+                    <p className='oh'>{get('oh Friday')}</p>
                 </div>
             </div>
             
@@ -113,6 +113,7 @@ function Frontpage() {
             <div className='midsectionbtn'>
                 <div className='textandbtn'>
                 <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
+                    <p className='info-btn2'>Læknar</p>
                     <p>Sjáðu alla lækna og annað starfsfólk sem starfar 
                     í Læknasetrinu</p>
                     <Link href='/laeknar'>
@@ -123,15 +124,25 @@ function Frontpage() {
 
                 <div className='midsectionbtn'>
                     <div className='textandbtn'>
-                    <img className='icon3' src='/ecgicon.png' alt='doctor icon' />
+                    <img className='icon' src='/ecgicon.png' alt='doctor icon' />
+                        <p className='info-btn2'>Rannsóknir</p>
                         <p>Lestu um allar þær rannsóknir sem gerðar
                         eru í Læknasetrinu</p>
-                        <Link href='/frontpageadmin'>
+                        <Link href='/rannsoknir'>
                             <button>Rannsóknir</button>
                         </Link>
                     </div>
                 </div>
             </div>
+
+            <div className='oh-container'>
+                {error && <p>{error}</p>}
+                    <img className='icon2' src='/clockicon.png' alt='opening hours icon' />
+                    <p className='info-btn2'>Opnunartímar</p>
+                    <p className='oh'>{get('oh Monday')}</p>
+                    <p className='oh'>{get('oh Friday')}</p>
+            </div>
+
 
         {error && <p>{error}</p>}
  

@@ -23,7 +23,9 @@ function Navbar() {
 
     return (
         <header>
-            <img className="logo-img" src="../../../logosetrid.svg" alt="Logo" />
+            <Link style={{height:'50px', width:'800px'}} href='/'>
+                <img className="logo-img" src="../../../logosetrid.svg" alt="Logo" />
+            </Link>
 
             <nav ref={navRef}> 
                 <div className='a-container'>

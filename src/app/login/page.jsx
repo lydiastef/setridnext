@@ -1,13 +1,88 @@
 'use client'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { useState, useEffect } from 'react';
 import './style.css';
 import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
+import { useFormState, useFormStatus } from 'react-dom';
+import { authenticate } from '@/app/actions';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useState, useEffect } from 'react';
+import { useSession } from "next-auth/react"
+
 
 //import { useRouter } from '/auth/callback/route';
 
+/*export default function LoginPage() {
+    const [errorMessage, dispatch] = useFormState(authenticate, undefined);*/
 
+
+
+    export default function LoginForm() {
+        const { data: session, status } = useSession()
+        console.log('this is user', session.user)
+        const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+       
+        return (
+          <form action={dispatch} className="space-y-3">
+            <Navbar/>
+            <div className="login-container">
+              <h1>
+                Please log in to continue.
+              </h1>
+                <div>
+                  <label htmlFor="email">Email</label>
+                  <div>
+                    <input className='email'
+                      id="email"
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="password"
+                  >
+                    Password
+                  </label>
+                  <div>
+                    <input className='password'
+                      id="password"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      required
+                      minLength={6}
+                    />
+                  </div>
+                </div>
+            
+              <LoginButton />
+                {errorMessage && (
+                  <>
+                    <p>{errorMessage}</p>
+                  </>
+                )}
+            </div>
+            <Footer/>
+          </form>
+        );
+      }
+       
+      function LoginButton() {
+        const { pending } = useFormStatus();
+       
+        return (
+          <button className="login-btn" aria-disabled={pending}>
+            Log in
+          </button>
+        );
+      }
+
+
+
+/*
 export default function LoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -59,6 +134,8 @@ export default function LoginPage() {
         )
     }
 
+
+
     return (
         <main>
             <Navbar/>
@@ -83,7 +160,7 @@ export default function LoginPage() {
             <Footer/>
         </main>
     )
-}
+}*/
 
 /*
 https://www.youtube.com/watch?v=dhXjHGklaZc&ab_channel=CodeRyan

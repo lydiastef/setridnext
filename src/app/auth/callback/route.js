@@ -12,6 +12,7 @@ export async function GET(request) {
     }
 
     return NextResponse.redirect(requestUrl.origin)
+    
     /*We receive a code, create a cookiestore, create routehandlerclient, pass in the function that returns 
     our cookiestore and use supabase helper to exchange code for cookies. 
     Basically setting Supabase up to use cookies.*/
