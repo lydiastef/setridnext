@@ -4,8 +4,8 @@ import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/actions';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { useState, useEffect } from 'react';
+//import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+//import { useState, useEffect } from 'react';
 import { useSession } from "next-auth/react"
 
 
