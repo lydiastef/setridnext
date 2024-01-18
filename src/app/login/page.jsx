@@ -6,7 +6,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/actions';
 //import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 //import { useState, useEffect } from 'react';
-import { useSession } from "next-auth/react"
+import { useSession } from 'next-auth/react';
 
 
 //import { useRouter } from '/auth/callback/route';
@@ -17,7 +17,7 @@ import { useSession } from "next-auth/react"
 
 
     export default function LoginForm() {
-        const test = useSession()
+        const { data: session } = useSession();
         console.log('this is user', session.user)
         const [errorMessage, dispatch] = useFormState(authenticate, undefined);
        
