@@ -17,7 +17,7 @@ import { useSession } from "next-auth/react"
 
 
     export default function LoginForm() {
-        const { data: session, status } = useSession()
+        const test = useSession()
         console.log('this is user', session.user)
         const [errorMessage, dispatch] = useFormState(authenticate, undefined);
        
