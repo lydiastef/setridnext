@@ -61,9 +61,9 @@ function Footer() {
                     <p className='footer1'>{get('phone')}</p>
                     <p className='footer1'>{get('email')}</p>
                     <p className='footer1'>{get('kt')}</p>
-                    <Link href="https://www.facebook.com/profile.php?id=100054300169253">
-                        <img className='fb' src='/fbicon.png' alt='fb icon'></img>
-                    </Link>
+                    <Link className='fb-link' href="https://www.facebook.com/profile.php?id=100054300169253">
+                        Facebook
+                    </Link> síðan okkar
                 </div>
 
                 {error && <p>{error}</p>}

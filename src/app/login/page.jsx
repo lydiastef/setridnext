@@ -7,6 +7,7 @@ import { authenticate } from '@/app/actions';
 //import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 //import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
 
 
 //import { useRouter } from '/auth/callback/route';
@@ -14,11 +15,10 @@ import { useSession } from 'next-auth/react';
 /*export default function LoginPage() {
     const [errorMessage, dispatch] = useFormState(authenticate, undefined);*/
 
-
-
     export default function LoginForm() {
-        const { data: session } = useSession();
-        console.log('this is user', session.user)
+      <SessionProvider>
+      const test = useSession()
+      </SessionProvider>      
         const [errorMessage, dispatch] = useFormState(authenticate, undefined);
        
         return (

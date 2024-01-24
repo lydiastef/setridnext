@@ -5,7 +5,7 @@
   text-align: center;
   font-size: 12px;
   background-color: white;
-  height: 500px;
+  height: 600px;
   padding: 2rem 2rem;
   border-top: solid 2px #AC0B11;
   margin: auto 2rem;
@@ -26,11 +26,17 @@
 .admin-login {
   color: #AC0B11;
   margin-bottom: 2rem;
+  font-size: 14px;
 }
 
 .fb:hover {
   border: solid blue;
   border-radius: 50%;
+}
+
+.fb-link {
+  font-size: 14px;
+  color: #AC0B11;
 }
 
 @media only screen and (min-width: 900px) {

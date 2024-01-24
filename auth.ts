@@ -25,11 +25,7 @@ async function getUser(email: string): Promise<User | undefined> {
       throw error;
     }
 
-    if (data) {
-      return data;
-    } else {
-      return undefined; // User not found
-    }
+    return data;
   } catch (error) {
     // Handle any errors here
     console.error('Error fetching user:', error);

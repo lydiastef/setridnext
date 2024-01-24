@@ -25,7 +25,6 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: -24rem;
 }
 
 nav a {
