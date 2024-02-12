@@ -29,8 +29,8 @@ p {
   color: #AC0B11;
   margin-top: 0;
   margin-bottom: .5rem;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 button {
@@ -92,8 +92,20 @@ span {
   justify-content: center;
   width: 104px;
   height: 96px;
-  padding: .5rem;
-  margin: 1rem;
+  padding: 0;
+  margin: .5rem;
+  border-radius: 8px;
+}
+
+.iconbtn1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 96px;
+  padding: 0;
+  margin: -1rem .5rem .5rem .5rem;
   border-radius: 8px;
 }
 
@@ -102,7 +114,7 @@ span {
 }
 
 .icon2 {
-  width: 48px;
+  width: 40px;
 }
 
 .icon3 {
@@ -203,9 +215,10 @@ h2, h3 {
   align-items: center;
   justify-content: center;
   margin-bottom: 4rem;
+  text-align: center;
 }
 
-.where-h2 {
+h2 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,28 +226,17 @@ h2, h3 {
   color: #AC0B11;
 }
 
-.oh-h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem auto 2rem auto;
-  color: #AC0B11;
-  border: solid #AC0B11;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
 .where-p {
   margin: .5rem;
 }
 
 .where-img {
-  max-width: 80%;
+  max-width: 296px;
   margin: 0 4rem 4rem 4rem;
 }
 
 .where-img1 {
-  max-width: 80%;
+  max-width: 400px;
   margin: 0 4rem 4rem 4rem;
 }
 
@@ -272,7 +274,7 @@ h2, h3 {
   .iconbtn {
     width: 136px;
     height: 136px;
-    margin: 2rem;
+    margin: 1rem 4rem;
   }
 
   .icon {
@@ -305,13 +307,15 @@ h2, h3 {
   .midsectionbtn {
     height: 224px;
     width: 264px;
+    margin: 1rem;
   }
   
-  .where-h2 {
+  h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10rem auto 2rem auto;
+    margin: 6rem auto 3rem auto;
+    font-size: 26px;
   }
 
   .instructions {
@@ -321,14 +325,23 @@ h2, h3 {
     padding: 1rem 8rem 1.5rem 8rem;
   }
 
-  .oh-container {
-    margin: 4rem 0 6rem 0;
+  .where-img {
+    max-width: 400px;
   }
-
+  
+  .where-img1 {
+    max-width: 504px;
+  }
 }
+
 @media only screen and (min-width: 900px) {
   h2 {
-    font-size: 22px;
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 28px;
   }
 
   .undericon {
@@ -340,6 +353,12 @@ h2, h3 {
     width: 160px;
     height: 152px;
     margin: 2rem;
+  }
+
+  .iconbtn1 {
+    width: 160px;
+    height: 152px;
+    margin: auto 2rem 2.85rem 2rem;
   }
 
   .icon {
@@ -386,6 +405,7 @@ h2, h3 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin: auto 6rem;
   }
 
   .where1 {

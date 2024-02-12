@@ -7,6 +7,7 @@
     margin: 8rem auto;
     border: solid #AC0B11;
     border-radius: 8px;
+    padding: 2rem;
 }
 
 h1 {
@@ -14,14 +15,15 @@ h1 {
     margin: 2rem;
 }
 
-.email {
+.email-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
     margin: .2rem auto .7rem auto;
-    border: solid 1px;
-    padding: 8px;
-    border-radius: 5px;
 }
 
-.password {
+.input {
     margin: .2rem auto .7rem auto;
     border: solid 1px;
     padding: 8px;
@@ -38,8 +40,35 @@ h1 {
     background-color: #AC0B11;
     width: 172px;
     color: white;
+    letter-spacing: 1px;
 }
 
 .login-btn:hover {
     background-color: #7D070C;
+}
+
+@media only screen and (min-width: 700px){
+
+h1 {
+    font-size: 28px;
+}
+
+.login-container {
+    width: 448px;
+}
+
+.email-container {
+    width: 304px;
+    font-size: 20px;
+}
+
+.input {
+    width: 304px;
+    font-size: 20px;
+}
+
+.login-btn {
+    width: 304px;
+    font-size: 20px;
+}
 }

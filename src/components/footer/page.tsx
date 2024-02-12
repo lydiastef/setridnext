@@ -22,9 +22,15 @@ function Footer() {
     const [fetchError, setFetchError] = useState("")
     const [footer, setFooter] = useState(null) as [Data[] | null, (footer: Data[] | null) => void]
 
-    const get=(name:string) => {
-        return footer?.filter(content => content.name === name) [0].value as string
-    }
+    const get = (name: string) => {
+        const filteredContent = footer?.filter(content => content.name === name);
+        if (filteredContent && filteredContent.length > 0) {
+          return filteredContent[0].value as string;
+        } else {
+          // Handle case where content with the specified name is not found
+          return ""; // Or return a default value, throw an error, etc.
+        }
+      }
 
     useEffect(() => {
         const fetchFooter = async () => {

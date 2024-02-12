@@ -73,7 +73,7 @@ function Frontpage() {
 
             <div className='phoneclockcontainer'>
 
-            <div className='iconbtn'> 
+            <div className='iconbtn1'> 
                 <img className='icon2' src='/emailicon.png' alt='email icon' />
                 <h2 className='undericon'>Tölvupóstur</h2>
                 {error && <p>{error}</p>}
@@ -90,7 +90,7 @@ function Frontpage() {
                     <p className='info-btn2'>{get('oh Friday')}</p>
                 </div>
 
-                <div className='iconbtn'>
+                <div className='iconbtn1'>
                     <img className='icon2' src='/phoneicon.png' alt='phone'/>
                     <h2 className='undericon'>Símanúmer</h2>
                         {error && <p>{error}</p>}

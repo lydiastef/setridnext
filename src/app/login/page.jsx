@@ -1,5 +1,85 @@
 'use client'
 import './style.css';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import Navbar from '../../components/navbar/page';
+import Footer from '../../components/footer/page';
+
+export default function Login() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const router = useRouter()
+  const supabase = createClientComponentClient()
+
+  const handleSignUp = async () => {
+    await supabase.auth.signUp({
+      email: 'lydiadoula@gmail.com',
+      password: '123456',
+      options: {
+        emailRedirectTo: `${location.origin}/laeknar/admin`,
+      },
+    })
+    router.refresh()
+  }
+
+  const handleSignIn = async () => {
+    await supabase.auth.signInWithPassword({
+      email,
+      password,
+    })
+    router.refresh()
+  }
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut()
+    router.refresh()
+  }
+
+  return (
+    <>
+    <Navbar/>
+    <form action="/auth/login" method="post">
+      <div className="login-container">
+        <h1>Innskráning</h1>
+          <div>
+            <div className='email-container'>
+              <label htmlFor="email">Email</label>
+              <input className="input" name="email" placeholder="Email" />
+            </div>
+            <div className='email-container'>
+              <label htmlFor="password">Lykilorð</label>
+              <input className="input" type="password" name="password" placeholder="Lykilorð" />
+            </div>
+          </div>
+        <button className="login-btn">Skrá inn</button>
+        <button formAction="/auth/sign-up">Sign Up</button>
+        <button formAction="/auth/logout">Sign Out</button>
+      </div>
+    </form>
+    <Footer/>
+    </>
+  )
+}
+
+  /*return (
+    <>
+      <input name="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+      <input
+        type="password"
+        name="password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+      />
+      <button onClick={handleSignUp}>Sign up</button>
+      <button onClick={handleSignIn}>Sign in</button>
+      <button onClick={handleSignOut}>Sign out</button>
+    </>
+  )
+}*/
+
+/*'use client'
+import './style.css';
 import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
 import { useFormState, useFormStatus } from 'react-dom';
@@ -15,7 +95,7 @@ import { SessionProvider } from 'next-auth/react';
 /*export default function LoginPage() {
     const [errorMessage, dispatch] = useFormState(authenticate, undefined);*/
 
-    export default function LoginForm() {
+    /*export default function LoginForm() {
       <SessionProvider>
       const test = useSession()
       </SessionProvider>      
@@ -78,7 +158,7 @@ import { SessionProvider } from 'next-auth/react';
             Log in
           </button>
         );
-      }
+      }*/
 
 
 

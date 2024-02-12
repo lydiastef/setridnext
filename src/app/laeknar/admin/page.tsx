@@ -6,6 +6,7 @@ import supabase from '../../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import TitleModal from '../../../components/modal/titlemodal';
 import PersonModal from '../../../components/modal/personmodal';
+import { useRouter } from 'next/navigation'
 
 
 type Content = {
@@ -34,7 +35,10 @@ staff: Staff[] | null;
 
 function fetchData() {
 
+
+
   //Fetching data from Supabase - start
+const router = useRouter()
 
 const [content, setContent] = useState({});
 const [error, setError] = useState(null);
@@ -65,6 +69,10 @@ const closeModalp = () => {setIsModalOpenp(-1);};
 
 useEffect(() => {
   const fetchDataFromTable = async (table: string) => {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (!user) {
+        router.push('http://localhost:3000/login')
+      }
     //const fetchLaeknar = async () => {
       let setState = table === 'position'? setPosition:setDoctorspage
 
