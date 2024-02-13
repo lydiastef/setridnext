@@ -104,21 +104,16 @@
     .image-and-intro {
         display: flex;
         flex-direction: row;
-        margin-bottom: 6rem;
+        margin: auto 6rem 6rem 6rem;
     }
 
     .main-img2 {
-        max-width: 30%;
+        max-width: 40%;
         order: 2;
-        margin-right: 6rem;
-    }
-
-    .intro-p {
-        margin: 1rem 2rem auto 6rem;
     }
 
     .individual-btn {
-        margin: 1rem 4rem;
+        margin: 1rem;
     }
 
     .btn-container {
@@ -136,48 +131,47 @@
 
     .h1 {
         font-size: 40px;
-        margin: 4rem;
+        margin: 6rem;
     }
 
     .btn-h2 {
-        font-size: 18px;
+        font-size: 20px;
         color: #AC0B11;
     }
 
     .image-and-intro {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 6rem;
+        margin: auto 20rem 6rem 20rem;
     }
 
     .main-img2 {
-        max-width: 30%;
+        max-width: 40%;
         order: 2;
-        margin-right: 8rem;
     }
 
     .intro-p {
         font-size: 18px;
         line-height: 30px;
-        margin: 1rem 4rem auto 8rem;
+        margin: 0 6rem 0 0;
     }
 
     .btn-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 20px;
+        grid-gap: 25px;
         align-items: stretch;
         position: relative;
-        margin: 2rem 8rem 6rem 8rem;
+        margin: 2rem 20rem 6rem 20rem;
     }
 
     .individual-btn {
         display: flex;
         align-items: center;
+        width: 304px;
+        height: 136px;
     }
     
     .rannsokn-p {
-        font-size: 22px;
+        font-size: 24px;
     }
 
 }

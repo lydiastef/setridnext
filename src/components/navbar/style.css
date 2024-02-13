@@ -114,7 +114,11 @@ header .nav-btn {
 
 .logo-img {
   max-width: 304px;
-  margin-left: 2rem;
+  margin-left: 8rem;
+}
+
+.a-container {
+  margin-left: 12rem;
 }
 }
 

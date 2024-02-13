@@ -194,25 +194,31 @@ p {
 
     .h1 {
         font-size: 40px;
-        margin: 5rem;
+        margin: 6rem;
     }
 
     p {
         font-size: 18px;
     }
 
+    .image-and-intro {
+        margin: 0 20rem;
+    }
+
     .main-img2 {
-        max-width: 50%;
+        max-width: 40%;
         order: 2;
+        margin-right: 0;
     }
 
     .intro-p {
         font-size: 18px;
         line-height: 30px;
+        margin: 0 6rem 0 0;
     }
 
     .laeknar-container {
-        margin: 2rem 6rem;
+        margin: 2rem 20rem;
     }
     
     .laeknar-h1 {
