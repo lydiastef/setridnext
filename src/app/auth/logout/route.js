@@ -9,7 +9,7 @@ export async function POST(request) {
 
   await supabase.auth.signOut()
 
-  return NextResponse.redirect(`${requestUrl.origin}/login`, {
+  return NextResponse.redirect('https://www.setridnext.vercel.app', {
     status: 301,
   })
 }
