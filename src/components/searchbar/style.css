@@ -1,24 +1,54 @@
 .search-container {
     position: relative; /* Ensure the container maintains its position */
   }
+
+  .search {
+    margin-top: 1rem;
+    width: 50px;
+    cursor: pointer;
+  }
+
+  .search-icon {
+    display: inline-block;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .search-icon.hidden {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+  }
   
-  .search-bar {
-    width: 100%;
+  .search-bar.hidden {
+    width: 0;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+  }
+
+  .search-bar.visible {
+    width: 150px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
   }
   
   .suggestions-dropdown {
     position: absolute;
-    top: 100%; /* Position the dropdown below the search bar */
+    top: 100%;
     left: 0;
     width: 100%;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-top: none; /* Remove border from top to avoid overlap with search bar */
-    border-radius: 0 0 4px 4px; /* Rounded corners on bottom */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+
+  .suggestion {
+    margin: auto;
   }
   
   .search-results {
@@ -26,19 +56,19 @@
   }
   
   .staff {
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 1px;
+    padding: 1px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
   
-  .staff h3 {
-    margin: 0;
-    font-size: 18px;
+  .dropdown-h3 {
+    margin: -.5rem auto;
+    font-size: 14px;
   }
   
   .staff p {
-    margin: 5px 0;
+    margin: 1px 0;
   }
 
   .staff-link {
@@ -50,4 +80,15 @@
   .staff-link:hover {
     text-decoration: underline;
   }
+
+  @media only screen and (min-width: 750px) {
+
+  .search-bar {
+    width: 170px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: auto 2rem;
+  }
+}
   

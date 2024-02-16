@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './style.css';
 import supabase from '../../config/supabaseClient';
 
@@ -23,6 +23,29 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<Staff[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  // Start of event listener to close searchbar on click
+  const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const searchIconRef = useRef<HTMLDivElement>(null);
+
+
+  useEffect(() => {
+    // Add event listener to close suggestion dropdown on click outside
+    function handleClickOutside(event: MouseEvent) {
+      if (!searchIconRef.current || !searchIconRef.current.contains(event.target as Node)) {
+        if (!inputRef.current || !inputRef.current.contains(event.target as Node)) {
+          setIsSearchBarOpen(false);
+      }
+    }
+  }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  // End of event listener to close drop down suggestions on click
+
 
   const debounce = <F extends (...args: any[]) => void>(func: F, delay: number) => {
     let timeoutId: ReturnType<typeof setTimeout>;
@@ -35,11 +58,7 @@ const SearchBar = () => {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
     setSearchTerm(query);
-    if (query.length >= 3) {
-      setShowSuggestions(true); // Show suggestions when query length is >= 3
-    } else {
-      setShowSuggestions(false); // Hide suggestions when query length is < 3
-    }
+    setShowSuggestions(query.length >= 3); // Show suggestions when query length is >= 3
     debouncedSearch(query);
   };
 
@@ -48,39 +67,47 @@ const SearchBar = () => {
       const { data, error } = await supabase
         .from('staff')
         .select('name')
-        .textSearch('name', query, {
-          type: 'websearch',
-          config: 'english',
-        });
+        .ilike('name', `%${query}%`);
 
       if (error) {
         throw error;
       }
 
       setSearchResults(data as Staff[]);
-      setShowSuggestions(true); // Set showSuggestions to true when there are results
     } catch (error) {
       console.error('Error searching staff:', (error as Error).message);
       setSearchResults([]);
-      setShowSuggestions(false); // Set showSuggestions to false when there are no results
     }
-  }, 100);
+  }, 300);
+
+  const toggleSearchBar = () => {
+    setIsSearchBarOpen(!isSearchBarOpen);
+    if (!isSearchBarOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
 
   return (
     <div className="search-container">
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleSearch}
-        className="search-bar"
-      />
+      <div ref={searchIconRef} className={`search-icon ${isSearchBarOpen ? 'hidden' : ''}`} onClick={toggleSearchBar}>
+        <img className='search' src="search.png" alt="Search" />
+      </div>
+      {isSearchBarOpen && (
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleSearch}
+         className="search-bar"
+       />
+      )}
       {showSuggestions && searchResults.length > 0 && ( // Only display suggestions if showSuggestions is true and there are results
         <div className="suggestions-dropdown">
           {searchResults.map((result, index) => (
             <div key={index} className="suggestion">
               <a href={`/staff/${result.id}`} className="staff-link">
-                <h3>{result.name}</h3>
+                <h3 className='dropdown-h3'>{result.name}</h3>
               </a>
             </div>
           ))}

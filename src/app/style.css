@@ -347,6 +347,7 @@ h2 {
   .undericon {
     font-size: 20px;
     margin-bottom: 1rem;
+    z-index: -1;
   }
 
   .iconbtn {
