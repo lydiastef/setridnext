@@ -67,8 +67,7 @@ function Frontpage() {
         <div>
             <Navbar/>
             <div className='imgandtext'>
-                <h1 className='welcome-h1'>Velkomin...</h1>
-                <img className='main-img' src='/main8.avif' alt='stethoscope' />
+                <img className='main-img' src='/setrid2.jpg' alt='stethoscope' />
             </div>
 
             <div className='phoneclockcontainer'>

@@ -113,6 +113,7 @@ function fetchData() {
   return(
     <>
       <Navbar/>
+      <div id="laeknar"></div>
         <div>
           <div className='title-h1'>{error && <p>{error}</p>}
             <h1 className='h1'>{get('title')}</h1>
