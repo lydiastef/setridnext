@@ -88,7 +88,11 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin: auto 2rem;
+    margin: 0 2rem 3.8rem 2rem;
+  }
+
+  .search-icon {
+    margin-left: 1.5rem;
   }
 }
   

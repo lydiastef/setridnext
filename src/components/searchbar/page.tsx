@@ -27,17 +27,21 @@ const SearchBar = () => {
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const searchIconRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
 
   useEffect(() => {
     // Add event listener to close suggestion dropdown on click outside
     function handleClickOutside(event: MouseEvent) {
-      if (!searchIconRef.current || !searchIconRef.current.contains(event.target as Node)) {
-        if (!inputRef.current || !inputRef.current.contains(event.target as Node)) {
-          setIsSearchBarOpen(false);
+      if (
+        !searchIconRef.current?.contains(event.target as Node) && // Check if clicked outside the search icon
+        !inputRef.current?.contains(event.target as Node) && // Check if clicked outside the input field
+        !dropdownRef.current?.contains(event.target as Node) // Check if clicked outside the dropdown
+      ) {
+        setIsSearchBarOpen(false); // Close the search bar
+        setShowSuggestions(false); // Close the dropdown
       }
     }
-  }
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -66,8 +70,8 @@ const SearchBar = () => {
     try {
       const { data, error } = await supabase
         .from('staff')
-        .select('name')
-        .ilike('name', `%${query}%`);
+        .select('doctor')
+        .ilike('doctor', `%${query}%`);
 
       if (error) {
         throw error;
@@ -96,19 +100,19 @@ const SearchBar = () => {
         <input
           ref={inputRef}
           type="text"
-          placeholder="Search..."
+          placeholder="Leita..."
           value={searchTerm}
           onChange={handleSearch}
          className="search-bar"
        />
       )}
       {showSuggestions && searchResults.length > 0 && ( // Only display suggestions if showSuggestions is true and there are results
-        <div className="suggestions-dropdown">
-          {searchResults.map((result, index) => (
-            <div key={index} className="suggestion">
-              <a href={`/staff/${result.id}`} className="staff-link">
-                <h3 className='dropdown-h3'>{result.name}</h3>
-              </a>
+        <div ref={dropdownRef} className="suggestions-dropdown">
+        {searchResults.map((result, index) => (
+          <div key={index} className="suggestion">
+            <a href={`/staff/${result.id}`} className="staff-link">
+              <h3 className='dropdown-h3'>{result.doctor}</h3>
+            </a>
             </div>
           ))}
         </div>
