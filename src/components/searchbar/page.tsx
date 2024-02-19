@@ -116,9 +116,9 @@ const SearchBar = () => {
         <div ref={dropdownRef} className="suggestions-dropdown">
         {searchResults.map((result, index) => (
           <div key={index} className="suggestion">
-            <div className="staff-link" onClick={() => handleResultClick(result)} style={{ cursor: 'pointer'}}>
+            <a className="staff-link" href="localhost:3000#laeknar" onClick={() => handleResultClick(result)}>
               <h3 className='dropdown-h3'>{result.doctor}</h3>
-            </div>
+            </a>
             </div>
           ))}
         </div>
