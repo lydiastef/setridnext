@@ -91,6 +91,12 @@ const SearchBar = () => {
     }
   };
 
+  //Click result link
+  const handleResultClick = (result: Staff) => {
+    console.log(`Clicked on result: ${result.name}`);
+  };
+  
+
   return (
     <div className="search-container">
       <div ref={searchIconRef} className={`search-icon ${isSearchBarOpen ? 'hidden' : ''}`} onClick={toggleSearchBar}>
@@ -110,7 +116,7 @@ const SearchBar = () => {
         <div ref={dropdownRef} className="suggestions-dropdown">
         {searchResults.map((result, index) => (
           <div key={index} className="suggestion">
-            <a href={`/staff/${result.id}`} className="staff-link">
+            <a href={`/laeknar/${result.id}`} className="staff-link" onClick={() => handleResultClick(result)}>
               <h3 className='dropdown-h3'>{result.doctor}</h3>
             </a>
             </div>
