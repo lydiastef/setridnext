@@ -69,10 +69,11 @@ const closeModalp = () => {setIsModalOpenp(-1);};
 
 useEffect(() => {
   const fetchDataFromTable = async (table: string) => {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (!user) {
-        router.push('http://localhost:3000/login')
-      }
+     // const { data: { user } } = await supabase.auth.getUser()
+     console.log(await supabase.auth.getUser())
+      //if (!user) {
+        //router.push('http://localhost:3000/login')
+      //}
     //const fetchLaeknar = async () => {
       let setState = table === 'position'? setPosition:setDoctorspage
 
