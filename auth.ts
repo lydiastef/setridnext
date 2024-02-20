@@ -32,7 +32,7 @@ async function getUser(email: string): Promise<User | undefined> {
     return undefined;
   }
 }
-
+console.log('hello')
 export const { auth, signIn, signOut } = NextAuth({
     ...authConfig,
     providers: [
@@ -41,6 +41,7 @@ export const { auth, signIn, signOut } = NextAuth({
                 const parsedCredentials = z
                 .object({ email: z.string().email(), password: z.string().min(6) })
                 .safeParse(credentials);
+                console.log('z',z)
 
                 if (parsedCredentials.success) {
                     const { email, password } = parsedCredentials.data;
