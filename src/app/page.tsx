@@ -99,31 +99,31 @@ function Frontpage() {
                 </div>
             </div>
             
-
-        <h2>Velkomin í Læknasetrið</h2>
-        <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+        <div className='main-container'>
+            <h2>Velkomin í Læknasetrið</h2>
+            <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
             et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+            aliquip ex ea commodo consequat.<br></br><br></br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
             dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
             officia deserunt mollit anim id est laborum.</p>
         
         
-        <div className='midsectioncontainer'>
-            <div className='midsectionbtn'>
-                <div className='textandbtn'>
-                <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
-                    <p>Sjáðu alla lækna og annað starfsfólk sem starfar 
-                    í Læknasetrinu</p>
-                    <Link href='/laeknar'>
-                        <button>Læknar</button>
-                    </Link>
+            <div className='midsectioncontainer'>
+                <div className='midsectionbtn'>
+                    <div className='textandbtn'>
+                    <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
+                        <p className='box-p'>Sjáðu alla lækna og annað starfsfólk sem starfar 
+                        í Læknasetrinu</p>
+                        <Link href='/laeknar'>
+                            <button>Læknar</button>
+                        </Link>
+                    </div>
                 </div>
-            </div>
 
                 <div className='midsectionbtn'>
                     <div className='textandbtn'>
                     <img className='icon3' src='/ecgicon.png' alt='doctor icon' />
-                        <p>Lestu um allar þær rannsóknir sem gerðar
+                        <p className='box-p'>Lestu um allar þær rannsóknir sem gerðar
                         eru í Læknasetrinu</p>
                         <Link href='/frontpageadmin'>
                             <button>Rannsóknir</button>
@@ -132,13 +132,13 @@ function Frontpage() {
                 </div>
             </div>
 
-        {error && <p>{error}</p>}
+            {error && <p>{error}</p>}
  
-            <h2>{get('title')}</h2>
+            <h2 className='where-h2'>{get('title')}</h2>
             
-        <div className='where'>
-            <div className='where1'>
-                {error && <p>{error}</p>}
+            <div className='where'>
+                <div className='where1'>
+                    {error && <p>{error}</p>}
 
                     <div className='instructions'>
                         <p className='where-p'>{get('left text')}</p>
@@ -167,6 +167,7 @@ function Frontpage() {
                 </iframe>
 
             </div>
+        </div>
         </div>
         <Footer/>
 

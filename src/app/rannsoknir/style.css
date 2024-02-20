@@ -12,14 +12,18 @@
     color: #AC0B11;
 }
 
-.intro-p {
+.image-and-intro {
     margin: 2rem 4rem 4rem 4rem;
+}
+
+.intro-p {
     line-height: 25px;
     letter-spacing: .6px;
+    margin-top: 1rem;
 }
 
 .main-img2 {
-    max-width: 75%;
+    max-width: 100%;
     display: flex;
     margin: auto;
 }
@@ -41,11 +45,10 @@
     border-radius: 8px;
     margin-bottom: 2rem;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-    width: 272px;
+    width: 100%;
     height: 120px;
     cursor: pointer;
     font-size: 16px;
-    padding: 1rem;
 }
 
 .individual-btn:hover {
@@ -58,12 +61,9 @@
 }
 
 .btn-h2 {
-    font-size: 14px;
+    font-size: 15px;
     color: #AC0B11;
-}
-
-.btn-p {
-    font-size: 14px;
+    padding: 1rem;
 }
 
 /*for the edit page*/
@@ -96,6 +96,10 @@
         margin: 5rem;
     }
 
+    .intro-p {
+        margin-right: 2rem;
+    }
+
     .btn-h2 {
         font-size: 16px;
         color: #AC0B11;
@@ -112,14 +116,10 @@
         order: 2;
     }
 
-    .individual-btn {
-        margin: 1rem;
-    }
-
     .btn-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
-        grid-gap: 20px;
+        grid-gap: 25px;
         align-items: stretch;
         position: relative;
         margin: 2rem 6rem 6rem 6rem;
@@ -135,12 +135,12 @@
     }
 
     .btn-h2 {
-        font-size: 20px;
+        font-size: 18px;
         color: #AC0B11;
     }
 
     .image-and-intro {
-        margin: auto 20rem 6rem 20rem;
+        margin: auto 12rem 6rem 12rem;
     }
 
     .main-img2 {
@@ -151,7 +151,7 @@
     .intro-p {
         font-size: 18px;
         line-height: 30px;
-        margin: 0 6rem 0 0;
+        margin: 0 2rem 0 0;
     }
 
     .btn-container {
@@ -160,13 +160,13 @@
         grid-gap: 25px;
         align-items: stretch;
         position: relative;
-        margin: 2rem 20rem 6rem 20rem;
+        margin: 2rem 12rem 6rem 12rem;
     }
 
     .individual-btn {
         display: flex;
         align-items: center;
-        width: 304px;
+        width: calc(100% - 20px);
         height: 136px;
     }
     
@@ -174,4 +174,25 @@
         font-size: 24px;
     }
 
+}
+
+@media only screen and (min-width: 1250px){
+
+    .image-and-intro {
+        margin: auto 16rem 6rem 16rem;
+    }
+
+    .main-img2 {
+        max-width: 50%;
+        order: 2;
+    }
+
+    .btn-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 25px;
+        align-items: stretch;
+        position: relative;
+        margin: 2rem 16rem 6rem 16rem;
+    }
 }

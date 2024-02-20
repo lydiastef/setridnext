@@ -18,6 +18,11 @@
     width: 0;
     overflow: hidden;
   }
+
+  .search-bar {
+    padding: .5rem;
+    border-radius: 8px;
+  }
   
   .search-bar.hidden {
     width: 0;
@@ -88,11 +93,19 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin: 0 2rem 3.8rem 2rem;
+    margin: 0 4rem -4rem 2rem;
+    border: solid black;
   }
 
   .search-icon {
     margin-left: 1.5rem;
   }
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .search-icon {
+        margin-bottom: 1rem;
+      }
 }
   

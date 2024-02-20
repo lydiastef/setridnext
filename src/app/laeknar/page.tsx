@@ -14,6 +14,7 @@ type Content = {
     value: string | null;
 }
 
+
 type Staff = {
   created_at: string;
   id: number;
@@ -37,78 +38,80 @@ type Position = {
   name: string | null;
 }
 
+const FontLink = () => (
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" />
+);
 
-function fetchData() {
-
-  const FontLink = () => (
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" />
-  );
-
-    //Fetching data from Supabase - start
-
+const FetchData = () => {
+  // State declarations
   const [content, setContent] = useState({});
   const [error, setError] = useState(null);
-
-  const [fetchError, setFetchError] = useState("")
-  const [doctorspage, setDoctorspage] = useState(null) as [Content[] | null, (laeknar: Content[] | null) => void]
-  const [position, setPosition] = useState(null) as [Position[] | null, (laeknar: Position[] | null) => void]
-
-  
-  //Pop-up start
+  const [fetchError, setFetchError] = useState("");
+  const [doctorspage, setDoctorspage] = useState<Content[] | null>(null);
+  const [position, setPosition] = useState<Position[] | null>(null);
   const [selectedPerson, setSelectedPerson] = useState<Staff | null>(null);
-  const openPopup = (person: Staff) => {
-    setSelectedPerson(person);
+
+  // Fetch data function
+  const fetchDataFromTable = async (table: string, setState: React.Dispatch<React.SetStateAction<any>>, query?: string | undefined) => {
+      const result = supabase.from(table).select(query);
+      type QueryType = QueryData<typeof result>;
+      const { data, error } = await result;
+
+      if (error) {
+          setFetchError(`Could not fetch ${table}`);
+          setState(null);
+          console.log('Error:', error);
+      }
+
+      if (data) {
+          //@ts-ignore
+          const typedData: QueryType = data;
+          setState(typedData);
+          setFetchError("");
+      }
   };
-  const closePopup = () => {
-    setSelectedPerson(null);
-  };
-  
-  //Pop-up end
 
-  
-
-  const get=(name:string) => {
-    return doctorspage?.filter(content => content.name === name) [0].value as string
-}
-
+  // Effect to fetch data and handle hash navigation
   useEffect(() => {
+      // Fetch data function
+      fetchDataFromTable('doctorspage', setDoctorspage);
+      fetchDataFromTable('position', setPosition, 'name, staff(name, image, doctor, type, education1, education2, education3, education4, experience1, experience2, experience3)');
 
-    const fetchDataFromTable = async (table:string, setState:React.Dispatch<React.SetStateAction<any>>, query?:string | undefined) => {
-     /* await supabase.auth.signUp({
-        email: 'lydiadoula@gmail.com',
-        password: '123456',
-      })*/
-
-      //const fetchLaeknar = async () => {
-        const result = supabase
-        .from(table) //fetching data from this table in Supabase
-        .select(query)
-        type QueryType=QueryData<typeof result>
-          const { data, error } = await result
-
-          if(error) {
-              setFetchError(`Could not fetch ${table}`);
-              setState(null)
-              console.log('this is',error)
-          }
-          if (data) {
-            //@ts-ignore
-            const typedData: result = data
-              setState(typedData)
-              setFetchError("")
+      // Effect for hash navigation
+      const handleHashNavigation = () => {
+          if (window.location.hash) {
+              const element = document.getElementById(decodeURI(window.location.hash.substring(1)));
+              if (element) {
+                  element.scrollIntoView();
+              }
           }
       };
 
-      fetchDataFromTable('doctorspage', setDoctorspage);
+      handleHashNavigation(); // Handle hash navigation on initial render
 
-      fetchDataFromTable('position', setPosition,'name, staff(name, image, doctor, type, education1, education2, education3, education4, experience1, experience2, experience3)');
+      // Listen for hash changes
+      window.addEventListener('hashchange', handleHashNavigation);
 
-  }, []);
+      return () => {
+          // Clean up event listener
+          window.removeEventListener('hashchange', handleHashNavigation);
+      };
+  }, []); // Effect runs only once on mount
 
-  //Fetching data from Supabase - end
+  // Pop-up functions
+  const openPopup = (person: Staff) => {
+      setSelectedPerson(person);
+  };
 
-  console.log(position)
-  if(fetchError) return <p>{fetchError}</p>
+  const closePopup = () => {
+      setSelectedPerson(null);
+  };
+
+  const get = (name:string) => {
+    return doctorspage?.filter(content => content.name === name)[0]?.value ?? "";
+  }
+
+  if (fetchError) return <p>{fetchError}</p>;
 
   return(
     <>
@@ -142,7 +145,7 @@ function fetchData() {
                     //@ts-ignore
                     staff?.map((person) => { //Filter what type of doctor appears where
                         return(
-                          <div key={person.id} className='individual-cards' onClick={() => openPopup(person)}>
+                          <div key={person.id} id={person.doctor} className='individual-cards' onClick={() => openPopup(person)}>
                           <img className='card-img' src={person.image || undefined} alt='doctor' />
                             <p className='doctors-p'>{person.doctor}</p>
                             <p className='doctors-p'>{person.type}</p>
@@ -180,7 +183,7 @@ function fetchData() {
   );
 }
 
-export default fetchData;
+export default FetchData;
 
   
   

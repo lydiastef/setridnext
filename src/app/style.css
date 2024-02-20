@@ -19,10 +19,8 @@ h1 {
 
 p {
   font-size: 12px;
-  text-align: center;
   color: black;
-  margin: .5rem 1rem;
-  line-height: 24px;
+  line-height: 20px;
 }
 
 .undericon {
@@ -55,7 +53,7 @@ button:hover {
 }
 
 .main-img {
-  max-width: 100%;
+  width: 100%;
   z-index: -1;
   position: relative;
 }
@@ -123,6 +121,10 @@ span {
   margin-top: .5rem;
 }
 
+.main-container {
+  margin: 4rem;
+}
+
 .textandbtn {
   display: flex;
   flex-direction: column;
@@ -137,32 +139,20 @@ span {
   margin: 0;
 }
 
-.oh-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.oh {
-  color: black;
-  text-align: center;
-  margin-bottom: .2rem;
-}
-
 h2, h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   margin-top: 4rem;
   margin-bottom: 2rem;
   color: #AC0B11;
 }
 
 .text {
-  margin: 1rem 4rem;
   letter-spacing: .3px;
   line-height: 24px;
+  text-align: left;
 }
 
 .midsectioncontainer {
@@ -170,7 +160,6 @@ h2, h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 4rem 4rem 6rem 4rem;
 }
 
 .midsectionbtn {
@@ -178,73 +167,36 @@ h2, h3 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 216px;
+  height: 224px;
   border: solid 1px #AC0B11;
   border-radius: 8px;
   margin-top: 2rem;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.3);
+
 }
 
-/*
-.oh-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 4rem 3rem 4rem;
-}*/
-
-.instructions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 4rem 1.5rem 4rem;
-}
-
-.instructions1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 4rem 1.5rem 4rem;
-}
-
-.where {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4rem;
+.box-p {
   text-align: center;
+  margin: .6rem auto;
 }
 
-h2 {
+.instructions, .instructions1 {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 4rem auto 2rem auto;
-  color: #AC0B11;
-}
-
-.where-p {
-  margin: .5rem;
+  text-align: left;
+  flex-direction: column;
+  margin: 4rem auto 0 auto;
 }
 
 .where-img {
-  max-width: 296px;
-  margin: 0 4rem 4rem 4rem;
+  max-width: 100%;
 }
 
 .where-img1 {
-  max-width: 400px;
-  margin: 0 4rem 4rem 4rem;
+  max-width: 100%;
 }
 
-.whatissetrid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 4rem;
+.where-p {
+  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 700px) {
@@ -256,15 +208,11 @@ h2 {
 
   p {
     font-size: 14px;
+    letter-spacing: 1px;
   }
 
   .undericon {
     font-size: 18px;
-  }
-
-  .welcome-h1 {
-    margin: 6rem 0 0 4rem;
-    font-size: 20px;
   }
 
   span {
@@ -295,19 +243,25 @@ h2 {
     font-size: 18px;
   }
 
+  .main-container {
+    margin: 6rem;
+  }
+
   .text {
-    margin: auto 6rem;
+    margin-bottom: 3rem;
+    font-size: 15px;
+    letter-spacing: 1px;
   }
 
   .midsectioncontainer {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .midsectionbtn {
     height: 224px;
     width: 264px;
-    margin: 1rem;
   }
   
   h2 {
@@ -318,36 +272,37 @@ h2 {
     font-size: 26px;
   }
 
-  .instructions {
-    padding: 1rem 8rem 1.5rem 8rem;
-  }
-  .instructions1 {
-    padding: 1rem 8rem 1.5rem 8rem;
-  }
-
-  .where-img {
-    max-width: 400px;
-  }
-  
-  .where-img1 {
-    max-width: 504px;
+  .where-p {
+    margin-bottom: 2rem;
   }
 }
 
 @media only screen and (min-width: 900px) {
   h2 {
     font-size: 28px;
-  }
+    margin: 0 auto 3rem auto;
+    }
 
   p {
     font-size: 16px;
-    line-height: 28px;
+    line-height: 22px;
+  }
+
+  .phoneclockcontainer {
+    position: relative;
+    bottom: 100px;
+    background-color: white;
+    padding: 0;
+    height: 280px;
   }
 
   .undericon {
     font-size: 20px;
     margin-bottom: 1rem;
-    z-index: -1;
+  }
+
+  .main-container {
+    margin: auto 12rem;
   }
 
   .iconbtn {
@@ -359,7 +314,7 @@ h2 {
   .iconbtn1 {
     width: 160px;
     height: 152px;
-    margin: auto 2rem 2.85rem 2rem;
+    margin: 0 2rem 2rem 2rem;
   }
 
   .icon {
@@ -372,61 +327,35 @@ h2 {
 
   .info-btn1, .info-btn2 {
     font-size: 20px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
   }
 
-  .text {
-    margin: auto 10rem;
+  .midsectioncontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .midsectionbtn {
-    width: 400px;
-    margin: 2rem;
+    width: 304px;
+    height: 272px;
   }
 
-  .instructions {
-    padding: 0 6rem 2rem 6rem;
-  }
-
-  .instructions1 {
-    padding: 0 6rem 2rem 6rem;
-  }
-
-  /*
-  .oh-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin: 4rem 9rem 3rem 9rem;
-  }*/
-
-  .where {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: auto 6rem;
-  }
-
-  .where1 {
-    width: 50%;
+  .box-p {
+    margin: auto 1.5rem;
   }
 
   .where-h2 {
-    font-size: 40px;
-    margin: 10rem auto 4rem auto;
+    margin: 4rem auto;
   }
 
   .where-img {
-    max-width: 80%;
-    margin: 0 4rem 0 6rem;
+    width: 100%;
   }
 
   .where-img1 {
-    width: 450px;
+    width: 100%;
     height: 250px;
-    margin: 0 6rem 0 4rem;
   }
 }
 
@@ -456,16 +385,10 @@ h2 {
     margin: .5rem;
   }
 
-  .iconbtn {
+  .iconbtn, .iconbtn1 {
     width: 200px;
     height: 200px;
-    margin: 4rem;
-  }
-
-  .iconbtn1 {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
   }
 
   .icon-box {
@@ -485,15 +408,18 @@ h2 {
     margin: 1rem;
   }
 
+  .main-container {
+    margin: auto 16rem;
+  }
+
   .midsectionbtn {
+    width: 352px;
     height: 296px;
-    padding: 1rem;
   }
 
-  .text {
-    margin: auto 10rem;
+  .where-h2 {
+    margin: 6rem auto 4rem auto;
   }
-
 }
 
 @media only screen and (min-width: 1300px) {
@@ -503,10 +429,7 @@ h2 {
     line-height: 28px;
   }
 
-  .main-img {
-    width: 400px;
-    height: 800px;
-  }
+
 
   .info-box {
     height: 14rem;
@@ -516,28 +439,26 @@ h2 {
   h2, h3 {
     margin-bottom: 2rem;
   }
-  
-  .instructions {
-    padding: 1rem 16rem 4rem 24rem;
+
+  .main-container {
+    margin: auto 20rem;
   }
 
-  .instructions1 {
-    padding: 1rem 24rem 4rem 16rem;
+  .midsectionbtn {
+    width: 480px;
+    height: 296px;
   }
-  
-  .where-img {
-    max-width: 80%;
-    margin: 0 16rem 4rem 24rem;
+
+  .where-p {
+    margin-right: 20rem;
   }
 
   .where-img1 {
-    width: 800px;
+    width: 100%;
     height: 500px;
-    margin: 0 24rem 4rem 16rem;
   }
 
   .text {
-    margin: auto 20rem;
     font-size: 18px;
     line-height: 28px;
   }
@@ -545,8 +466,12 @@ h2 {
 }
 
 @media only screen and (min-width: 1450px) {
+
+  .main-container {
+    margin: auto 24rem;
+  }
+
   .text {
-    margin: auto 30rem;
     font-size: 18px;
     line-height: 28px;
   }

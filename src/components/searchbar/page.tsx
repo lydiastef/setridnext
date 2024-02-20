@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './style.css';
 import supabase from '../../config/supabaseClient';
+import Link from 'next/link';
 
 type Staff = {
   created_at: string;
@@ -116,9 +117,9 @@ const SearchBar = () => {
         <div ref={dropdownRef} className="suggestions-dropdown">
         {searchResults.map((result, index) => (
           <div key={index} className="suggestion">
-            <a className="staff-link" href="localhost:3000#laeknar" onClick={() => handleResultClick(result)}>
-              <h3 className='dropdown-h3'>{result.doctor}</h3>
-            </a>
+          <Link href={`/laeknar#${result.doctor}`} className="staff-link" onClick={() => handleResultClick(result)}>              
+            <h3 className='dropdown-h3'>{result.doctor}</h3>
+          </Link>
             </div>
           ))}
         </div>

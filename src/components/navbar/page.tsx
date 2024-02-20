@@ -23,9 +23,12 @@ function Navbar() {
 
     return (
         <header>
-            <Link style={{height:'50px', width:'800px'}} href='/'>
-                <img className="logo-img" src="../../../logosetrid.svg" alt="Logo" />
-            </Link>
+            <div className='logo-container'>
+                <Link href='/'>
+                    <img className='logo-ball' src='../../../logo1.avif' />
+                    <img className='logo-img' src='../../../logosetrid.svg' alt='Logo' />
+                </Link>
+            </div>
 
             <nav ref={navRef}> 
                 <div className='a-container'>

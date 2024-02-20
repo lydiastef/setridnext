@@ -4,9 +4,20 @@
   box-sizing: border-box;
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-ball {
+  width: 90px;
+  margin-right: .5rem;
+}
+
 .logo-img {
-  max-width: 200px;
+  width: 200px;
   cursor: pointer;
+  margin-bottom: .8rem;
 }
 
 header {
@@ -64,6 +75,9 @@ header .nav-btn {
 
 @media only screen and (max-width: 700px) {
 
+  .logo-container {
+  }
+
   .logo-img {
     max-width: 200px;
     margin-left: -1rem;
@@ -96,7 +110,7 @@ header .nav-btn {
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
-    margin-right: 0;
+    margin-right: 3rem;
   }
   
   header .responsive_nav {
@@ -112,14 +126,32 @@ header .nav-btn {
 
 @media only screen and (min-width: 1000px) {
 
+  .logo-container {
+    margin-left: 2rem;
+  }
+
+  .logo-ball {
+    margin-right: -8rem;
+    margin-bottom: 1rem;
+  }
+
 .logo-img {
-  width: 504px;
-  margin-left: 8rem;
+  width: 304px;
+  margin-top: 1rem;
 }
 
 .a-container {
-  margin-left: 14rem;
+  position: absolute;
+  margin-top: -3rem;
+  margin-left: -8rem;
 }
 }
+
+@media only screen and (min-width: 1150px) {
+  .logo-container {
+    margin-left: 8rem;
+  }
+}
+
 
 /*# sourceMappingURL=style.css.map */
