@@ -70,7 +70,7 @@ const closeModalp = () => {setIsModalOpenp(-1);};
 useEffect(() => {
   const fetchDataFromTable = async (table: string) => {
      // const { data: { user } } = await supabase.auth.getUser()
-     console.log('user:',await supabase.auth.getUser())
+     console.log('user:',await supabase.auth.getSession())
       //if (!user) {
         //router.push('http://localhost:3000/login')
       //}
