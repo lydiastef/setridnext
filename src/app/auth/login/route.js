@@ -15,7 +15,7 @@ export async function POST(request) {
     password,
   })
 
-  return NextResponse.redirect('https://www.setridnext.vercel.app/laeknar/admin', {
+  return NextResponse.redirect('https://setridnext.vercel.app/laeknar/admin', {
     status: 301,
   })
 }

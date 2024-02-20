@@ -98,6 +98,16 @@ const FetchData = () => {
       };
   }, []); // Effect runs only once on mount
 
+//Searchbar - Checking if hashtag is there to
+  useEffect(() => {
+    if (window.location.hash) {
+      const element = document.getElementById(decodeURI(window.location.hash.substring(1)));
+      if (element) {
+        element.scrollIntoView();
+      }
+    } 
+  }, [doctorspage])
+
   // Pop-up functions
   const openPopup = (person: Staff) => {
       setSelectedPerson(person);
