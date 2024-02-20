@@ -17,7 +17,7 @@ export default function Login() {
       email: 'lydiadoula@gmail.com',
       password: '123456',
       options: {
-        emailRedirectTo: `https://www.setridnext.vercel.app/laeknar/admin`,
+        emailRedirectTo: `https://setridnext.vercel.app/laeknar/admin`,
       },
     })
     router.refresh()

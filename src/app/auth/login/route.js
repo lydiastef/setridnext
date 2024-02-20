@@ -10,11 +10,13 @@ export async function POST(request) {
   const cookieStore = cookies()
   const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
 
-  await supabase.auth.signInWithPassword({
+  const test = await supabase.auth.signInWithPassword({
     email,
     password,
   })
-
+console.log('test',test)
+console.log('email',email)
+console.log('password',password)
   return NextResponse.redirect('https://setridnext.vercel.app/laeknar/admin', {
     status: 301,
   })
