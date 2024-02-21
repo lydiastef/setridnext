@@ -111,7 +111,7 @@ p {
 
 .popup-card {
     width: 100%;
-    position: relative;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -221,7 +221,7 @@ p {
     }
 
     .image-and-intro {
-        margin: 0 10rem;
+        margin: 0 16rem;
     }
 
     .main-img2 {
@@ -237,7 +237,7 @@ p {
     }
 
     .laeknar-container {
-        margin: 2rem 10rem;
+        margin: 2rem 16rem;
     }
     
     .laeknar-h1 {
