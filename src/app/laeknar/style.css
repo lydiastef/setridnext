@@ -55,7 +55,7 @@ p {
 }
 
 .laeknar-container {
-    margin: 2rem 4rem;
+    margin: 2rem 6rem;
 }
 
 .laeknar-h1 {
@@ -93,6 +93,12 @@ p {
     margin: 1rem 2rem 2rem 2rem;
 }
 
+.doctors-p1 {
+    margin: 1rem 2rem 1rem 2rem;
+    font-weight: 700;
+    font-size: 16px;
+}
+
 .overlay {
     position: fixed;
     top: 0;
@@ -104,24 +110,42 @@ p {
   }
 
 .popup-card {
-    position: fixed;
+    width: 100%;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff; /* White background for the card */
-    padding: 20px;
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle lift */
     z-index: 1001; /* Ensure it's above the overlay */
   }
 
   .popup-img {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+  }
+
+  .popup-doctors-p1 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: .7rem auto;
+  }
+
+  .popup-doctors-p2 {
+    margin-bottom: .7rem;
   }
 
   .popup-doctors-p3 {
-    margin: 1rem auto;
+    margin: .7rem auto;
+  }
+
+  .popup-doctors-p4 {
+    margin: .7rem auto;
+  }
+
+  .label {
+    text-decoration: underline;
   }
 
   .close-btn {
@@ -136,11 +160,11 @@ p {
 @media only screen and (min-width: 768px){
 
     .laeknar-container {
-        margin: 2rem 8rem;
+        margin: 2rem 6rem;
     }
 
     .h1 {
-        margin: 4rem 8rem;
+        margin: 4rem 6rem;
         font-size: 40px;
     }
 
@@ -182,11 +206,6 @@ p {
         border: solid 1px rgba(0, 0, 0, 0.457);
         border-radius: 8px;
     }
-
-    .popup-img {
-        width: 300px;
-        height: 300px;
-      }
     
 }
 
@@ -202,7 +221,7 @@ p {
     }
 
     .image-and-intro {
-        margin: 0 20rem;
+        margin: 0 10rem;
     }
 
     .main-img2 {
@@ -218,7 +237,7 @@ p {
     }
 
     .laeknar-container {
-        margin: 2rem 20rem;
+        margin: 2rem 10rem;
     }
     
     .laeknar-h1 {
@@ -237,6 +256,10 @@ p {
         border: solid 1px rgba(0, 0, 0, 0.457);
         border-radius: 8px;
         margin-bottom: 4rem;
+    }
+
+    .popup-card {
+        width: 50%;
     }
 
 }

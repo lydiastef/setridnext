@@ -157,7 +157,7 @@ const FetchData = () => {
                         return(
                           <div key={person.id} id={person.doctor} className='individual-cards' onClick={() => openPopup(person)}>
                           <img className='card-img' src={person.image || undefined} alt='doctor' />
-                            <p className='doctors-p'>{person.doctor}</p>
+                            <p className='doctors-p1'>{person.doctor}</p>
                             <p className='doctors-p'>{person.type}</p>
                             <p className='doctors-p'>{person.position}</p>
                           </div>
