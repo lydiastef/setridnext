@@ -110,7 +110,6 @@ header .nav-btn {
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
-    margin-right: 3rem;
   }
   
   header .responsive_nav {
@@ -131,7 +130,6 @@ header .nav-btn {
   }
 
   .logo-ball {
-    margin-right: -8rem;
     margin-bottom: 1rem;
   }
 
