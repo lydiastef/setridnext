@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:ital,wght@0,500;0,700;1,300&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+}
+
 a {
   text-decoration: none;
 }
 
-h1, h2 {
+h1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,14 +19,21 @@ h1, h2 {
 
 p {
   font-size: 12px;
-  text-align: center;
   color: black;
-  margin: .5rem 1rem;
+  line-height: 20px;
+}
+
+.undericon {
+  color: #AC0B11;
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 button {
   margin: 1rem 0;
-  padding: .5rem;
+  padding: .8rem;
   background-color: #AC0B11;
   color: white;
   border: none;
@@ -27,15 +41,19 @@ button {
   cursor: pointer;
   width: 112px;
   letter-spacing: .5px;
+  font-size: 14px;
 }
 
 button:hover {
   background-color: #81090D;
-  font-weight: 900;
+}
+
+.imgandtext {
+  display: flex;
 }
 
 .main-img {
-  max-width: 100%;
+  width: 100%;
   z-index: -1;
   position: relative;
 }
@@ -44,15 +62,15 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 4rem 1rem 0 4rem;
-  font-size: 18px;
+  margin: 3rem 2rem 0 2rem;
+  font-size: 16px;
   z-index: 1;
   position: absolute;
 }
 
 span {
   color: #AC0B11;
-  font-size: 20px;
+  font-size: 18px;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
@@ -60,35 +78,51 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: solid 1px #cdcdcd;
+  padding: 1.5rem;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.icon-box {
+.iconbtn {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: solid 1px rgb(212, 212, 212);
+  width: 104px;
+  height: 96px;
+  padding: 0;
+  margin: .5rem;
   border-radius: 8px;
-  width: 168px;
-  height: 200px;
-  padding: 1rem;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  margin: 2rem 1rem 4rem 1rem;
 }
 
-.icon-box:hover {
-  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
+.iconbtn1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 96px;
+  padding: 0;
+  margin: -1rem .5rem .5rem .5rem;
+  border-radius: 8px;
 }
 
 .icon {
-  width: 48px;
-  margin-bottom: 4px;
+  width: 64px;
 }
 
 .icon2 {
-  width: 80px;
-  margin: 0 1rem 0 2rem;
+  width: 40px;
+}
+
+.icon3 {
+  width: 56px;
+  margin-bottom: .3rem;
+  margin-top: .5rem;
+}
+
+.main-container {
+  margin: 4rem;
 }
 
 .textandbtn {
@@ -99,28 +133,26 @@ span {
 
 .info-btn2 {
   font-size: 14px;
-  font-weight: 700;
-  color: #AC0B11;
-  cursor: pointer;
+  font-weight: 500;
   text-decoration: none;
   position: relative;
-  margin: .5rem 0;
-}
-
-.oh {
-  color: black;
-  text-align: center;
+  margin: 0;
 }
 
 h2, h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 4rem;
   margin-bottom: 2rem;
   color: #AC0B11;
 }
 
 .text {
-  margin: 1rem 4rem;
   letter-spacing: .3px;
-  line-height: 20px;
+  line-height: 24px;
+  text-align: left;
 }
 
 .midsectioncontainer {
@@ -128,7 +160,6 @@ h2, h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 4rem;
 }
 
 .midsectionbtn {
@@ -136,109 +167,62 @@ h2, h3 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 200px;
-  border: solid #AC0B11;
+  height: 224px;
+  border: solid 1px #AC0B11;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.3);
+
 }
 
-.oh-container {
+.box-p {
+  text-align: center;
+  margin: .6rem auto;
+}
+
+.instructions, .instructions1 {
   display: flex;
+  text-align: left;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 4rem 3rem 4rem;
-}
-
-.instructions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 4rem 1.5rem 4rem;
-}
-
-.instructions1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 4rem 1.5rem 4rem;
-}
-
-.where {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4rem;
-}
-
-.where-h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 4rem auto 2rem auto;
-  color: #AC0B11;
-}
-
-.oh-h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem auto 2rem auto;
-  color: #AC0B11;
-  border: solid #AC0B11;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.where-p {
-  margin: .5rem;
+  margin: 4rem auto 0 auto;
 }
 
 .where-img {
-  max-width: 80%;
-  margin: 0 4rem 4rem 4rem;
+  max-width: 100%;
 }
 
 .where-img1 {
-  max-width: 80%;
-  margin: 0 4rem 4rem 4rem;
+  max-width: 100%;
 }
 
-.whatissetrid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 4rem;
+.where-p {
+  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 700px) {
   h2 {
     font-size: 20px;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
   }
 
   p {
     font-size: 14px;
+    letter-spacing: 1px;
   }
 
-  .main-img {
-  }
-
-  .welcome-h1 {
-    margin: 4rem 0 0 4rem;
-    font-size: 20px;
+  .undericon {
+    font-size: 18px;
   }
 
   span {
     font-size: 26px;
   }
 
-  .icon-box {
-    width: 264px;
-    height: 216px;
-    margin: 1rem 
+  .iconbtn {
+    width: 136px;
+    height: 136px;
+    margin: 1rem 4rem;
   }
 
   .icon {
@@ -247,123 +231,137 @@ h2, h3 {
   }
 
   .icon2 {
-    width: 72px;
-    margin-left: 2rem;
+    width: 64px;
   }
 
   .phone {
     font-size: 20px;
     margin: 2rem 0 0 0;
   }
+
   .info-btn1, .info-btn2 {
     font-size: 18px;
+  }
+
+  .main-container {
+    margin: 6rem;
+  }
+
+  .text {
+    margin-bottom: 3rem;
+    font-size: 15px;
+    letter-spacing: 1px;
   }
 
   .midsectioncontainer {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .midsectionbtn {
-    height: 200px;
+    height: 224px;
+    width: 264px;
   }
   
-  .where-h2 {
+  h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10rem auto 2rem auto;
+    margin: 6rem auto 3rem auto;
+    font-size: 26px;
   }
 
-  .instructions {
-    padding: 1rem 8rem 1.5rem 8rem;
+  .where-p {
+    margin-bottom: 2rem;
   }
-  .instructions1 {
-    padding: 1rem 8rem 1.5rem 8rem;
-  }
-
 }
+
 @media only screen and (min-width: 900px) {
   h2 {
-    font-size: 22px;
-  }
+    font-size: 28px;
+    margin: 0 auto 3rem auto;
+    }
 
   p {
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 22px;
   }
 
-  .main-img {
+  .phoneclockcontainer {
+    position: relative;
+    bottom: 100px;
+    background-color: white;
+    padding: 0;
+    height: 280px;
+  }
+
+  .undericon {
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .main-container {
+    margin: auto 12rem;
   }
 
   .iconbtn {
+    width: 160px;
+    height: 152px;
+    margin: 2rem;
+  }
+
+  .iconbtn1 {
+    width: 160px;
+    height: 152px;
+    margin: 0 2rem 2rem 2rem;
   }
 
   .icon {
-    width: 80px;
+    width: 64px;
   }
 
   .icon2 {
-    width: 96px;
-  }
-
-  .icon-box {
-    width: 280px;
-    height: 240px;
-    margin-bottom: 4rem;
+    width: 72px;
   }
 
   .info-btn1, .info-btn2 {
     font-size: 20px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
   }
 
-  .instructions {
-    padding: 0 6rem 2rem 6rem;
-  }
-
-  .instructions1 {
-    padding: 0 6rem 2rem 6rem;
-  }
-
-  .oh-container {
+  .midsectioncontainer {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin: 4rem 9rem 3rem 9rem;
   }
 
-  .where {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .midsectionbtn {
+    width: 304px;
+    height: 272px;
   }
 
-  .where1 {
-    width: 50%;
+  .box-p {
+    margin: auto 1.5rem;
   }
 
   .where-h2 {
-    font-size: 40px;
-    margin: 10rem auto 4rem auto;
+    margin: 4rem auto;
   }
 
   .where-img {
-    max-width: 80%;
-    margin: 0 4rem 0 6rem;
+    width: 100%;
   }
 
   .where-img1 {
-    width: 450px;
+    width: 100%;
     height: 250px;
-    margin: 0 6rem 0 4rem;
   }
 }
 
 @media only screen and (min-width: 1050px) {
   h2 {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   p {
@@ -371,20 +369,26 @@ h2, h3 {
   }
 
   button {
-    padding: .8rem;
-    font-size: 15px;
+    padding: 1rem;
+    font-size: 18px;
+    margin: 2rem;
+    width: 136px;
   }
 
   .welcome-h1 {
-    font-size: 28px;
-    margin: 4rem 0 0 8rem;
+    font-size: 32px;
+    margin: 10rem 0 0 8rem;
   }
 
   span {
     font-size: 40px;
+    margin: .5rem;
   }
 
-  .main-img {
+  .iconbtn, .iconbtn1 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 3rem;
   }
 
   .icon-box {
@@ -396,17 +400,36 @@ h2, h3 {
     width: 96px;
   }
 
-  .midsectionbtn {
-    height: 240px;
+  .icon {
+    margin: 1rem;
   }
 
+  .icon3 {
+    margin: 1rem;
+  }
+
+  .main-container {
+    margin: auto 16rem;
+  }
+
+  .midsectionbtn {
+    width: 352px;
+    height: 296px;
+  }
+
+  .where-h2 {
+    margin: 6rem auto 4rem auto;
+  }
 }
 
 @media only screen and (min-width: 1300px) {
-  .main-img {
-    width: 100%;
-    height: 800px;
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
   }
+
+
 
   .info-box {
     height: 14rem;
@@ -416,25 +439,42 @@ h2, h3 {
   h2, h3 {
     margin-bottom: 2rem;
   }
-  
-  .instructions {
-    padding: 1rem 16rem 4rem 24rem;
+
+  .main-container {
+    margin: auto 20rem;
   }
 
-  .instructions1 {
-    padding: 1rem 24rem 4rem 16rem;
+  .midsectionbtn {
+    width: 480px;
+    height: 296px;
   }
-  
-  .where-img {
-    max-width: 80%;
-    margin: 0 16rem 4rem 24rem;
+
+  .where-p {
+    margin-right: 20rem;
   }
 
   .where-img1 {
-    width: 800px;
+    width: 100%;
     height: 500px;
-    margin: 0 24rem 4rem 16rem;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 28px;
   }
   
+}
+
+@media only screen and (min-width: 1450px) {
+
+  .main-container {
+    margin: auto 24rem;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
 }
 /*# sourceMappingURL=style.css.map */
