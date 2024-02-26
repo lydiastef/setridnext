@@ -1,13 +1,13 @@
-'use client'
 import '../style.css';
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import Navbar from '../../../components/navbar/page';
-import Footer from '../../../components/footer/page';
-import supabase from '../../../config/supabaseClient';
+import Navbar from '../../components/navbar/page';
+import Footer from '../../components/footer/page';
+import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
-import TitleModal from '../../../components/modal/titlemodal';
-import PersonModal from '../../../components/modal/personmodal';
+import TitleModal from '../../components/modal/titlemodal';
+import PersonModal from '../../components/modal/personmodal';
 import { useRouter } from 'next/navigation';
+
+
 
 type Content = {
   created_at: string;
@@ -37,7 +37,6 @@ function fetchData() {
 
   //Fetching data from Supabase - start
 const router = useRouter()
-const supabase = createClientComponentClient();
 
 const [error, setError] = useState(null);
 
@@ -72,11 +71,11 @@ async function handleLogout() {
 
 useEffect(() => {
   const fetchDataFromTable = async (table: string) => {
-     const { data: { user } } = await supabase.auth.getUser()
-     //console.log('user:',await supabase.auth.getSession())
-      if (!user) {
-      router.push('http://localhost:3000/login')
-      }
+     // const { data: { user } } = await supabase.auth.getUser()
+     console.log('user:',await supabase.auth.getSession())
+      //if (!user) {
+        //router.push('http://localhost:3000/login')
+      //}
     //const fetchLaeknar = async () => {
       let setState = table === 'position'? setPosition:setDoctorspage
 
@@ -116,9 +115,9 @@ return(
       <div>
         <div className='edit-content'>{error && <p>{error}</p>}
           <h1 className='h1'>{get('title')}</h1>
+          <button onClick={handleLogout}>Sign Out</button>
           <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
           {isModalOpen1 && <TitleModal closeModal={closeModal1} tableName='doctorspage' what='title' />}
-          <button className='signout-btn' onClick={handleLogout}>Sign Out</button>
 
         </div>
         <div className='image-and-intro'>

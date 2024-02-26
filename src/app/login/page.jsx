@@ -2,14 +2,19 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import './style.css';
+import Navbar from '../../components/navbar/page';
+import Footer from '../../components/footer/page';
 
 export default function LoginPage(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [newPassword, setNewPassword] = useState('');
+    const [resetPasswordClicked, setResetPasswordClicked] = useState(false);
+    const [error, setError] = useState(null);
     const router = useRouter()
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
 
     const supabase = createClientComponentClient();
 
@@ -23,123 +28,140 @@ export default function LoginPage(){
         getUser();
     }, [])
 
-
-    const handleSignUp = async () => {
-        const res = await supabase.auth.signUp({
-            email,
-            password,
-            options: {
-                emailRedirectTo: `${location.origin}/login`
-            }
-        })
-        setUser(res.data.user)
-        router.refresh();
-        setEmail('')
-        setPassword('')
-    }
-
     const handleSignIn = async () => {
+        try {
         const res = await supabase.auth.signInWithPassword({
             email,
             password
-        })
+        });
+
+        if (res.error) {
+            // Handle authentication error (e.g., user not found)
+            setError(res.error.message);
+            // Perform actions such as displaying an error message to the user
+            return;
+        }
+
         setUser(res.data.user)
-        router.refresh();
         setEmail('')
         setPassword('')
-    }
+        setError(null); // Clear error if authentication succeeds
+        } catch (error) {
+        console.error('Error signing in:', error.message);
+        setError('An unexpected error occurred. Please try again.'); // Handle other errors
+        }
+    };
+
+    
+    const handleResetPassword = async () => {
+        try {
+            const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+                redirectTo: 'http://localhost:3000/updatepassword/page.tsx',
+            });
+
+            if (error) {
+                setError(error.message);
+                return;
+            }
+
+            console.log('Password reset email sent successfully.');
+            setResetPasswordClicked(true); // Set reset password clicked to true after successful password reset request
+        } catch (error) {
+            console.error('Error resetting password:', error.message);
+            setError('An unexpected error occurred. Please try again.');
+        }
+    };
+
+    const handleUpdatePassword = async () => {
+        try {
+            const { data, error } = await supabase.auth.updateUser({
+                password: newPassword
+            });
+
+            if (error) {
+                setError(error.message);
+                return;
+            }
+
+            console.log('Password updated successfully.');
+        } catch (error) {
+            console.error('Error updating password:', error.message);
+            setError('An unexpected error occurred. Please try again.');
+        }
+    };
 
     const handleLogout = async () => {
         await supabase.auth.signOut();
-        router.refresh();
+        router.reload();
         setUser(null)
     }
 
-    console.log({loading, user})
-
     if (loading){
-        return <h1>loading..</h1>
+        return <h1>Loading..</h1>
     }
 
     if (user){
-        return (
-            <div>
-            <div>
-                <h1>
-                    You're already logged in
-                </h1>
-                <button 
-                    onClick={handleLogout}
-                >
-                    Logout
-                </button>
-            </div>
-        </div>
-        )
-    }
-
-    return (
-        <main>
-        <div>
-        <input 
-            type="email" 
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-        />
-        <input 
-            type="password" 
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-        />
-        <button 
-            onClick={handleSignUp}
-        >
-            Sign Up
-        </button>
-        <button 
-            onClick={handleSignIn}
-        >
-            Sign In
-        </button>
-        </div>
-        </main>
-    )
-
+      if(user?.identities[0].identity_data.email) router.replace('/laeknar/admin');
+        return  null;
 }
 
-
-  /*
-  return (
-    <>
+return (
+    <div>
     <Navbar/>
-    <form action="/auth/login" method="post">
-      <div className="login-container">
-        <h1>Innskráning</h1>
-          <div>
-            <div className='email-container'>
-              <label htmlFor="email">Email</label>
-              <input className="input" name="email" placeholder="Email" />
-            </div>
-            <div className='email-container'>
-              <label htmlFor="password">Lykilorð</label>
-              <input className="input" type="password" name="password" placeholder="Lykilorð" />
-            </div>
-          </div>
-        <button className="login-btn">Skrá inn</button>
-        <button formAction="/auth/sign-up">Sign Up</button>
-        <button formAction="/auth/logout">Sign Out</button>
-      </div>
-    </form>
+    <h1>Innskráning</h1>
+    <main className="login-container">
+        <div className="email-container">
+            <input 
+                type="email" 
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Tölvupóstur"
+                className="input"
+            />
+            <input 
+                type="password" 
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Lykilorð"
+                className="input"
+            />
+            <button 
+                onClick={handleSignIn}
+                className="login-btn"
+            >
+                Innskrá
+            </button>
+            <a 
+                onClick={handleResetPassword}
+                className="reset"
+            >
+                Breyta lykilorði
+            </a>
+            {/* Conditionally render input field and update password button only if reset password is clicked */}
+            {resetPasswordClicked && (
+                <>
+                    <input 
+                        type="password" 
+                        name="newPassword"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        placeholder="New Password"
+                        className="input"
+                    />
+                    <button 
+                        onClick={handleUpdatePassword}
+                        className="login-btn"
+                    >
+                        Update Password
+                    </button>
+                </>
+            )}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+        </div>
+    </main>
     <Footer/>
-    </>
-  )
-}*/
-
-
-/*
-https://www.youtube.com/watch?v=dhXjHGklaZc&ab_channel=CodeRyan
-*/ 
+</div>
+);
+}

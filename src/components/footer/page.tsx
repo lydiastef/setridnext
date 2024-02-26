@@ -54,7 +54,6 @@ function Footer() {
 
     //Fetching data from Supabase - end
 
-    console.log(footer)
     if(fetchError) return <p>{fetchError}</p>
 
     return(

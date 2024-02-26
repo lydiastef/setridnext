@@ -30,7 +30,6 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto 2rem;
 }
 
 .edit {
@@ -44,6 +43,20 @@ p {
     margin: 0 auto 1rem auto;
     width: 2.5rem;
     cursor: pointer;
+}
+
+.signout-btn {
+        padding: 8px;
+        border-radius: 5px;
+        border: solid 1px;
+        cursor: pointer;
+        border: solid #AC0B11;
+        background-color: #AC0B11;
+        color: white;
+        letter-spacing: .8px;
+        font-size: 14px;
+        font-weight: 700;
+        margin: auto -6rem auto 2rem;
 }
 
 /* edit page end*/
@@ -260,6 +273,10 @@ p {
 
     .popup-card {
         width: 50%;
+    }
+
+    .signout-btn {
+        margin: auto -10rem auto 8rem;
     }
 
 }

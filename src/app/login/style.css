@@ -1,18 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:ital,wght@0,500;0,700;1,300&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  letter-spacing: .3px;
+}
+
 .login-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 250px;
-    margin: 8rem auto;
-    border: solid #AC0B11;
+    margin: 4rem auto;
+    border: solid 1px #aeaeae;
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     padding: 2rem;
 }
 
 h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 24px;
-    margin: 2rem;
+    margin: 4rem;
 }
 
 .email-container {
@@ -20,31 +32,46 @@ h1 {
     flex-direction: column;
     justify-content: center;
     text-align: left;
-    margin: .2rem auto .7rem auto;
 }
 
 .input {
     margin: .2rem auto .7rem auto;
-    border: solid 1px;
+    border: solid 1px #aeaeae;
     padding: 8px;
     border-radius: 5px;
 }
 
 .login-btn {
-    margin: 1rem .5rem 2rem .5rem;
+    margin: 1rem 0;
     padding: 8px;
     border-radius: 5px;
     border: solid 1px;
     cursor: pointer;
     border: solid #AC0B11;
     background-color: #AC0B11;
-    width: 172px;
+    width: 100%;
     color: white;
-    letter-spacing: 1px;
+    letter-spacing: .8px;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .login-btn:hover {
     background-color: #7D070C;
+}
+
+.reset {
+    text-align: center;
+    color: #AC0B11;
+    border: solid 1px #AC0B11;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.reset:hover {
+    color: #7D070C;
+    border: solid 1px #7D070C;
 }
 
 @media only screen and (min-width: 700px){
@@ -54,11 +81,11 @@ h1 {
 }
 
 .login-container {
-    width: 448px;
+    width: 400px;
+    height: 304px;
 }
 
 .email-container {
-    width: 304px;
     font-size: 20px;
 }
 
@@ -68,7 +95,7 @@ h1 {
 }
 
 .login-btn {
-    width: 304px;
+    width: 100%;
     font-size: 20px;
 }
 }
