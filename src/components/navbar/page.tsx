@@ -34,6 +34,13 @@ function Navbar() {
                 <div className='a-container'>
                     <a href='/rannsoknir'>Rannsóknir</a>
                     <a href='/laeknar'>Starfsfólk</a>
+                    <div className="dropdown">
+                        <a href='/tenglar'>Tenglar</a>
+                        <div className="dropdown-content">
+                            <a href="/link1">rannsoknasetrid.is</a>
+                            <a href="/link2">Link 2</a>
+                        </div>
+                    </div>
                     <a href='/enska'>English</a>
                     <SearchBar />
                     <button className='nav-btn nav-close-btn' onClick={showNavbar}>

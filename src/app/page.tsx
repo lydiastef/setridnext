@@ -82,21 +82,23 @@ function Frontpage() {
             </div>
 
             <div className='iconbtn'>
+                    <img className='icon2' src='/phoneicon.png' alt='phone'/>
+                    <h2 className='undericon'>Símanúmer</h2>
+                        {error && <p>{error}</p>}
+                        <div className='phone-info'>
+                            <p className='info-btn2'>{get('Phone number')}</p>
+                            <p>{get('phone-oh1')}</p>
+                            <p>{get('phone-oh2')}</p>
+                        </div>
+                </div>
+
+            <div className='iconbtn1'>
                     <img className='icon2' src='/clockicon.png' alt='clock icon' />
                     <h2 className='undericon'>Opnunartímar</h2>
                     {error && <p>{error}</p>}
                     <p className='info-btn2'>{get('oh Monday')}</p>
-                    <p className='info-btn2'>{get('oh Friday')}</p>
                 </div>
 
-                <div className='iconbtn1'>
-                    <img className='icon2' src='/phoneicon.png' alt='phone'/>
-                    <h2 className='undericon'>Símanúmer</h2>
-                        {error && <p>{error}</p>}
-                        <div>
-                            <p className='info-btn2'>{get('Phone number')}</p>
-                        </div>
-                </div>
             </div>
             
         <div className='main-container'>

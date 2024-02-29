@@ -1,5 +1,5 @@
 .search-container {
-    position: relative; /* Ensure the container maintains its position */
+    position: relative; /*Container maintains its position */
   }
 
   .search {
@@ -78,7 +78,7 @@
 
   .staff-link {
     text-decoration: none;
-    color: #007bff; 
+    color: #AC0B11;
     cursor: pointer; 
   }
   
@@ -89,16 +89,15 @@
   @media only screen and (min-width: 750px) {
 
   .search-bar {
-    width: 170px;
+    width: 136px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin: 0 4rem -4rem 2rem;
-    border: solid black;
+    margin: auto 2rem 3.5rem 2rem;
   }
 
   .search-icon {
-    margin-left: 1.5rem;
+    margin-left: 2rem;
   }
 }
 
