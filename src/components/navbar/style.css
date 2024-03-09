@@ -43,7 +43,7 @@ header {
   display: flex;
   align-items: center;
   flex-direction: row;
-  margin-left: 2rem;
+  margin-right: 6rem;
 }
 
 nav a {
@@ -109,6 +109,10 @@ header .nav-btn {
 /* Show the dropdown content on hover */
 .tenglar:hover .tenglar-content {
     display: block;
+}
+
+.search-container {
+  margin-left: auto;
 }
 
 @media only screen and (max-width: 700px) {
@@ -186,7 +190,7 @@ header .nav-btn {
 }
 
 .a-container {
-  margin-right: 2rem;
+  margin-right: 10rem;
 }
 }
 
@@ -195,9 +199,6 @@ header .nav-btn {
     margin-left: 8rem;
   }
 
-  .a-container {
-    margin-right: -4rem;
-  }
 }
 
 
