@@ -1,7 +1,7 @@
 'use client'
-import './frontpageadmin.css';
-import Navbar from '../navbar/page';
-import Footer from '../footer/page';
+import '../style.css';
+import Navbar from '../../components/navbar/page';
+import Footer from '../../components/footer/page';
 import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import Link from 'next/link';
@@ -15,7 +15,7 @@ type Data = {
     value: string | null;
 }
 
-function Frontpage() {
+function Frontpageadmin() {
 
     const [content, setContent] = useState({});
     const [error, setError] = useState(null);
@@ -67,90 +67,80 @@ function Frontpage() {
         <div>
             <Navbar/>
             <div className='imgandtext'>
-                <h1 className='welcome-h1'>Velkomin í <span>Læknasetrið</span></h1>
-                <img className='main-img' src='/main8.avif' alt='stethoscope' />
+                <img className='main-img' src='/setrid2.jpg' alt='stethoscope' />
             </div>
 
             <div className='phoneclockcontainer'>
 
-            <div className='iconbtn'> 
+            <div className='iconbtn1'> 
                 <img className='icon2' src='/emailicon.png' alt='email icon' />
-                <p>Tölvupóstur</p>
+                <h2 className='undericon'>Tölvupóstur</h2>
                 {error && <p>{error}</p>}
                     <div>
                         <p className='info-btn2'>{get('email')}</p>
                     </div>
             </div>
 
-                <div className='iconbtn'>
+            <div className='iconbtn'>
                     <img className='icon2' src='/phoneicon.png' alt='phone'/>
-                    <p>Símanúmer</p>
+                    <h2 className='undericon'>Símanúmer</h2>
                         {error && <p>{error}</p>}
-                        <div>
+                        <div className='phone-info'>
                             <p className='info-btn2'>{get('Phone number')}</p>
+                            <p>{get('phone-oh1')}</p>
+                            <p>{get('phone-oh2')}</p>
                         </div>
                 </div>
 
-                <div className='iconbtn'>
+            <div className='iconbtn1'>
                     <img className='icon2' src='/clockicon.png' alt='clock icon' />
-                    <p>Opnunartímar</p>
+                    <h2 className='undericon'>Opnunartímar</h2>
                     {error && <p>{error}</p>}
-                    <p className='oh'>{get('oh Monday')}</p>
-                    <p className='oh'>{get('oh Friday')}</p>
+                    <p className='info-btn2'>{get('oh Monday')}</p>
                 </div>
+
             </div>
             
-
-        <h2>Velkomin í Læknasetrið</h2>
-        <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+        <div className='main-container'>
+            <h2>Velkomin í Læknasetrið</h2>
+            <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
             et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+            aliquip ex ea commodo consequat.<br></br><br></br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
             dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
             officia deserunt mollit anim id est laborum.</p>
         
         
-        <div className='midsectioncontainer'>
-            <div className='midsectionbtn'>
-                <div className='textandbtn'>
-                <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
-                    <p className='info-btn2'>Læknar</p>
-                    <p>Sjáðu alla lækna og annað starfsfólk sem starfar 
-                    í Læknasetrinu</p>
-                    <Link href='/laeknar'>
-                        <button>Læknar</button>
-                    </Link>
+            <div className='midsectioncontainer'>
+                <div className='midsectionbtn'>
+                    <div className='textandbtn'>
+                    <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
+                        <p className='box-p'>Sjáðu alla lækna og annað starfsfólk sem starfar 
+                        í Læknasetrinu</p>
+                        <Link href='/laeknar'>
+                            <button>Læknar</button>
+                        </Link>
+                    </div>
                 </div>
-            </div>
 
                 <div className='midsectionbtn'>
                     <div className='textandbtn'>
-                    <img className='icon' src='/ecgicon.png' alt='doctor icon' />
-                        <p className='info-btn2'>Rannsóknir</p>
-                        <p>Lestu um allar þær rannsóknir sem gerðar
+                    <img className='icon3' src='/ecgicon.png' alt='doctor icon' />
+                        <p className='box-p'>Lestu um allar þær rannsóknir sem gerðar
                         eru í Læknasetrinu</p>
-                        <Link href='/rannsoknir'>
+                        <Link href='/frontpageadmin'>
                             <button>Rannsóknir</button>
                         </Link>
                     </div>
                 </div>
             </div>
 
-            <div className='oh-container'>
-                {error && <p>{error}</p>}
-                    <img className='icon2' src='/clockicon.png' alt='opening hours icon' />
-                    <p className='info-btn2'>Opnunartímar</p>
-                    <p className='oh'>{get('oh Monday')}</p>
-                    <p className='oh'>{get('oh Friday')}</p>
-            </div>
-
-
-        {error && <p>{error}</p>}
+            {error && <p>{error}</p>}
  
-            <h2>{get('title')}</h2>
+            <h2 className='where-h2'>{get('title')}</h2>
             
-        <div className='where'>
-            <div className='where1'>
-                {error && <p>{error}</p>}
+            <div className='where'>
+                <div className='where1'>
+                    {error && <p>{error}</p>}
 
                     <div className='instructions'>
                         <p className='where-p'>{get('left text')}</p>
@@ -180,13 +170,15 @@ function Frontpage() {
 
             </div>
         </div>
+        </div>
         <Footer/>
 
         </div>
     );
             }
 
-    export default Frontpage;
+    export default Frontpageadmin;
+
 
     /*{error && <p>{error}</p>}
 

@@ -25,7 +25,7 @@ function Navbar() {
         <header>
             <div className='logo-container'>
                 <Link href='/'>
-                    <img className='logo-ball' src='../../../logoold.svg' />
+                    <img className='logo-ball' src='../../../TAMRA (27).png' />
                     <img className='logo-img' src='../../../logosetrid.svg' alt='Logo' />
                 </Link>
             </div>
@@ -34,15 +34,17 @@ function Navbar() {
                 <div className='a-container'>
                     <a href='/rannsoknir'>Rannsóknir</a>
                     <a href='/laeknar'>Starfsfólk</a>
-                    <div className="dropdown">
+                    <div className="tenglar">
                         <a href='/tenglar'>Tenglar</a>
-                        <div className="dropdown-content">
-                            <a href="/link1">rannsoknasetrid.is</a>
+                        <div className="tenglar-content">
+                            <a href="https://www.rannsoknasetrid.is">rannsoknasetrid.is</a>
                             <a href="/link2">Link 2</a>
                         </div>
                     </div>
                     <a href='/enska'>English</a>
-                    <SearchBar />
+                    <div className='search-container'>
+                        <SearchBar />
+                    </div>
                     <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                         <FaTimes/>
                     </button>

@@ -127,7 +127,7 @@ function Frontpage() {
                     <img className='icon3' src='/ecgicon.png' alt='doctor icon' />
                         <p className='box-p'>Lestu um allar þær rannsóknir sem gerðar
                         eru í Læknasetrinu</p>
-                        <Link href='/frontpageadmin'>
+                        <Link href='/rannsoknir'>
                             <button>Rannsóknir</button>
                         </Link>
                     </div>

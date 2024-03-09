@@ -22,7 +22,7 @@ type Staff = {
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState<Staff[]>([]);
+  const [searchResults, setSearchResults] = useState<{}[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   // Start of event listener to close searchbar on click
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
@@ -71,14 +71,17 @@ const SearchBar = () => {
     try {
       const { data, error } = await supabase
         .from('staff')
-        .select('doctor')
+        .select()
         .ilike('doctor', `%${query}%`);
-
+        const { data2, error2 } = await supabase
+        .from('')
+        .select()
+        .ilike('dálk...', `%${query}%`);
       if (error) {
         throw error;
       }
 
-      setSearchResults(data as Staff[]);
+      setSearchResults([...data, ...data2] as {}[]);
     } catch (error) {
       console.error('Error searching staff:', (error as Error).message);
       setSearchResults([]);
@@ -101,7 +104,7 @@ const SearchBar = () => {
   return (
     <div className="search-container">
       <div ref={searchIconRef} className={`search-icon ${isSearchBarOpen ? 'hidden' : ''}`} onClick={toggleSearchBar}>
-        <img className='search' src="search.png" alt="Search" />
+        <img className='search' src="/search.png" alt="Search" />
       </div>
       {isSearchBarOpen && (
         <input

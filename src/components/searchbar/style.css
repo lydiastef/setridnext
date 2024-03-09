@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:ital,wght@0,500;0,700;1,300&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+}
+
 .search-container {
-    position: relative; /*Container maintains its position */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; /*Container maintains its position */
+  top: 120px;
   }
 
   .search {
@@ -34,7 +45,7 @@
   }
 
   .search-bar.visible {
-    width: 150px;
+    width: 100px;
     opacity: 1;
     transition: opacity 0.3s ease;
   }
@@ -86,25 +97,35 @@
     text-decoration: underline;
   }
 
-  @media only screen and (min-width: 750px) {
+  @media only screen and (min-width: 700px) {
+
+  .search-container {
+    top: 10px;
+    left: 85%;
+  }
 
   .search-bar {
     width: 136px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin: auto 2rem 3.5rem 2rem;
   }
 
   .search-icon {
-    margin-left: 2rem;
+
   }
 }
 
 @media only screen and (min-width: 1000px) {
 
     .search-icon {
-        margin-bottom: 1rem;
       }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute; /*Container maintains its position */
+        }
 }
   

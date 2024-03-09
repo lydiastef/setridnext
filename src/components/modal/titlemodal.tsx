@@ -28,16 +28,16 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2 className='edit-text-h2'>Edit Text</h2>
+        <h2 className='edit-text-h2'>Uppfæra texta</h2>
         <textarea className='title-textarea'
           value={newText}
           onChange={(e) => setNewText(e.target.value)}
-          placeholder="Enter new text..."
+          placeholder="Nýr texti..."
         />
 
         <div>
-          <button className='save-btn' onClick={handleSave}>Save</button>
-          <button className='cancel-btn' onClick={closeModal}>Cancel</button>
+          <button className='save-btn' onClick={handleSave}>Vista</button>
+          <button className='cancel-btn' onClick={closeModal}>Hætta</button>
         </div>
       </div>
     </div>

@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:ital,wght@0,500;0,700;1,300&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -220,6 +227,20 @@ p {
         border-radius: 8px;
     }
     
+    /*for the edit page*/
+
+.edit {
+    width: 2.5rem;
+    margin-left: -4rem;
+    cursor: pointer;
+}
+
+.edit-cards {
+    display: flex;
+    margin: 0 auto 1rem auto;
+    width: 2.5rem;
+    cursor: pointer;
+}
 }
 
 @media only screen and (min-width: 1024px){

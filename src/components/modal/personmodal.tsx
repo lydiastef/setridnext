@@ -30,37 +30,37 @@ const PersonModal: React.FC<PersonModalProps> = ({ closeModal, tableName, id }) 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2 className='edit-text-h2'>Edit Name</h2>
+        <h2 className='edit-text-h2'>Nafn</h2>
         <textarea className='title-textarea'
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Enter new text..."
+          placeholder="Nýr texti..."
         />
 
-<h2 className='edit-text-h2'>Edit Image</h2>
+<h2 className='edit-text-h2'>Mynd</h2>
         <textarea className='title-textarea'
           value={image}
           onChange={(e) => setImage(e.target.value)}
-          placeholder="Enter new text..."
+          placeholder="Nýr texti..."
         />
 
-<h2 className='edit-text-h2'>Edit Education</h2>
+<h2 className='edit-text-h2'>Menntun</h2>
         <textarea className='title-textarea'
           value={education}
           onChange={(e) => setEducation(e.target.value)}
-          placeholder="Enter new text..."
+          placeholder="Nýr texti..."
         />
 
-<h2 className='edit-text-h2'>Edit Experience</h2>
+<h2 className='edit-text-h2'>Reynsla</h2>
         <textarea className='title-textarea'
           value={experience}
           onChange={(e) => setExperience(e.target.value)}
-          placeholder="Enter new text..."
+          placeholder="Nýr texti..."
         />
 
         <div>
-          <button className='save-btn' onClick={handleSave}>Save</button>
-          <button className='cancel-btn' onClick={closeModal}>Cancel</button>
+          <button className='save-btn' onClick={handleSave}>Vista</button>
+          <button className='cancel-btn' onClick={closeModal}>Hætta</button>
         </div>
       </div>
     </div>
