@@ -5,7 +5,7 @@ import { NextResponse, NextRequest } from 'next/server'
 
 export async function middleware(req:NextRequest){
     const res = NextResponse.next();
-    const supabase = createMiddlewareClient({req, res});
+    const supabase = createMiddlewareClient({req, res}); //request and response
     await supabase.auth.getSession(); //updates our cookie
     return res; //return response
     //prevent the session from expiring
