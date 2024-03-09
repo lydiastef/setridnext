@@ -22,7 +22,7 @@ type Staff = {
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState<{}[]>([]);
+  const [searchResults, setSearchResults] = useState<Staff[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   // Start of event listener to close searchbar on click
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
@@ -82,7 +82,7 @@ const SearchBar = () => {
         throw error;
       }
 
-      setSearchResults([data] as {}[]); //add data2 when another table is added (rannsóknir)
+      setSearchResults(data as Staff[]); //add data2 when another table is added (rannsóknir)
     } catch (error) {
       console.error('Error searching staff:', (error as Error).message);
       setSearchResults([]);
