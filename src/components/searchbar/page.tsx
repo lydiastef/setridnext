@@ -73,15 +73,16 @@ const SearchBar = () => {
         .from('staff')
         .select()
         .ilike('doctor', `%${query}%`);
-        const { data2, error2 } = await supabase
+        
+        /*const { data2, error2 } = await supabase
         .from('')
         .select()
-        .ilike('dálk...', `%${query}%`);
+        .ilike('doctor', `%${query}%`);*/
       if (error) {
         throw error;
       }
 
-      setSearchResults([...data, ...data2] as {}[]);
+      setSearchResults([data] as {}[]); //add data2 when another table is added (rannsóknir)
     } catch (error) {
       console.error('Error searching staff:', (error as Error).message);
       setSearchResults([]);
