@@ -206,6 +206,10 @@ h2, h3 {
   margin: 4rem auto 0 auto;
 }
 
+.where-h2 {
+  margin: 4rem auto -2rem auto;
+}
+
 .where-img {
   max-width: 100%;
 }

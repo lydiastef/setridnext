@@ -43,7 +43,6 @@ header {
   display: flex;
   align-items: center;
   flex-direction: row;
-  margin-right: 6rem;
 }
 
 nav a {
@@ -89,7 +88,7 @@ header .nav-btn {
 .tenglar-content {
     display: none;
     position: absolute;
-    right: 250px;
+    right: 150px;
     top: 60px;
     background-color: #ffffff;
     min-width: 160px;
@@ -176,6 +175,10 @@ header .nav-btn {
     display: flex;
   }
 
+  .tenglar-content {
+    right: 310px;
+  }
+
   .logo-container {
     margin-left: 2rem;
   }
@@ -190,7 +193,6 @@ header .nav-btn {
 }
 
 .a-container {
-  margin-right: 10rem;
 }
 }
 

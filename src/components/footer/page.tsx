@@ -66,9 +66,10 @@ function Footer() {
                     <p className='footer1'>{get('phone')}</p>
                     <p className='footer1'>{get('email')}</p>
                     <p className='footer1'>{get('kt')}</p>
+                    <p className='footer1'>
                     <Link className='fb-link' href="https://www.facebook.com/profile.php?id=100054300169253">
                         Facebook
-                    </Link> síðan okkar
+                    </Link> síðan okkar</p>
                 </div>
 
                 {error && <p>{error}</p>}
@@ -89,9 +90,10 @@ function Footer() {
                     <p className='footer1'>{get('book phone')}</p>
                     <p className='footer1'>{get('book email')}</p>
                     <p className='footer1'>{get('book no show')}</p>
+                    <p className='footer1'>
                     <Link className='admin-login' href='/login'>
                     Admin Login
-                    </Link>
+                    </Link></p>
                 </div>
             </div>
         </footer>
