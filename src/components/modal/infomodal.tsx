@@ -3,13 +3,13 @@ import './stylemodal.css';
 import supabase from '../../config/supabaseClient';
 
 
-interface TitleModalProps {
+interface InfoModalProps {
   closeModal: () => void;
   tableName?: string;
   what?: string;
 }
 
-const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) => {
+const TitleModal: React.FC<InfoModalProps> = ({ closeModal, tableName, what }) => {
   const [newText, setNewText] = useState('');
   if(!tableName) return
   const handleSave = async () => {
@@ -28,7 +28,7 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h5 className='edit-text-h2'>Uppfæra texta</h5>
+        <h2 className='edit-text-h2'>Uppfæra texta</h2>
         <textarea className='title-textarea'
           value={newText}
           onChange={(e) => setNewText(e.target.value)}
@@ -45,9 +45,3 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) 
 };
 
 export default TitleModal;
-
-/*The closeModal function is a prop (prperties) because its function is passed between 
-      a parent and a child component (Page and Titlemodal). The function of openModal 
-      is not passed between parent and child and is therefore not a prop.*/
-//The 'page' component is a parent to the 'TitleModal' component
-//The buttons (save and cancel) can be considered children

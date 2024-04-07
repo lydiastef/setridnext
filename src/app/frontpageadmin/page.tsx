@@ -1,10 +1,11 @@
 'use client'
-import '../style.css';
+import './style.css';
 import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
 import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import Link from 'next/link';
+import InfoModal from '../../components/modal/infomodal';
 
 /*import { useRouter } from 'next/navigation';*/
 
@@ -22,6 +23,16 @@ function Frontpageadmin() {
 
     const [fetchError, setFetchError] = useState("")
     const [frontpage, setFrontpage] = useState(null) as [Data[] | null, (frontpage: Data[] | null) => void]
+
+    //States for the modals (open and close the edit feature)
+    const [openModalId, setOpenModalId] = useState<string | null>(null); // Modals are closed unless clicked on
+
+
+//Open close modals
+{openModalId === 'email' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='title' />}
+{openModalId === 'phone-number' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='title' />}
+{openModalId === 'oh-Monday' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='title' />}
+
 
     const get = (name: string) => {
         // Check if frontpage is not null and not empty
@@ -71,34 +82,42 @@ function Frontpageadmin() {
             </div>
 
             <div className='phoneclockcontainer'>
-
-            <div className='iconbtn1'> 
-                <img className='icon2' src='/emailicon.png' alt='email icon' />
-                <h2 className='undericon'>Tölvupóstur</h2>
-                {error && <p>{error}</p>}
-                    <div>
-                        <p className='info-btn2'>{get('email')}</p>
-                    </div>
-            </div>
-
-            <div className='iconbtn'>
-                    <img className='icon2' src='/phoneicon.png' alt='phone'/>
-                    <h2 className='undericon'>Símanúmer</h2>
+                <div className='iconbtnall'>
+                    <div className='iconbtn1'> 
+                        <img className='icon2' src='/emailicon.png' alt='email icon' />
+                        <h2 className='undericon'>Tölvupóstur</h2>
+                        <img className='edit' onClick={() => setOpenModalId('email')} src='/edit.avif' alt='edit button' />
+                        {openModalId === 'email' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='email' />}
                         {error && <p>{error}</p>}
-                        <div className='phone-info'>
-                            <p className='info-btn2'>{get('Phone number')}</p>
-                            <p>{get('phone-oh1')}</p>
-                            <p>{get('phone-oh2')}</p>
+                        <div>
+                            <p className='info-btn2'>{get('email')}</p>
                         </div>
-                </div>
+                    </div>
 
-            <div className='iconbtn1'>
-                    <img className='icon2' src='/clockicon.png' alt='clock icon' />
-                    <h2 className='undericon'>Opnunartímar</h2>
-                    {error && <p>{error}</p>}
-                    <p className='info-btn2'>{get('oh Monday')}</p>
-                </div>
+                    <div className='iconbtn'>
+                        <img className='icon2' src='/phoneicon.png' alt='phone'/>
+                        <h2 className='undericon'>Símanúmer</h2>
+                        <img className='edit' onClick={() => setOpenModalId('phone-number')} src='/edit.avif' alt='edit button' />
+                        {openModalId === 'phone-number' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='phone-number' />}
+                            {error && <p>{error}</p>}
+                            <div className='phone-info'>
+                                <p className='info-btn2'>{get('Phone number')}</p>
+                                <div className='phone-oh'>
+                                    <p className='phone-oh1'>{get('phone-oh1')}</p>
+                                    <p className='phone-oh2'>{get('phone-oh2')}</p>
+                                </div>
+                            </div>
+                    </div>
 
+                    <div className='iconbtn1'>
+                        <img className='icon2' src='/clockicon.png' alt='clock icon' />
+                        <h2 className='undericon'>Opnunartímar</h2>
+                        <img className='edit' onClick={() => setOpenModalId('oh-Monday')} src='/edit.avif' alt='edit button' />
+                        {openModalId === 'oh-Monday' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='oh-Monday' />}
+                        {error && <p>{error}</p>}
+                        <p className='info-btn2'>{get('oh Monday')}</p>
+                    </div>
+                </div>
             </div>
             
         <div className='main-container'>

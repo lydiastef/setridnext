@@ -58,7 +58,7 @@ const PersonModal: React.FC<PersonModalProps> = ({ closeModal, tableName, id }) 
           placeholder="Nýr texti..."
         />
 
-        <div>
+        <div className='btns'>
           <button className='save-btn' onClick={handleSave}>Vista</button>
           <button className='cancel-btn' onClick={closeModal}>Hætta</button>
         </div>

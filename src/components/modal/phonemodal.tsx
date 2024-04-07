@@ -3,23 +3,24 @@ import './stylemodal.css';
 import supabase from '../../config/supabaseClient';
 
 
-interface TitleModalProps {
+interface PhoneModalProps {
   closeModal: () => void;
   tableName?: string;
-  what?: string;
+  id: number;
 }
 
-const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) => {
-  const [newText, setNewText] = useState('');
+const PhoneModal: React.FC<PhoneModalProps> = ({ closeModal, tableName, id }) => {
+  const [number, setNumber] = useState('');
+  const [days, setDays] = useState('');
+  const [friday, setFriday] = useState('');
   if(!tableName) return
   const handleSave = async () => {
     const { error } = await supabase
     .from(tableName)
-    .update({ value: newText })
-    .eq('name', what)
+    .update({ number, days, friday })
+    .eq('id', id)
     location.reload()
     // Logic to save the new text
-    console.log('New text:', newText);
 
     // Close the modal
     closeModal();
@@ -28,10 +29,24 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h5 className='edit-text-h2'>Uppfæra texta</h5>
+        <h2 className='edit-text-h2'>Símanúmer</h2>
         <textarea className='title-textarea'
-          value={newText}
-          onChange={(e) => setNewText(e.target.value)}
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+          placeholder="Nýr texti..."
+        />
+
+<h2 className='edit-text-h2'>Mán-fim</h2>
+        <textarea className='title-textarea'
+          value={days}
+          onChange={(e) => setDays(e.target.value)}
+          placeholder="Nýr texti..."
+        />
+
+<h2 className='edit-text-h2'>Föstudagar</h2>
+        <textarea className='title-textarea'
+          value={friday}
+          onChange={(e) => setFriday(e.target.value)}
           placeholder="Nýr texti..."
         />
 
@@ -44,7 +59,7 @@ const TitleModal: React.FC<TitleModalProps> = ({ closeModal, tableName, what }) 
   );
 };
 
-export default TitleModal;
+export default PhoneModal;
 
 /*The closeModal function is a prop (prperties) because its function is passed between 
       a parent and a child component (Page and Titlemodal). The function of openModal 

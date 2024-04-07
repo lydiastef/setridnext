@@ -8,16 +8,31 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto 4rem;
+    border: solid 1px rgb(222, 222, 222);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #ffffff;
 }
 
 .edit-text-h2 {
-    color: #7D070C;
+    color: #AC0B11;
+    font-size: 22px;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: .7rem;
 }
 
 .title-textarea {
     padding: .5rem;
-    border: solid 1.5px #AC0B11;
+    border: solid 1.5px #d6d6d6;
     border-radius: 5px;
+    height: 80px;
+}
+
+.btns {
+    display: flex;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -25,21 +40,30 @@ body {
     border: none;
     background-color: #AC0B11;
     color: #ffffff;
-    width: 64px;
+    width: 76px;
+    height: 36px;
     padding: .5rem;
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 1rem;
+    cursor: pointer;
+    margin: 0 auto auto 0;
 }
 
 .cancel-btn {
     border: solid 1.5px #AC0B11;
     background-color: #AC0B11;
     color: #ffffff;
-    width: 64px;
+    width: 76px;
+    height: 36px;
     padding: .5rem;
     border-radius: 5px;
     font-weight: bold;
+    margin: 0 0 auto 1rem;
     margin-left: 1rem;
     cursor: pointer;
+}
+
+.save-btn:hover, .cancel-btn:hover {
+    background-color: #7D070C;
 }

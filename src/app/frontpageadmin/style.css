@@ -224,6 +224,36 @@ h2, h3 {
   margin-bottom: 1rem;
 }
 
+/*for the edit page*/
+
+.edit-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit {
+  width: 2.5rem;
+  margin-left: -1rem;
+  cursor: pointer;
+}
+
+.signout-btn {
+      padding: 8px;
+      border-radius: 5px;
+      border: solid 1px;
+      cursor: pointer;
+      border: solid #AC0B11;
+      background-color: #AC0B11;
+      color: white;
+      letter-spacing: .8px;
+      font-size: 14px;
+      font-weight: 700;
+      margin: auto -6rem auto 2rem;
+}
+
+/* edit page end*/
+
 @media only screen and (min-width: 700px) {
   h2 {
     font-size: 20px;
