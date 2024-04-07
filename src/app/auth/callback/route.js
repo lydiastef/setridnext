@@ -12,7 +12,7 @@ export async function GET(request) {
     await supabase.auth.exchangeCodeForSession(code)
   }
 
-  return NextResponse.redirect(requestUrl.origin+'/laeknar/admin')
+  return NextResponse.redirect(requestUrl.origin+'frontpageadmin')
 }
 
 /*

@@ -1,4 +1,4 @@
-import Frontpageadmin from '../frontpageadmin/frontpageadmin';
+import Frontpageadmin from '../frontpageadmin/page';
 
 const Admin=() => {
     return (

@@ -122,12 +122,10 @@ function Frontpageadmin() {
             
         <div className='main-container'>
             <h2>Velkomin í Læknasetrið</h2>
-            <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-            aliquip ex ea commodo consequat.<br></br><br></br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-            officia deserunt mollit anim id est laborum.</p>
-        
+            <img className='edit' onClick={() => setOpenModalId('intro text')} src='/edit.avif' alt='edit button' />
+            {openModalId === 'intro text' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='intro text' />}
+            {error && <p>{error}</p>}
+            <p className='text'>{get('intro text')}</p>
         
             <div className='midsectioncontainer'>
                 <div className='midsectionbtn'>
