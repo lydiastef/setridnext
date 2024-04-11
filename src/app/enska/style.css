@@ -31,7 +31,7 @@ p {
   font-weight: 700;
 }
 
-button {
+.drbtn {
   margin: 1rem 0;
   padding: .8rem;
   background-color: #AC0B11;
@@ -44,7 +44,7 @@ button {
   font-size: 14px;
 }
 
-button:hover {
+.drbtn:hover {
   background-color: #81090D;
 }
 
@@ -368,7 +368,7 @@ h2, h3 {
     font-size: 16px;
   }
 
-  button {
+  .drbtn {
     padding: 1rem;
     font-size: 18px;
     margin: 2rem;

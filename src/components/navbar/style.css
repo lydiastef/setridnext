@@ -15,7 +15,6 @@ body {
   display: flex;
   flex-direction: row;
   margin-left: 2.5rem;
-  width: 2500px;
 }
 
 .logo-ball {

@@ -112,7 +112,7 @@ function Frontpage() {
                     <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
                         <p className='box-p'>See all the doctor who work in Læknasetrið</p>
                         <Link href='/laeknar'>
-                            <button>Doctors</button>
+                            <button className='drbtn'>Doctors</button>
                         </Link>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ function Frontpage() {
                     <img className='icon3' src='/ecgicon.png' alt='doctor icon' />
                         <p className='box-p'>Read about all the tests and services offered at Læknasetrið</p>
                         <Link href='/frontpageadmin'>
-                            <button>Tests</button>
+                            <button className='drbtn'>Tests</button>
                         </Link>
                     </div>
                 </div>

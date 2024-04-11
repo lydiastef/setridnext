@@ -6,6 +6,8 @@ import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import Link from 'next/link';
 import InfoModal from '../../components/modal/infomodal';
+import { useRouter } from 'next/navigation';
+
 
 /*import { useRouter } from 'next/navigation';*/
 
@@ -17,6 +19,7 @@ type Data = {
 }
 
 function Frontpageadmin() {
+    const router = useRouter()
 
     const [content, setContent] = useState({});
     const [error, setError] = useState(null);
@@ -49,7 +52,18 @@ function Frontpageadmin() {
         }
       };
 
+      async function handleLogout() {
+        await supabase.auth.signOut();
+        window.location.reload();
+      }
+
     useEffect(() => {
+        const fetchDataFromTable = async (table: string) => {
+            const { data: { user } } = await supabase.auth.getUser()
+            //console.log('user:',await supabase.auth.getSession())
+             if (!user) {
+             router.push('/login')
+             }
         const fetchFrontpage = async () => {
             const { data, error } = await supabase
             .from('frontpage') //fetching data from this table in Supabase
@@ -65,18 +79,21 @@ function Frontpageadmin() {
                 setFetchError("")
             }
         }
-
+    
         fetchFrontpage();
-    }, [])
+    }}, [])
 
     //Fetching data from Supabase - end
 
     console.log(frontpage)
     if(fetchError) return <p>{fetchError}</p>
 
-    return(
+  return (
+    // Your component JSX
+
         <div>
             <Navbar/>
+            <button className='signout-btn1' onClick={handleLogout}>Sign Out</button>
             <div className='imgandtext'>
                 <img className='main-img' src='/setrid2.jpg' alt='stethoscope' />
             </div>
@@ -191,8 +208,8 @@ function Frontpageadmin() {
         <Footer/>
 
         </div>
-    );
-            }
+);
+    }
 
     export default Frontpageadmin;
 

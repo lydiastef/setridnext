@@ -87,10 +87,13 @@ function Frontpage() {
                             {error && <p>{error}</p>}
                             <div className='phone-info'>
                                 <p className='info-btn2'>{get('Phone number')}</p>
-                                <div className='phone-oh'>
-                                    <p className='phone-oh1'>{get('phone-oh1')}</p>
-                                    <p className='phone-oh2'>{get('phone-oh2')}</p>
-                                </div>
+                                <button className='phone-oh'>
+                                    <span className='phone-oh-default'>Opnunartímar símans</span>
+                                    <span className='phone-oh-hover-details'>
+                                        <p className='phone-oh1'>{get('phone-oh1')}</p>
+                                        <p className='phone-oh2'>{get('phone-oh2')}</p>
+                                    </span>
+                                </button>
                             </div>
                     </div>
 
@@ -115,7 +118,7 @@ function Frontpage() {
                         <p className='box-p'>Sjáðu alla lækna og annað starfsfólk sem starfar 
                         í Læknasetrinu</p>
                         <Link href='/laeknar'>
-                            <button>Læknar</button>
+                            <button className='drbtn'>Læknar</button>
                         </Link>
                     </div>
                 </div>
@@ -126,7 +129,7 @@ function Frontpage() {
                         <p className='box-p'>Lestu um allar þær rannsóknir sem gerðar
                         eru í Læknasetrinu</p>
                         <Link href='/rannsoknir'>
-                            <button>Rannsóknir</button>
+                            <button className='drbtn'>Rannsóknir</button>
                         </Link>
                     </div>
                 </div>

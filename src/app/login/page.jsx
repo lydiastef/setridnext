@@ -101,7 +101,7 @@ export default function LoginPage(){
     }
 
     if (user){
-      if(user?.identities[0].identity_data.email) router.replace('/laeknar/admin');
+      if(user?.identities[0].identity_data.email) router.replace('/frontpageadmin');
         return  null;
 }
 
