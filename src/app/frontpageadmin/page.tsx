@@ -6,7 +6,7 @@ import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import Link from 'next/link';
 import InfoModal from '../../components/modal/infomodal';
-import { useRouter } from 'next/navigation';
+import TitleModal from '../../components/modal/titlemodal';
 
 
 /*import { useRouter } from 'next/navigation';*/
@@ -19,7 +19,6 @@ type Data = {
 }
 
 function Frontpageadmin() {
-    const router = useRouter()
 
     const [content, setContent] = useState({});
     const [error, setError] = useState(null);
@@ -28,13 +27,16 @@ function Frontpageadmin() {
     const [frontpage, setFrontpage] = useState(null) as [Data[] | null, (frontpage: Data[] | null) => void]
 
     //States for the modals (open and close the edit feature)
-    const [openModalId, setOpenModalId] = useState<string | null>(null); // Modals are closed unless clicked on
-
+const [isModalOpen1, setIsModalOpen1] = useState(false);
+const [isModalOpen2, setIsModalOpen2] = useState(false);
+const [isModalOpenp, setIsModalOpenp] = useState(-1);
 
 //Open close modals
-{openModalId === 'email' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='title' />}
-{openModalId === 'phone-number' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='title' />}
-{openModalId === 'oh-Monday' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='title' />}
+const openModal1 = () => {setIsModalOpen1(true);};
+const closeModal1 = () => {setIsModalOpen1(false);};
+
+const openModal2 = () => {setIsModalOpen2(true);};
+const closeModal2 = () => {setIsModalOpen2(false);};
 
 
     const get = (name: string) => {
@@ -52,18 +54,7 @@ function Frontpageadmin() {
         }
       };
 
-      async function handleLogout() {
-        await supabase.auth.signOut();
-        window.location.reload();
-      }
-
     useEffect(() => {
-        const fetchDataFromTable = async (table: string) => {
-            const { data: { user } } = await supabase.auth.getUser()
-            //console.log('user:',await supabase.auth.getSession())
-             if (!user) {
-             router.push('/login')
-             }
         const fetchFrontpage = async () => {
             const { data, error } = await supabase
             .from('frontpage') //fetching data from this table in Supabase
@@ -79,21 +70,18 @@ function Frontpageadmin() {
                 setFetchError("")
             }
         }
-    
+
         fetchFrontpage();
-    }}, [])
+    }, [])
 
     //Fetching data from Supabase - end
 
     console.log(frontpage)
     if(fetchError) return <p>{fetchError}</p>
 
-  return (
-    // Your component JSX
-
+    return(
         <div>
             <Navbar/>
-            <button className='signout-btn1' onClick={handleLogout}>Sign Out</button>
             <div className='imgandtext'>
                 <img className='main-img' src='/setrid2.jpg' alt='stethoscope' />
             </div>
@@ -103,8 +91,8 @@ function Frontpageadmin() {
                     <div className='iconbtn1'> 
                         <img className='icon2' src='/emailicon.png' alt='email icon' />
                         <h2 className='undericon'>Tölvupóstur</h2>
-                        <img className='edit' onClick={() => setOpenModalId('email')} src='/edit.avif' alt='edit button' />
-                        {openModalId === 'email' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='email' />}
+                        <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
+                        {isModalOpen1 && <InfoModal closeModal={closeModal1} tableName='frontpage' what='title' />}
                         {error && <p>{error}</p>}
                         <div>
                             <p className='info-btn2'>{get('email')}</p>
@@ -114,8 +102,8 @@ function Frontpageadmin() {
                     <div className='iconbtn'>
                         <img className='icon2' src='/phoneicon.png' alt='phone'/>
                         <h2 className='undericon'>Símanúmer</h2>
-                        <img className='edit' onClick={() => setOpenModalId('phone-number')} src='/edit.avif' alt='edit button' />
-                        {openModalId === 'phone-number' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='phone-number' />}
+                        <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
+                        {isModalOpen1 && <InfoModal closeModal={closeModal1} tableName='frontpage' what='title' />}
                             {error && <p>{error}</p>}
                             <div className='phone-info'>
                                 <p className='info-btn2'>{get('Phone number')}</p>
@@ -129,8 +117,8 @@ function Frontpageadmin() {
                     <div className='iconbtn1'>
                         <img className='icon2' src='/clockicon.png' alt='clock icon' />
                         <h2 className='undericon'>Opnunartímar</h2>
-                        <img className='edit' onClick={() => setOpenModalId('oh-Monday')} src='/edit.avif' alt='edit button' />
-                        {openModalId === 'oh-Monday' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='oh-Monday' />}
+                        <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
+                        {isModalOpen1 && <InfoModal closeModal={closeModal1} tableName='frontpage' what='title' />}
                         {error && <p>{error}</p>}
                         <p className='info-btn2'>{get('oh Monday')}</p>
                     </div>
@@ -139,10 +127,14 @@ function Frontpageadmin() {
             
         <div className='main-container'>
             <h2>Velkomin í Læknasetrið</h2>
-            <img className='edit' onClick={() => setOpenModalId('intro text')} src='/edit.avif' alt='edit button' />
-            {openModalId === 'intro text' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='intro text' />}
-            {error && <p>{error}</p>}
-            <p className='text'>{get('intro text')}</p>
+            <img className='edit' onClick={openModal2} src='/edit.avif' alt='edit button'/>
+            {isModalOpen2 && <TitleModal closeModal={closeModal2} tableName='frontpage' what='intro text'/>}
+            <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+            aliquip ex ea commodo consequat.<br></br><br></br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+            officia deserunt mollit anim id est laborum.</p>
+        
         
             <div className='midsectioncontainer'>
                 <div className='midsectionbtn'>
@@ -208,19 +200,7 @@ function Frontpageadmin() {
         <Footer/>
 
         </div>
-);
-    }
+    );
+            }
 
     export default Frontpageadmin;
-
-
-    /*{error && <p>{error}</p>}
-
-            <div className='oh-container'>
-                <h2 className='oh-h2'>Opnunartímar</h2>
-                <p className='where-p'>Mánudagar {get('oh Monday')}</p>
-                <p className='where-p'>Þriðjudagar {get('oh Tuesday')}</p>
-                <p className='where-p'>Miðvikudagar {get('oh Wednesday')}</p>
-                <p className='where-p'>Fimmtudagar {get('oh Thursday')}</p>
-                <p className='where-p'>Föstudagar {get('oh Friday')}</p>
-            </div>*/
