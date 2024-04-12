@@ -60,16 +60,6 @@ p {
   position: relative;
 }
 
-.welcome-h1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 3rem 2rem 0 2rem;
-  font-size: 16px;
-  z-index: 1;
-  position: absolute;
-}
-
 .phoneclockcontainer {
   height: 168px;
   border-bottom: solid 1px #cdcdcd;
@@ -126,23 +116,10 @@ p {
   border-radius: 5px;
   border: solid 1px rgb(215, 215, 215);
 }
-/*
-.phone-oh1 {
-  margin-top: .6rem;
-}
-
-.phone-oh2 {
-  margin-top: -.3rem;
-}
-
-.phone-oh:hover .phone-oh-details {
-  display: block;
-  text-align: left;
-  /* Styling adjustments for visibility on hover
-}*/
 
 .phone-oh-default {
   display: block;
+  font-size: 10px;
 }
 
 .phone-oh-hover-details {
@@ -189,7 +166,7 @@ h2, h3 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   color: #AC0B11;
 }
@@ -198,6 +175,7 @@ h2, h3 {
   letter-spacing: .3px;
   line-height: 24px;
   text-align: left;
+  margin-bottom: 1rem;
 }
 
 .midsectioncontainer {
@@ -251,7 +229,7 @@ h2, h3 {
 @media only screen and (min-width: 700px) {
   h2 {
     font-size: 20px;
-    margin-top: 6rem;
+    margin-top: 4rem;
     margin-bottom: 4rem;
   }
 
@@ -299,9 +277,20 @@ h2, h3 {
     font-size: 18px;
   }
 
+  .phone-oh {
+    width: 112px;
+    height: 40px;
+    margin-top: 1rem;
+    font-size: 12px;
+  }
+
   .phone-oh1 {
     margin-top: 1rem;
     width: 110px;
+  }
+
+  .phone-oh-default {
+    font-size: 12px;
   }
 
   .main-container {
@@ -341,7 +330,7 @@ h2, h3 {
 @media only screen and (min-width: 900px) {
   h2 {
     font-size: 28px;
-    margin: 0 auto 3rem auto;
+    margin: 6rem auto 4rem auto;
     }
 
   p {
@@ -393,6 +382,17 @@ h2, h3 {
     letter-spacing: 1px;
   }
 
+  .phone-oh {
+    width: 136px;
+    height: 40px;
+    margin-top: 1rem;
+    font-size: 14px;
+  }
+
+  .phone-oh-default {
+    font-size: 14px;
+  }
+
   .midsectioncontainer {
     display: flex;
     align-items: center;
@@ -400,12 +400,13 @@ h2, h3 {
   }
 
   .midsectionbtn {
-    width: 304px;
-    height: 272px;
+    width: 288px;
+    height: 256px;
+    padding: 1rem;
   }
 
   .box-p {
-    margin: auto 1.5rem;
+    margin: .5rem 1.5rem;
   }
 
   .where-h2 {
@@ -471,13 +472,24 @@ h2, h3 {
     margin: 1rem;
   }
 
+  .phone-oh {
+    width: 160px;
+    height: 50px;
+    margin-top: 1rem;
+    font-size: 16px;
+  }
+
+  .phone-oh-default {
+    font-size: 16px;
+  }
+
   .main-container {
     margin: auto 16rem;
   }
 
   .midsectionbtn {
-    width: 352px;
-    height: 296px;
+    width: 356px;
+    height: 280px;
   }
 
   .where {
@@ -527,7 +539,7 @@ h2, h3 {
 
   .midsectionbtn {
     width: 360px;
-    height: 296px;
+    height: 304px;
   }
 
   .text {
@@ -546,6 +558,11 @@ h2, h3 {
   .text {
     font-size: 18px;
     line-height: 28px;
+  }
+
+  .midsectionbtn {
+    width: 400px;
+    height: 304px;
   }
 
 }

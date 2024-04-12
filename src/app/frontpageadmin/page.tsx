@@ -54,6 +54,11 @@ const closeModal2 = () => {setIsModalOpen2(false);};
         }
       };
 
+      async function handleLogout() {
+        await supabase.auth.signOut();
+        window.location.reload();
+      }
+
     useEffect(() => {
         const fetchFrontpage = async () => {
             const { data, error } = await supabase
@@ -82,6 +87,7 @@ const closeModal2 = () => {setIsModalOpen2(false);};
     return(
         <div>
             <Navbar/>
+            <button className='signout-btn' onClick={handleLogout}>Sign Out</button>
             <div className='imgandtext'>
                 <img className='main-img' src='/setrid2.jpg' alt='stethoscope' />
             </div>
