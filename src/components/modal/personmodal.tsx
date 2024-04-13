@@ -59,8 +59,8 @@ const PersonModal: React.FC<PersonModalProps> = ({ closeModal, tableName, id }) 
         />
 
         <div className='btns'>
-          <button className='save-btn' onClick={handleSave}>Vista</button>
           <button className='cancel-btn' onClick={closeModal}>Hætta</button>
+          <button className='save-btn' onClick={handleSave}>Vista</button>
         </div>
       </div>
     </div>

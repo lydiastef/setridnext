@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link';
 import InfoModal from '../../components/modal/infomodal';
 import TitleModal from '../../components/modal/titlemodal';
-
+import PhoneModal from '../../components/modal/phonemodal';
 
 /*import { useRouter } from 'next/navigation';*/
 
@@ -22,21 +22,29 @@ function Frontpageadmin() {
 
     const [content, setContent] = useState({});
     const [error, setError] = useState(null);
-
     const [fetchError, setFetchError] = useState("")
-    const [frontpage, setFrontpage] = useState(null) as [Data[] | null, (frontpage: Data[] | null) => void]
+    const [frontpage, setFrontpage] = useState<Data[] | null>(null);
 
     //States for the modals (open and close the edit feature)
-const [isModalOpen1, setIsModalOpen1] = useState(false);
-const [isModalOpen2, setIsModalOpen2] = useState(false);
-const [isModalOpenp, setIsModalOpenp] = useState(-1);
+    const [currentModalId, setCurrentModalId] = useState<string | null>(null);
+
+const [openModalId, setOpenModalId] = useState<string | null>(null);
+
 
 //Open close modals
-const openModal1 = () => {setIsModalOpen1(true);};
-const closeModal1 = () => {setIsModalOpen1(false);};
+const handleOpenModal = (id: string) => {
+    setCurrentModalId(id);
+};
 
-const openModal2 = () => {setIsModalOpen2(true);};
-const closeModal2 = () => {setIsModalOpen2(false);};
+// Function to handle closing modals
+const handleCloseModal = () => {
+    setCurrentModalId(null);
+};
+
+{openModalId === 'email' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='email' />}
+{openModalId === 'phone number' && <PhoneModal closeModal={() => setOpenModalId(null)} tableName='frontpage' id='phone number' />}
+{openModalId === 'oh Monday' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='oh Monday' />}
+
 
 
     const get = (name: string) => {
@@ -55,9 +63,17 @@ const closeModal2 = () => {setIsModalOpen2(false);};
       };
 
       async function handleLogout() {
-        await supabase.auth.signOut();
-        window.location.reload();
-      }
+        console.log("Attempting to log out...");
+        const { error } = await supabase.auth.signOut();
+        if (error) {
+            console.error('Logout failed:', error.message);
+        } else {
+            console.log("Logout successful, reloading page...");
+            window.location.reload();
+        }
+        
+    }
+    
 
     useEffect(() => {
         const fetchFrontpage = async () => {
@@ -87,7 +103,7 @@ const closeModal2 = () => {setIsModalOpen2(false);};
     return(
         <div>
             <Navbar/>
-            <button className='signout-btn' onClick={handleLogout}>Sign Out</button>
+            <button className='signout-btn' onClick={handleLogout}>Útskrá</button>
             <div className='imgandtext'>
                 <img className='main-img' src='/setrid2.jpg' alt='stethoscope' />
             </div>
@@ -97,20 +113,20 @@ const closeModal2 = () => {setIsModalOpen2(false);};
                     <div className='iconbtn1'> 
                         <img className='icon2' src='/emailicon.png' alt='email icon' />
                         <h2 className='undericon'>Tölvupóstur</h2>
-                        <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
-                        {isModalOpen1 && <InfoModal closeModal={closeModal1} tableName='frontpage' what='title' />}
                         {error && <p>{error}</p>}
                         <div>
                             <p className='info-btn2'>{get('email')}</p>
                         </div>
+                        <img className='edit' onClick={() => handleOpenModal('email')} src='/edit.avif' alt='edit button' />
+                        {currentModalId === 'email' && <InfoModal closeModal={handleCloseModal} tableName='frontpage' what='email' />}
+                        
+                        
                     </div>
 
                     <div className='iconbtn'>
                         <img className='icon2' src='/phoneicon.png' alt='phone'/>
                         <h2 className='undericon'>Símanúmer</h2>
-                        <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
-                        {isModalOpen1 && <InfoModal closeModal={closeModal1} tableName='frontpage' what='title' />}
-                            {error && <p>{error}</p>}
+                        {error && <p>{error}</p>}
                             <div className='phone-info'>
                                 <p className='info-btn2'>{get('Phone number')}</p>
                                 <div className='phone-oh'>
@@ -118,29 +134,27 @@ const closeModal2 = () => {setIsModalOpen2(false);};
                                     <p className='phone-oh2'>{get('phone-oh2')}</p>
                                 </div>
                             </div>
+                        <img className='edit' onClick={() => handleOpenModal('phone number')} src='/edit.avif' alt='edit button' />
+                        {currentModalId === 'phone number' && <PhoneModal closeModal={handleCloseModal} tableName='frontpage' id='phone number' />}
                     </div>
 
                     <div className='iconbtn1'>
                         <img className='icon2' src='/clockicon.png' alt='clock icon' />
                         <h2 className='undericon'>Opnunartímar</h2>
-                        <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
-                        {isModalOpen1 && <InfoModal closeModal={closeModal1} tableName='frontpage' what='title' />}
                         {error && <p>{error}</p>}
                         <p className='info-btn2'>{get('oh Monday')}</p>
+                        <img className='edit' onClick={() => handleOpenModal('oh Monday')} src='/edit.avif' alt='edit button' />
+                        {currentModalId === 'oh Monday' && <InfoModal closeModal={handleCloseModal} tableName='frontpage' what='oh Monday' />}
                     </div>
                 </div>
             </div>
             
         <div className='main-container'>
             <h2>Velkomin í Læknasetrið</h2>
-            <img className='edit' onClick={openModal2} src='/edit.avif' alt='edit button'/>
-            {isModalOpen2 && <TitleModal closeModal={closeModal2} tableName='frontpage' what='intro text'/>}
-            <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-            aliquip ex ea commodo consequat.<br></br><br></br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-            officia deserunt mollit anim id est laborum.</p>
-        
+            {error && <p>{error}</p>}
+            <p className='text'>{get('intro text')}</p>
+            <img className='edit' onClick={() => handleOpenModal('intro-text')} src='/edit.avif' alt='edit button'/>
+            {currentModalId === 'intro-text' && <TitleModal closeModal={handleCloseModal} tableName='frontpage' what='intro text'/>}
         
             <div className='midsectioncontainer'>
                 <div className='midsectionbtn'>
@@ -149,7 +163,7 @@ const closeModal2 = () => {setIsModalOpen2(false);};
                         <p className='box-p'>Sjáðu alla lækna og annað starfsfólk sem starfar 
                         í Læknasetrinu</p>
                         <Link href='/laeknar'>
-                            <button>Læknar</button>
+                            <button className='drbtn'>Læknar</button>
                         </Link>
                     </div>
                 </div>
@@ -160,34 +174,35 @@ const closeModal2 = () => {setIsModalOpen2(false);};
                         <p className='box-p'>Lestu um allar þær rannsóknir sem gerðar
                         eru í Læknasetrinu</p>
                         <Link href='/frontpageadmin'>
-                            <button>Rannsóknir</button>
+                            <button className='drbtn'>Rannsóknir</button>
                         </Link>
                     </div>
                 </div>
             </div>
 
-            {error && <p>{error}</p>}
- 
-            <h2 className='where-h2'>{get('title')}</h2>
-            
+            <h2 className='where-h2'>Staðsetning</h2>
             <div className='where'>
                 <div className='where1'>
                     {error && <p>{error}</p>}
-
                     <div className='instructions'>
                         <p className='where-p'>{get('left text')}</p>
                     </div>
+                    <img className='edit1' onClick={() => handleOpenModal('left-text')} src='/edit.avif' alt='edit button'/>
+                        {currentModalId === 'left-text' && <TitleModal closeModal={handleCloseModal} tableName='frontpage' what='left text'/>}
+                        {error && <p>{error}</p>}
+                        <img src={get('left image')} className='where-img'></img>
 
-            {error && <p>{error}</p>}
-            <img src={get('left image')} className='where-img'></img>
+                    <img className='edit' onClick={() => handleOpenModal('right image')} src='/edit.avif' alt='edit button'/>
+                    {currentModalId === 'right image' && <TitleModal closeModal={handleCloseModal} tableName='frontpage' what='right image'/>}
             </div>
 
             <div className='where1'>
                 {error && <p>{error}</p>}
-
                 <div className='instructions1'>
                     <p className='where-p'>{get('right text')}</p>
                 </div>
+                <img className='edit1' onClick={() => handleOpenModal('right-text')} src='/edit.avif' alt='edit button'/>
+                    {currentModalId === 'right-text' && <TitleModal closeModal={handleCloseModal} tableName='frontpage' what='right text'/>}
 
                 <iframe
                     className='where-img1'
@@ -199,6 +214,9 @@ const closeModal2 = () => {setIsModalOpen2(false);};
                     frameBorder={0}
                     >
                 </iframe>
+                <img className='edit' onClick={() => handleOpenModal('map-info')} src='/edit.avif' alt='edit button'/>
+                {currentModalId === 'map-info' && <TitleModal closeModal={handleCloseModal} tableName='doctorspage' what='map info'/>}
+            
 
             </div>
         </div>

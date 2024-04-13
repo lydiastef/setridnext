@@ -33,7 +33,7 @@ p {
   border-bottom: solid 1px rgb(207, 206, 206);
 }
 
-button {
+.drbtn {
   margin: 1rem 0;
   padding: .8rem;
   background-color: #AC0B11;
@@ -46,7 +46,7 @@ button {
   font-size: 14px;
 }
 
-button:hover {
+.drbtn:hover {
   background-color: #81090D;
 }
 
@@ -215,26 +215,38 @@ h2, h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 
 .edit {
   width: 2.5rem;
-  margin-left: -1rem;
+  margin-top: .5rem;
   cursor: pointer;
+  background-color: white;
 }
 
-.signout-btn1 {
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #AC0B11;
-    color: white;
-    letter-spacing: .8px;
-    font-size: 14px;
-    font-weight: 700;
+.edit1 {
+  width: 2.5rem;
+  margin-top: -1.5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  background-color: white;
 }
 
-  .signout-btn1:hover {
+.signout-btn {
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #AC0B11;
+  color: white;
+  letter-spacing: .8px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  margin: 1rem;
+}
+
+  .signout-btn:hover {
     background-color: #7D070C;
 }
 
@@ -416,21 +428,15 @@ h2, h3 {
     font-size: 16px;
   }
 
-  button {
+  .phoneclockcontainer {
+    border: none;
+  }
+
+  .drbtn {
     padding: 1rem;
     font-size: 18px;
     margin: 2rem;
     width: 136px;
-  }
-
-  .welcome-h1 {
-    font-size: 32px;
-    margin: 10rem 0 0 8rem;
-  }
-
-  span {
-    font-size: 40px;
-    margin: .5rem;
   }
 
   .iconbtn, .iconbtn1 {

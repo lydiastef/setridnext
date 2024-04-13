@@ -6,7 +6,7 @@ import supabase from '../../config/supabaseClient';
 interface PhoneModalProps {
   closeModal: () => void;
   tableName?: string;
-  id: number;
+  id: string;
 }
 
 const PhoneModal: React.FC<PhoneModalProps> = ({ closeModal, tableName, id }) => {
@@ -29,6 +29,7 @@ const PhoneModal: React.FC<PhoneModalProps> = ({ closeModal, tableName, id }) =>
   return (
     <div className="modal-overlay">
       <div className="modal-content">
+
         <h2 className='edit-text-h2'>Símanúmer</h2>
         <textarea className='title-textarea'
           value={number}
@@ -36,14 +37,14 @@ const PhoneModal: React.FC<PhoneModalProps> = ({ closeModal, tableName, id }) =>
           placeholder="Nýr texti..."
         />
 
-<h2 className='edit-text-h2'>Mán-fim</h2>
+        <h2 className='edit-text-h2'>Mán-fim</h2>
         <textarea className='title-textarea'
           value={days}
           onChange={(e) => setDays(e.target.value)}
           placeholder="Nýr texti..."
         />
 
-<h2 className='edit-text-h2'>Föstudagar</h2>
+        <h2 className='edit-text-h2'>Föstudagar</h2>
         <textarea className='title-textarea'
           value={friday}
           onChange={(e) => setFriday(e.target.value)}
@@ -51,8 +52,8 @@ const PhoneModal: React.FC<PhoneModalProps> = ({ closeModal, tableName, id }) =>
         />
 
         <div className='btns'>
-          <button className='save-btn' onClick={handleSave}>Vista</button>
-          <button className='cancel-btn' onClick={closeModal}>Hætta</button>
+            <button className='cancel-btn' onClick={closeModal}>Hætta</button>
+            <button className='save-btn' onClick={handleSave}>Vista</button>
         </div>
       </div>
     </div>

@@ -51,8 +51,8 @@ const RCardsModal: React.FC<RCardsModalProps> = ({ closeModal, tableName, id }) 
         />
 
         <div>
-          <button className='save-btn' onClick={handleSave}>Save</button>
-          <button className='cancel-btn' onClick={closeModal}>Cancel</button>
+          <button className='cancel-btn' onClick={closeModal}>Hætta</button>
+          <button className='save-btn' onClick={handleSave}>Vista</button>
         </div>
       </div>
     </div>

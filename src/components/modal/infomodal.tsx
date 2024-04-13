@@ -36,8 +36,8 @@ const TitleModal: React.FC<InfoModalProps> = ({ closeModal, tableName, what }) =
         />
 
         <div className='btns'>
-          <button className='save-btn' onClick={handleSave}>Vista</button>
           <button className='cancel-btn' onClick={closeModal}>Hætta</button>
+          <button className='save-btn' onClick={handleSave}>Vista</button>
         </div>
       </div>
     </div>

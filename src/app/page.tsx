@@ -88,7 +88,7 @@ function Frontpage() {
                             <div className='phone-info'>
                                 <p className='info-btn2'>{get('Phone number')}</p>
                                 <button className='phone-oh'>
-                                    <span className='phone-oh-default'>Opnunartímar símans</span>
+                                    <span className='phone-oh-default'>Opnunartími símans</span>
                                     <span className='phone-oh-hover-details'>
                                         <p className='phone-oh1'>{get('phone-oh1')}</p>
                                         <p className='phone-oh2'>{get('phone-oh2')}</p>
@@ -137,7 +137,7 @@ function Frontpage() {
 
             {error && <p>{error}</p>}
  
-            <h2 className='where-h2'>{get('title')}</h2>
+            <h2 className='where-h2'>Staðsetning</h2>
             
             <div className='where'>
                 <div className='where1'>
