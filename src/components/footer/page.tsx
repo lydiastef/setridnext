@@ -89,7 +89,7 @@ function Footer() {
                 <p className='footer-p'>Tímapantanir</p>
                     <p className='footer1'>{get('book phone')}</p>
                     <p className='footer1'>{get('book email')}</p>
-                    <p className='footer1'>{get('book no show')}</p>
+                    <p className='footer1-1'>{get('book no show')}</p>
                     <p className='footer1'>
                     <Link className='admin-login' href='/login'>
                     Admin Login

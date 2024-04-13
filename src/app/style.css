@@ -116,6 +116,7 @@ p {
   border-radius: 5px;
   border: solid 1px rgb(215, 215, 215);
   padding: 0 1rem;
+  transition: border-color 0.3s ease;
 }
 
 .phone-oh-default {
@@ -123,10 +124,16 @@ p {
   font-size: 10px;
 }
 
+.phone-oh:hover {
+  border-color: transparent;
+}
+
 .phone-oh-hover-details {
   display: none;
   background-color: white;
   text-align: left;
+  font-size: 12px;
+  width: 100px;
 }
 
 .phone-oh:hover .phone-oh-default {
@@ -211,6 +218,10 @@ h2, h3 {
   margin: 4rem auto 0 auto;
 }
 
+.where {
+  margin-bottom: 4rem;
+}
+
 .where-h2 {
   margin: 4rem auto -2rem auto;
 }
@@ -279,10 +290,11 @@ h2, h3 {
   }
 
   .phone-oh {
+    display: flex;
+    align-items: center;
     width: 112px;
     height: 40px;
-    margin-top: 1rem;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .phone-oh1 {
@@ -291,7 +303,11 @@ h2, h3 {
   }
 
   .phone-oh-default {
-    font-size: 12px;
+    font-size: 13px;
+  }
+
+  .phone-oh1, .phone-oh2 {
+    font-size: 13px;
   }
 
   .main-container {
@@ -321,6 +337,10 @@ h2, h3 {
     justify-content: center;
     margin: 6rem auto 3rem auto;
     font-size: 26px;
+  }
+
+  .where {
+    margin-bottom: 4rem;
   }
 
   .where-p {
@@ -390,7 +410,7 @@ h2, h3 {
     font-size: 14px;
   }
 
-  .phone-oh-default {
+  .phone-oh1, .phone-oh2 {
     font-size: 14px;
   }
 
@@ -470,12 +490,14 @@ h2, h3 {
   .phone-oh {
     width: 160px;
     height: 50px;
-    margin-top: 1rem;
-    font-size: 16px;
   }
 
   .phone-oh-default {
     font-size: 16px;
+  }
+
+  .phone-oh1, .phone-oh2 {
+    font-size: 14px;
   }
 
   .main-container {
@@ -492,6 +514,7 @@ h2, h3 {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 4rem;
   }
 
   .where-h2 {

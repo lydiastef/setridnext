@@ -22,10 +22,12 @@ body {
   margin-bottom: .7rem;
 }
 
+.footer1-1 {
+  margin-bottom: .7rem;
+}
+
 .footer-p {
   font-weight: bold;
-  text-decoration: underline;
-  font-size: 14px;
   margin: 2rem auto 1rem auto;
   color: #AC0B11;
 }
@@ -49,21 +51,29 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 14px;
     height: 360px;
     padding: 0 6rem;
   }
 
   .footer-container1 {
     width: 33.3%;
+    margin: 3rem auto;
   }
 
   .footer1 {
     margin-bottom: 1rem;
+    font-size: 14px;
+  }
+
+  .footer1-1 {
+    margin-bottom: 1rem;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .footer2 {
-    margin-bottom: 0;
+    margin-bottom: -.5rem;
+    font-size: 14px;
   }
 
   .footer-p {
