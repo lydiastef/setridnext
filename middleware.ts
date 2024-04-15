@@ -1,7 +1,5 @@
 import {createMiddlewareClient} from '@supabase/auth-helpers-nextjs'
 import { NextResponse, NextRequest } from 'next/server'
-//import NextAuth from 'next-auth';
-//import { authConfig } from './auth.config'
 
 export async function middleware(req:NextRequest){
     const res = NextResponse.next();
@@ -19,9 +17,9 @@ export const config = {
     matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
 };
 
-/*Here I'm initializing NextAuth.js with the authConfig object and exporting the auth property. 
-I'm using the matcher option from Middleware to specify that it should run on specific paths.
+/*
+This middleware manages user sessions and ensures that pages are shown only when users are properly authenticated.
+This helps in securing the application by not rendering sensitive content unless the user is authenticated.
 
-The advantage of employing Middleware for this task is that the protected routes will not even start 
-rendering until the Middleware verifies the authentication, enhancing both the security and 
-performance of the application.*/
+Here I'm initializing NextAuth.js with the authConfig object and exporting the auth property. 
+I'm using the matcher option from Middleware to specify that it should run on specific paths. */

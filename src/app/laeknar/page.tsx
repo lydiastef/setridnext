@@ -103,7 +103,7 @@ const FetchData = () => {
   };
 
   //This "Get" function gets data (value) from the doctorspage table in Supabase based on a name that it filters through. 
-  const get = (name:string) => {
+  const get = (name:string): string => {
     return doctorspage?.filter(content => content.name === name)[0]?.value ?? "";
   }
   //The first question mark is used to prevent crashing if there's no data to search through in the doctorspage (it might be null or empty).
