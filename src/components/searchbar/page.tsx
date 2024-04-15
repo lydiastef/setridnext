@@ -105,7 +105,7 @@ const SearchBar = () => {
   return (
     <div className="search-container">
       <div ref={searchIconRef} className={`search-icon ${isSearchBarOpen ? 'hidden' : ''}`} onClick={toggleSearchBar}>
-        <img className='search' src="/search.png" alt="Search" />
+        <img className='search' src="./images/search.png" alt="Search" />
       </div>
       {isSearchBarOpen && (
         <input

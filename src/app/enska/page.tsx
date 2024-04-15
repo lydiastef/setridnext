@@ -14,10 +14,7 @@ type Data = {
 }
 
 function Frontpage() {
-
-    const [content, setContent] = useState({});
     const [error, setError] = useState(null);
-
     const [fetchError, setFetchError] = useState("")
     const [frontpage, setFrontpage] = useState(null) as [Data[] | null, (frontpage: Data[] | null) => void]
 
@@ -26,52 +23,42 @@ function Frontpage() {
         if (frontpage && frontpage.length > 0) {
           const filteredContent = frontpage.filter(item => item.name === name);
           // Check if any matching content was found
-          if (filteredContent.length > 0) {
-            return filteredContent[0].value as string;
-          } else {
-            return ""; // Return an empty string if no matching content found
+            return filteredContent.length > 0 ? filteredContent[0].value || "" : "";
           }
-        } else {
           return ""; // Return an empty string if frontpage is empty or null
-        }
       };
 
-    useEffect(() => {
+      useEffect(() => {
         const fetchFrontpage = async () => {
             const { data, error } = await supabase
-            .from('frontpage') //fetching data from this table in Supabase
-            .select()
+                .from('frontpage')
+                .select();
 
-            if(error) {
-                setFetchError('Could not fetch Where')
-                setFrontpage(null)
-                console.log(error)
+            if (error) {
+                setFetchError('Could not fetch Where');
+                console.error(error);
+            } else if (data) {
+                setFrontpage(data);
             }
-            if (data) {
-                setFrontpage(data)
-                setFetchError("")
-            }
-        }
+        };
 
         fetchFrontpage();
-    }, [])
+    }, []);
 
-    //Fetching data from Supabase - end
-
-    console.log(frontpage)
     if(fetchError) return <p>{fetchError}</p>
+
 
     return(
         <div>
             <Navbar/>
             <div className='imgandtext'>
-                <img className='main-img' src='/setrid2.jpg' alt='stethoscope' />
+                <img className='main-img' src='./images/setrid2.jpg' alt='stethoscope' />
             </div>
 
             <div className='phoneclockcontainer'>
 
             <div className='iconbtn1'> 
-                <img className='icon2' src='/emailicon.png' alt='email icon' />
+                <img className='icon2' src='./images/emailicon.png' alt='email icon' />
                 <h2 className='undericon'>Email</h2>
                 {error && <p>{error}</p>}
                     <div>
@@ -80,7 +67,7 @@ function Frontpage() {
             </div>
 
             <div className='iconbtn'>
-                    <img className='icon2' src='/clockicon.png' alt='clock icon' />
+                    <img className='icon2' src='./images/clockicon.png' alt='clock icon' />
                     <h2 className='undericon'>Opening Hours</h2>
                     {error && <p>{error}</p>}
                     <p className='info-btn2'>{get('oh Monday')}</p>
@@ -88,7 +75,7 @@ function Frontpage() {
                 </div>
 
                 <div className='iconbtn1'>
-                    <img className='icon2' src='/phoneicon.png' alt='phone'/>
+                    <img className='icon2' src='./images/phoneicon.png' alt='phone'/>
                     <h2 className='undericon'>Phone number</h2>
                         {error && <p>{error}</p>}
                         <div>
@@ -99,17 +86,14 @@ function Frontpage() {
             
         <div className='main-container'>
             <h2>Welcome to Læknasetrið</h2>
-            <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-            aliquip ex ea commodo consequat.<br></br><br></br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-            officia deserunt mollit anim id est laborum.</p>
+            {error && <p>{error}</p>}
+            <p className='text'>{get('intro text')}</p>
         
         
             <div className='midsectioncontainer'>
                 <div className='midsectionbtn'>
                     <div className='textandbtn'>
-                    <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
+                    <img className='icon' src='./images/doctorsicon.png' alt='doctor icon' />
                         <p className='box-p'>See all the doctor who work in Læknasetrið</p>
                         <Link href='/laeknar'>
                             <button className='drbtn'>Doctors</button>
@@ -119,7 +103,7 @@ function Frontpage() {
 
                 <div className='midsectionbtn'>
                     <div className='textandbtn'>
-                    <img className='icon3' src='/ecgicon.png' alt='doctor icon' />
+                    <img className='icon3' src='./images/ecgicon.png' alt='doctor icon' />
                         <p className='box-p'>Read about all the tests and services offered at Læknasetrið</p>
                         <Link href='/frontpageadmin'>
                             <button className='drbtn'>Tests</button>
@@ -141,6 +125,8 @@ function Frontpage() {
                     </div>
 
             {error && <p>{error}</p>}
+            <img src={get('images/left-image.jpg')} className='where-img'></img>
+
             <img src={get('left image')} className='where-img'></img>
             </div>
 

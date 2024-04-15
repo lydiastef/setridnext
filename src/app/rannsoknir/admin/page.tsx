@@ -92,11 +92,11 @@ useEffect(() => {
         <h1 className='h1'>Rannsóknir</h1>
       </div>  
         <div className='image-and-intro'>
-            <img className='main-img2' src='/rannsoknir.avif' alt='two doctors' />
+            <img className='main-img2' src='./images/rannsoknir.avif' alt='two doctors' />
             <div className='edit-content'>
                 {error && <p>{error}</p>}
                 <p className='intro-p'>{get('intro')}</p>
-                <img className='edit' onClick={openModal1} src='/edit.avif' alt='edit button' />
+                <img className='edit' onClick={openModal1} src='./images/edit.avif' alt='edit button' />
                 {isModalOpen1 && <TitleModal closeModal={closeModal1} tableName='rannsoknir' what='intro' />}
             </div>
         </div>

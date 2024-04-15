@@ -6,14 +6,12 @@ import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
 import { QueryData, QueryError } from '@supabase/supabase-js'
 
-
 type Content = {
     created_at: string;
     id: number;
     name: string | null;
     value: string | null;
 }
-
 
 type Staff = {
   created_at: string;
@@ -36,22 +34,21 @@ type Position = {
   created_at: string;
   id: number;
   name: string | null;
+  staff: Staff[] | null;
 }
 
-const FontLink = () => (
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" />
-);
+//String means "made up of text"
 
 const FetchData = () => {
   // State declarations
-  const [content, setContent] = useState({});
-  const [error, setError] = useState(null);
-  const [fetchError, setFetchError] = useState("");
+  const [error, setError] = useState(null); //Handle errors
+  const [fetchError, setFetchError] = useState(""); //Handle errors that occur while trying to fetch data
   const [doctorspage, setDoctorspage] = useState<Content[] | null>(null);
   const [position, setPosition] = useState<Position[] | null>(null);
-  const [selectedPerson, setSelectedPerson] = useState<Staff | null>(null);
+  const [selectedPerson, setSelectedPerson] = useState<Staff | null>(null); //Which Staff member is currently selected in your UI. State null means that no staff member is selected. That's the default state. When a user selects a staff member (by clicking on them in the UI), you update this state using setSelectedPerson.
 
   // Fetch data function
+  //This function handles the asynchronous fetching of data from Supabase, updates the application state with the results, and manages errors that might occur during the process.
   const fetchDataFromTable = async (table: string, setState: React.Dispatch<React.SetStateAction<any>>, query?: string | undefined) => {
       const result = supabase.from(table).select(query);
       type QueryType = QueryData<typeof result>;
@@ -71,44 +68,32 @@ const FetchData = () => {
       }
   };
 
-  // Effect to fetch data and handle hash navigation
   useEffect(() => {
-      // Fetch data function
-      fetchDataFromTable('doctorspage', setDoctorspage);
-      fetchDataFromTable('position', setPosition, 'name, staff(name, image, doctor, type, education1, education2, education3, education4, experience1, experience2, experience3)');
+    fetchDataFromTable('doctorspage', setDoctorspage);
+    fetchDataFromTable('position', setPosition, 'name, staff(name, image, doctor, type, education1, education2, education3, education4, experience1, experience2, experience3)');
+    //We want to get data from these two tables in Supabase
 
-      // Effect for hash navigation
-      const handleHashNavigation = () => {
-          if (window.location.hash) {
-              const element = document.getElementById(decodeURI(window.location.hash.substring(1)));
-              if (element) {
-                  element.scrollIntoView();
-              }
-          }
-      };
+    //UseEffect hook for controlling what information comes into view upon scrolling the popup card
+    const handleHashNavigation = () => {
+        if (window.location.hash) {
+            const element = document.getElementById(decodeURI(window.location.hash.substring(1)));
+            if (element) {
+                element.scrollIntoView();
+            }
+        }
+    };
 
-      handleHashNavigation(); // Handle hash navigation on initial render
+    handleHashNavigation(); // Handle hash navigation on initial render
 
-      // Listen for hash changes
-      window.addEventListener('hashchange', handleHashNavigation);
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashNavigation);
 
       return () => {
-          // Clean up event listener
-          window.removeEventListener('hashchange', handleHashNavigation);
+        window.removeEventListener('hashchange', handleHashNavigation);
       };
   }, []); // Effect runs only once on mount
 
-//Searchbar - Checking if hashtag is there to
-  useEffect(() => {
-    if (window.location.hash) {
-      const element = document.getElementById(decodeURI(window.location.hash.substring(1)));
-      if (element) {
-        element.scrollIntoView();
-      }
-    } 
-  }, [doctorspage])
-
-  // Pop-up functions
+  // Pop-up functions - fetching data from Supabase for the popup cards
   const openPopup = (person: Staff) => {
       setSelectedPerson(person);
   };
@@ -117,10 +102,16 @@ const FetchData = () => {
       setSelectedPerson(null);
   };
 
+  //This "Get" function gets data (value) from the doctorspage table in Supabase based on a name that it filters through. 
   const get = (name:string) => {
     return doctorspage?.filter(content => content.name === name)[0]?.value ?? "";
   }
-
+  //The first question mark is used to prevent crashing if there's no data to search through in the doctorspage (it might be null or empty).
+  //Then it looks for an item where the name property matches the name you passed to the function.
+  //The filter returns a list of all items that match the condition so [0] is there to get the first item from this list. 
+  //The ?.value part attempts to access the value property of the item in the column "name". The ? before .value is a safety check for if there's no item found.
+  //The double question marks ?? are used to provide a default value. If the value is undefined or null, it returns an empty string "". This way, the function always returns a string, even if no matching item is found.
+  
   if (fetchError) return <p>{fetchError}</p>;
 
   return(
@@ -133,7 +124,7 @@ const FetchData = () => {
           </div>
           
           <div className='image-and-intro'>
-            <img className='main-img2' src='/laeknar.avif' alt='two doctors' />
+            <img className='main-img2' src='./images/laeknar.avif' alt='two doctors' />
             {error && <p>{error}</p>}
             <p className='intro-p'>{get('intro text')}</p>
           </div>
@@ -141,18 +132,17 @@ const FetchData = () => {
 
           <div className='laeknar-container'>
             
-                    {error && <p>{error}</p>}
-                    {position?.map((pos) => {
+            {error && <p>{error}</p>}
+            {position?.map((pos) => {
                       
-                    //@ts-ignore
-                      const staff = pos.staff
-                      return(
-                        <div>
-                          <h1 className='laeknar-h1'>{pos.name}</h1>
-                      
-                  <div className='cards'>
-                    {
-                    //@ts-ignore
+            //@ts-ignore
+            const staff = pos.staff
+              return(
+            <div>
+              <h1 className='laeknar-h1'>{pos.name}</h1>
+                <div className='cards'>
+                {
+                  //@ts-ignore
                     staff?.map((person) => { //Filter what type of doctor appears where
                         return(
                           <div key={person.id} id={person.doctor} className='individual-cards' onClick={() => openPopup(person)}>

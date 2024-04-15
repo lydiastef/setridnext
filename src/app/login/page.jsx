@@ -83,10 +83,10 @@ export default function LoginPage(){
                 return;
             }
 
-            console.log('Password updated successfully.');
+        console.log('Password updated successfully.');
         } catch (error) {
-            console.error('Error updating password:', error.message);
-            setError('An unexpected error occurred. Please try again.');
+        console.error('Error updating password:', error.message);
+        setError('An unexpected error occurred. Please try again.');
         }
     };
 

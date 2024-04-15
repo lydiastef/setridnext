@@ -25,8 +25,8 @@ function Navbar() {
         <header>
             <div className='logo-container'>
                 <Link href='/'>
-                    <img className='logo-ball' src='../../../TAMRA (27).png' />
-                    <img className='logo-img' src='../../../logosetrid.svg' alt='Logo' />
+                    <img className='logo-ball' src='../../../images/TAMRA (27).png' />
+                    <img className='logo-img' src='../../../images/logosetrid.svg' alt='Logo' />
                 </Link>
             </div>
 

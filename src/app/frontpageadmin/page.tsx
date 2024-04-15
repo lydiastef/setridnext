@@ -19,131 +19,92 @@ type Data = {
 }
 
 function Frontpageadmin() {
-
-    const [content, setContent] = useState({});
     const [error, setError] = useState(null);
     const [fetchError, setFetchError] = useState("")
     const [frontpage, setFrontpage] = useState<Data[] | null>(null);
-
-    //States for the modals (open and close the edit feature)
     const [currentModalId, setCurrentModalId] = useState<string | null>(null);
-
-const [openModalId, setOpenModalId] = useState<string | null>(null);
-
 
 //Open close modals
 const handleOpenModal = (id: string) => {
     setCurrentModalId(id);
 };
-
-// Function to handle closing modals
 const handleCloseModal = () => {
     setCurrentModalId(null);
 };
+//End
 
-{openModalId === 'email' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='email' />}
-{openModalId === 'phone number' && <PhoneModal closeModal={() => setOpenModalId(null)} tableName='frontpage' id='phone number' />}
-{openModalId === 'oh Monday' && <InfoModal closeModal={() => setOpenModalId(null)} tableName='frontpage' what='oh Monday' />}
+const get = (name: string) => frontpage?.find(item => item.name === name)?.value || "";
 
-
-
-    const get = (name: string) => {
-        // Check if frontpage is not null and not empty
-        if (frontpage && frontpage.length > 0) {
-          const filteredContent = frontpage.filter(item => item.name === name);
-          // Check if any matching content was found
-          if (filteredContent.length > 0) {
-            return filteredContent[0].value as string;
-          } else {
-            return ""; // Return an empty string if no matching content found
-          }
-        } else {
-          return ""; // Return an empty string if frontpage is empty or null
-        }
-      };
-
-      async function handleLogout() {
-        console.log("Attempting to log out...");
-        const { error } = await supabase.auth.signOut();
-        if (error) {
-            console.error('Logout failed:', error.message);
-        } else {
-            console.log("Logout successful, reloading page...");
-            window.location.reload();
-        }
-        
+//Logout
+    async function handleLogout() {
+    console.log("Attempting to log out...");
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+        console.error('Logout failed:', error.message);
+    } else {
+        console.log("Logout successful, reloading page...");
+        window.location.reload();
+    }    
     }
+    //End
     
-
     useEffect(() => {
         const fetchFrontpage = async () => {
-            const { data, error } = await supabase
-            .from('frontpage') //fetching data from this table in Supabase
-            .select()
-
-            if(error) {
-                setFetchError('Could not fetch Where')
-                setFrontpage(null)
-                console.log(error)
-            }
-            if (data) {
-                setFrontpage(data)
-                setFetchError("")
-            }
+            const { data, error } = await supabase.from('frontpage').select();
+            error ? setFetchError('Could not fetch data') : setFrontpage(data);
         }
-
         fetchFrontpage();
     }, [])
 
-    //Fetching data from Supabase - end
-
-    console.log(frontpage)
-    if(fetchError) return <p>{fetchError}</p>
+    if (fetchError) return <p>{fetchError}</p>;
 
     return(
         <div>
             <Navbar/>
             <button className='signout-btn' onClick={handleLogout}>Útskrá</button>
             <div className='imgandtext'>
-                <img className='main-img' src='/setrid2.jpg' alt='stethoscope' />
+                <img className='main-img' src='./images/setrid2.jpg' alt='stethoscope' />
             </div>
 
             <div className='phoneclockcontainer'>
                 <div className='iconbtnall'>
                     <div className='iconbtn1'> 
-                        <img className='icon2' src='/emailicon.png' alt='email icon' />
+                        <img className='icon2' src='./images/emailicon.png' alt='email icon' />
                         <h2 className='undericon'>Tölvupóstur</h2>
                         {error && <p>{error}</p>}
                         <div>
                             <p className='info-btn2'>{get('email')}</p>
                         </div>
-                        <img className='edit' onClick={() => handleOpenModal('email')} src='/edit.avif' alt='edit button' />
+                        <img className='edit' onClick={() => handleOpenModal('email')} src='./images/edit.avif' alt='edit button' />
                         {currentModalId === 'email' && <InfoModal closeModal={handleCloseModal} tableName='frontpage' what='email' />}
                         
                         
                     </div>
 
                     <div className='iconbtn'>
-                        <img className='icon2' src='/phoneicon.png' alt='phone'/>
+                        <img className='icon2' src='./images/phoneicon.png' alt='phone'/>
                         <h2 className='undericon'>Símanúmer</h2>
                         {error && <p>{error}</p>}
                             <div className='phone-info'>
                                 <p className='info-btn2'>{get('Phone number')}</p>
-                                <div className='phone-oh'>
-                                    <p className='phone-oh1'>{get('phone-oh1')}</p>
-                                    <p className='phone-oh2'>{get('phone-oh2')}</p>
-                                </div>
+                                <button className='phone-oh'>
+                                    <span className='phone-oh-default'>Opnunartími símans</span>
+                                    <span className='phone-oh-hover-details'>
+                                        <p className='phone-oh1'>{get('phone-oh1')}</p>
+                                        <p className='phone-oh2'>{get('phone-oh2')}</p>
+                                    </span>
+                                </button>
                             </div>
-                        <img className='edit' onClick={() => handleOpenModal('phone number')} src='/edit.avif' alt='edit button' />
+                        <img className='edit' onClick={() => handleOpenModal('phone number')} src='./images/edit.avif' alt='edit button' />
                         {currentModalId === 'phone number' && <PhoneModal closeModal={handleCloseModal} tableName='frontpage' id='phone number' />}
                     </div>
 
                     <div className='iconbtn1'>
-                        <img className='icon2' src='/clockicon.png' alt='clock icon' />
+                        <img className='icon2' src='./images/clockicon.png' alt='clock icon' />
                         <h2 className='undericon'>Opnunartímar</h2>
                         {error && <p>{error}</p>}
                         <p className='info-btn2'>{get('oh Monday')}</p>
-                        <img className='edit' onClick={() => handleOpenModal('oh Monday')} src='/edit.avif' alt='edit button' />
+                        <img className='edit' onClick={() => handleOpenModal('oh Monday')} src='./images/edit.avif' alt='edit button' />
                         {currentModalId === 'oh Monday' && <InfoModal closeModal={handleCloseModal} tableName='frontpage' what='oh Monday' />}
                     </div>
                 </div>
@@ -153,13 +114,13 @@ const handleCloseModal = () => {
             <h2>Velkomin í Læknasetrið</h2>
             {error && <p>{error}</p>}
             <p className='text'>{get('intro text')}</p>
-            <img className='edit' onClick={() => handleOpenModal('intro-text')} src='/edit.avif' alt='edit button'/>
+            <img className='edit' onClick={() => handleOpenModal('intro-text')} src='./images/edit.avif' alt='edit button'/>
             {currentModalId === 'intro-text' && <TitleModal closeModal={handleCloseModal} tableName='frontpage' what='intro text'/>}
         
             <div className='midsectioncontainer'>
                 <div className='midsectionbtn'>
                     <div className='textandbtn'>
-                    <img className='icon' src='/doctorsicon.png' alt='doctor icon' />
+                    <img className='icon' src='./images/doctorsicon.png' alt='doctor icon' />
                         <p className='box-p'>Sjáðu alla lækna og annað starfsfólk sem starfar 
                         í Læknasetrinu</p>
                         <Link href='/laeknar'>
@@ -170,7 +131,7 @@ const handleCloseModal = () => {
 
                 <div className='midsectionbtn'>
                     <div className='textandbtn'>
-                    <img className='icon3' src='/ecgicon.png' alt='doctor icon' />
+                    <img className='icon3' src='./images/ecgicon.png' alt='doctor icon' />
                         <p className='box-p'>Lestu um allar þær rannsóknir sem gerðar
                         eru í Læknasetrinu</p>
                         <Link href='/frontpageadmin'>
@@ -187,12 +148,12 @@ const handleCloseModal = () => {
                     <div className='instructions'>
                         <p className='where-p'>{get('left text')}</p>
                     </div>
-                    <img className='edit1' onClick={() => handleOpenModal('left-text')} src='/edit.avif' alt='edit button'/>
+                    <img className='edit1' onClick={() => handleOpenModal('left-text')} src='./images/edit.avif' alt='edit button'/>
                         {currentModalId === 'left-text' && <TitleModal closeModal={handleCloseModal} tableName='frontpage' what='left text'/>}
                         {error && <p>{error}</p>}
                         <img src={get('left image')} className='where-img'></img>
 
-                    <img className='edit' onClick={() => handleOpenModal('right image')} src='/edit.avif' alt='edit button'/>
+                    <img className='edit' onClick={() => handleOpenModal('right image')} src='./images/edit.avif' alt='edit button'/>
                     {currentModalId === 'right image' && <TitleModal closeModal={handleCloseModal} tableName='frontpage' what='right image'/>}
             </div>
 
@@ -201,7 +162,7 @@ const handleCloseModal = () => {
                 <div className='instructions1'>
                     <p className='where-p'>{get('right text')}</p>
                 </div>
-                <img className='edit1' onClick={() => handleOpenModal('right-text')} src='/edit.avif' alt='edit button'/>
+                <img className='edit1' onClick={() => handleOpenModal('right-text')} src='./images/edit.avif' alt='edit button'/>
                     {currentModalId === 'right-text' && <TitleModal closeModal={handleCloseModal} tableName='frontpage' what='right text'/>}
 
                 <iframe
@@ -214,7 +175,7 @@ const handleCloseModal = () => {
                     frameBorder={0}
                     >
                 </iframe>
-                <img className='edit' onClick={() => handleOpenModal('map-info')} src='/edit.avif' alt='edit button'/>
+                <img className='edit' onClick={() => handleOpenModal('map-info')} src='./images/edit.avif' alt='edit button'/>
                 {currentModalId === 'map-info' && <TitleModal closeModal={handleCloseModal} tableName='doctorspage' what='map info'/>}
             
 

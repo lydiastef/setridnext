@@ -76,7 +76,7 @@ useEffect(() => {
         <h1 className='h1'>Rannsóknir</h1>
       </div>  
         <div className='image-and-intro'>
-            <img className='main-img2' src='/rannsoknir.avif' alt='two doctors' />
+            <img className='main-img2' src='./images/rannsoknir.avif' alt='two doctors' />
             {error && <p>{error}</p>}
             <p className='intro-p'>{get('intro')}</p>
         </div>
