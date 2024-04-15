@@ -145,7 +145,7 @@ const FetchData = () => {
                   //@ts-ignore
                     staff?.map((person) => { //Filter what type of doctor appears where
                         return(
-                          <div key={person.id} id={person.doctor} className='individual-cards' onClick={() => openPopup(person)}>
+                          <div key={person.id} id={person.doctor!} className='individual-cards' onClick={() => openPopup(person)}>
                           <img className='card-img' src={person.image || undefined} alt='doctor' />
                             <p className='doctors-p1'>{person.doctor}</p>
                             <p className='doctors-p'>{person.type}</p>
