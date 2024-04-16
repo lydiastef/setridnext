@@ -8,6 +8,7 @@ import Link from 'next/link';
 import InfoModal from '../../components/modal/infomodal';
 import TitleModal from '../../components/modal/titlemodal';
 import PhoneModal from '../../components/modal/phonemodal';
+import SignOut from '../../components/signoutbtn/page';
 
 /*import { useRouter } from 'next/navigation';*/
 
@@ -61,6 +62,7 @@ const get = (name: string) => frontpage?.find(item => item.name === name)?.value
     return(
         <div>
             <NavbarAdmin/>
+            <SignOut/>
             <button className='signout-btn' onClick={handleLogout}>Útskrá</button>
             <div className='imgandtext'>
                 <img className='main-img' src='./images/setrid2.jpg' alt='stethoscope' />

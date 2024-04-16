@@ -38,7 +38,7 @@ function Navbar() {
                     <div className="tenglar">
                         <a href='/tenglar'>Tenglar</a>
                         <div className="tenglar-content">
-                            <a href="https://www.rannsoknasetrid.is">Rannsoknasetrid</a>
+                            <a href="https://www.rannsoknasetrid.is">Rannsóknasetrid</a>
                             <a href="https://www.rd.is">Röntgen Domus</a>
                         </div>
                     </div>
