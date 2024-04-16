@@ -56,33 +56,40 @@ function Frontpage() {
             </div>
 
             <div className='phoneclockcontainer'>
-
-            <div className='iconbtn1'> 
-                <img className='icon2' src='./images/emailicon.png' alt='email icon' />
-                <h2 className='undericon'>Email</h2>
-                {error && <p>{error}</p>}
-                    <div>
-                        <p className='info-btn2'>{get('email')}</p>
+                <div className='iconbtnall'>
+                    <div className='iconbtn1'> 
+                        <img className='icon2' src='./images/emailicon.png' alt='email icon' />
+                        <h2 className='undericon'>Email</h2>
+                        {error && <p>{error}</p>}
+                        <div>
+                            <p className='info-btn2'>{get('email')}</p>
+                        </div>
                     </div>
-            </div>
 
             <div className='iconbtn'>
                     <img className='icon2' src='./images/clockicon.png' alt='clock icon' />
                     <h2 className='undericon'>Opening Hours</h2>
                     {error && <p>{error}</p>}
-                    <p className='info-btn2'>{get('oh Monday')}</p>
-                    <p className='info-btn2'>{get('oh Friday')}</p>
-                </div>
+                    <div className='phone-info'>
+                        <p className='info-btn2'>{get('Phone number')}</p>
+                        <button className='phone-oh'>
+                            <span className='phone-oh-default'>Phone opening hours</span>
+                            <span className='phone-oh-hover-details'>
+                                <p className='phone-oh1'>{get('phone-oh1')}</p>
+                                <p className='phone-oh2'>{get('phone-oh2')}</p>
+                            </span>
+                        </button>
+                    </div>
+            </div>
 
                 <div className='iconbtn1'>
                     <img className='icon2' src='./images/phoneicon.png' alt='phone'/>
                     <h2 className='undericon'>Phone number</h2>
                         {error && <p>{error}</p>}
-                        <div>
                             <p className='info-btn2'>{get('Phone number')}</p>
-                        </div>
                 </div>
             </div>
+        </div>
             
         <div className='main-container'>
             <h2>Welcome to Læknasetrið</h2>
@@ -125,8 +132,6 @@ function Frontpage() {
                     </div>
 
             {error && <p>{error}</p>}
-            <img src={get('images/left-image.jpg')} className='where-img'></img>
-
             <img src={get('left image')} className='where-img'></img>
             </div>
 
