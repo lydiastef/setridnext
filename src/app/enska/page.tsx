@@ -101,7 +101,7 @@ function Frontpage() {
                 <div className='midsectionbtn'>
                     <div className='textandbtn'>
                     <img className='icon' src='./images/doctorsicon.png' alt='doctor icon' />
-                        <p className='box-p'>See all the doctor who work in Læknasetrið</p>
+                        <p className='box-p'>See all the doctors who work in Læknasetrið</p>
                         <Link href='/laeknar'>
                             <button className='drbtn'>Doctors</button>
                         </Link>

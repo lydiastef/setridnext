@@ -113,7 +113,7 @@ header .nav-btn {
   margin-left: auto;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 992px) {
 
   .logo-container {
     display: flex;
@@ -132,16 +132,19 @@ header .nav-btn {
     position: fixed;
     top: 100px;
     right: 0;
-    height: 400px;
+    height: 344px;
     width: 40%;
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: center;
     background-color: white;
     transition: 1s;
     transform: translateY(-100vh);
-    border: solid .5px #ac0b1053;
+    border: solid .5px #abaaaa53;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 5px 5px;
+    z-index: 1;
   }
   
   .a-container {
@@ -163,19 +166,12 @@ header .nav-btn {
   }
 
   .tenglar-content {
-    top: 200px;
-    right: 60px;
+    top: 208px;
+    right: 0;
   }
 }
-
-@media only screen and (min-width: 1000px) {
-
   .tenglar {
     display: flex;
-  }
-
-  .tenglar-content {
-    right: 310px;
   }
 
   .logo-container {
@@ -195,13 +191,13 @@ nav a {
   font-size: 18px;
 }
 
-.a-container {
-}
-}
-
-@media only screen and (min-width: 1150px) {
+@media only screen and (min-width: 1200px) {
   .logo-container {
     margin-left: 8rem;
+  }
+
+  .tenglar-content {
+    right: 216px;
   }
 
 }

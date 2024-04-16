@@ -1,7 +1,7 @@
 'use client'
 import '../style.css';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import Navbar from '../../../components/navbar/page';
+import NavbarAdmin from '../../../components/navbar/navbaradmin/page';
 import Footer from '../../../components/footer/page';
 import supabase from '../../../config/supabaseClient';
 import { useEffect, useState } from 'react'
@@ -117,7 +117,7 @@ if (fetchError) return <p>{fetchError}</p>;
 
 return(
   <>
-    <Navbar/>
+    <NavbarAdmin/>
       <div>
         <div className='edit-content'>{error && <p>{error}</p>}
           <h1 className='h1'>{get('title')}</h1>

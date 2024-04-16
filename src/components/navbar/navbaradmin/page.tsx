@@ -1,10 +1,10 @@
 'use client'
 import {FaBars, FaTimes} from 'react-icons/fa';
 import {useRef} from 'react';
-import './style.css';
+import '../style.css';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import SearchBar from '../searchbar/page';
+import SearchBar from '../../searchbar/page';
 
 function Navbar() {
 
@@ -24,7 +24,7 @@ function Navbar() {
     return (
         <header>
             <div className='logo-container'>
-                <Link href='/'>
+                <Link href='../frontpageadmin'>
                     <img className='logo-ball' src='../../../images/TAMRA (27).png' />
                     <img className='logo-img' src='../../../images/logosetrid.svg' alt='Logo' />
                 </Link>
@@ -33,7 +33,7 @@ function Navbar() {
             <nav ref={navRef}> 
                 <div className='a-container'>
                     <a href='/rannsoknir'>Rannsóknir</a>
-                    <a href='/laeknar'>Starfsfólk</a>
+                    <a href='./laeknar/admin'>Starfsfólk</a>
                     <a href='/enska'>English</a>
                     <div className="tenglar">
                         <a href='/tenglar'>Tenglar</a>

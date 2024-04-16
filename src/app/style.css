@@ -108,40 +108,51 @@ p {
 }
 
 .phone-oh {
-  width: 90px;
-  height: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 40px;
   margin-top: 1rem;
-  font-size: 10px;
   background-color: white;
   border-radius: 5px;
   border: solid 1px rgb(215, 215, 215);
   padding: 0 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.phone-oh-default {
-  display: block;
-  font-size: 10px;
+  transition: border-color 0.3s ease, opacity 0.7s ease; /* Include opacity transition here for consistency */
 }
 
 .phone-oh:hover {
-  border-color: transparent;
+  border-color: transparent; /* Make border transparent on hover */
+}
+
+.phone-oh-default, .phone-oh-hover-details {
+  transition: opacity 0.7s ease; /* Smooth transition for opacity */
+  position: absolute;
+  width: 100%;
+  font-size: 11px;
 }
 
 .phone-oh-hover-details {
-  display: none;
-  background-color: white;
-  text-align: left;
-  font-size: 12px;
-  width: 100px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.phone-oh1, .phone-oh2 {
+  font-size: 11px;
+}
+
+.phone-oh1 {
+  margin-bottom: -.3rem;
 }
 
 .phone-oh:hover .phone-oh-default {
-  display: none; /* Hide the default text */
+  opacity: 0;
 }
 
 .phone-oh:hover .phone-oh-hover-details {
-  display: block; /* Show the hover text */
+  opacity: 1;
+  visibility: visible;
 }
 
 .main-container {
@@ -238,7 +249,7 @@ h2, h3 {
   margin-bottom: 1rem;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 768px) {
   h2 {
     font-size: 20px;
     margin-top: 4rem;
@@ -404,14 +415,13 @@ h2, h3 {
   }
 
   .phone-oh {
-    width: 136px;
+    width: 112px;
     height: 40px;
-    margin-top: 1rem;
-    font-size: 14px;
   }
 
   .phone-oh1, .phone-oh2 {
     font-size: 14px;
+    margin: auto;
   }
 
   .midsectioncontainer {
@@ -488,7 +498,6 @@ h2, h3 {
   }
 
   .phone-oh {
-    width: 160px;
     height: 50px;
   }
 
@@ -512,17 +521,25 @@ h2, h3 {
   .where {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
     margin-bottom: 4rem;
   }
 
+  .instructions, .instructions1 {
+    margin: 0 auto;
+  }
+
   .where-h2 {
-    margin: 6rem auto 0 auto;
+    margin: 6rem auto 2rem auto;
   }
 
   .where1 {
     width: 45%;
+    margin-top: 2rem;
+  }
+
+  .where-p {
+    margin-top: 0;
   }
 
   .where-img {
@@ -530,7 +547,8 @@ h2, h3 {
   }
 
   .where-img1 {
-    height: 264px;
+    height: 268px;
+    margin-top: 1.5rem;
   }
 }
 

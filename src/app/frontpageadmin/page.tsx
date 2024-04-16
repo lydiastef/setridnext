@@ -1,6 +1,6 @@
 'use client'
 import './style.css';
-import Navbar from '../../components/navbar/page';
+import NavbarAdmin from '../../components/navbar/navbaradmin/page';
 import Footer from '../../components/footer/page';
 import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
@@ -60,7 +60,7 @@ const get = (name: string) => frontpage?.find(item => item.name === name)?.value
 
     return(
         <div>
-            <Navbar/>
+            <NavbarAdmin/>
             <button className='signout-btn' onClick={handleLogout}>Útskrá</button>
             <div className='imgandtext'>
                 <img className='main-img' src='./images/setrid2.jpg' alt='stethoscope' />

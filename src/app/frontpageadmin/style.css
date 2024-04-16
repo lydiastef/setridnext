@@ -110,15 +110,51 @@ p {
 }
 
 .phone-oh {
-  text-align: left;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 40px;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px rgb(215, 215, 215);
+  padding: 0 1rem;
+  transition: border-color 0.3s ease, opacity 0.7s ease; /* Include opacity transition here for consistency */
+}
+
+.phone-oh:hover {
+  border-color: transparent; /* Make border transparent on hover */
+}
+
+.phone-oh-default, .phone-oh-hover-details {
+  transition: opacity 0.7s ease; /* Smooth transition for opacity */
+  position: absolute;
+  width: 100%;
+  font-size: 11px;
+}
+
+.phone-oh-hover-details {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.phone-oh1, .phone-oh2 {
+  font-size: 11px;
 }
 
 .phone-oh1 {
-  margin-top: .6rem;
+  margin-bottom: -.3rem;
 }
 
-.phone-oh2 {
-  margin-top: -.3rem;
+.phone-oh:hover .phone-oh-default {
+  opacity: 0;
+}
+
+.phone-oh:hover .phone-oh-hover-details {
+  opacity: 1;
+  visibility: visible;
 }
 
 .main-container {
@@ -252,7 +288,7 @@ h2, h3 {
 
 /* edit page end*/
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 768px) {
   h2 {
     font-size: 20px;
     margin-top: 6rem;
@@ -296,9 +332,27 @@ h2, h3 {
     font-size: 18px;
   }
 
+  .phone-oh {
+    display: flex;
+    align-items: center;
+    width: 112px;
+    height: 40px;
+    font-size: 13px;
+  }
+
   .phone-oh1 {
     margin-top: 1rem;
+    width: 110px;
   }
+
+  .phone-oh-default {
+    font-size: 13px;
+  }
+
+  .phone-oh1, .phone-oh2 {
+    font-size: 13px;
+  }
+
 
   .main-container {
     margin: 6rem;
@@ -390,6 +444,16 @@ h2, h3 {
     letter-spacing: 1px;
   }
 
+  .phone-oh {
+    width: 112px;
+    height: 40px;
+  }
+
+  .phone-oh1, .phone-oh2 {
+    font-size: 14px;
+    margin: auto;
+  }
+
   .midsectioncontainer {
     display: flex;
     align-items: center;
@@ -461,6 +525,19 @@ h2, h3 {
   .icon3 {
     margin: 1rem;
   }
+
+  .phone-oh {
+    height: 50px;
+  }
+
+  .phone-oh-default {
+    font-size: 16px;
+  }
+
+  .phone-oh1, .phone-oh2 {
+    font-size: 14px;
+  }
+
 
   .main-container {
     margin: auto 16rem;
