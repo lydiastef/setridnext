@@ -160,6 +160,7 @@ function Frontpage() {
 
         </div>
     );
-            }
+}
+export default Landingpage;
 
     export default Frontpage;
