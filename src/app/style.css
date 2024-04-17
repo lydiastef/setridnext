@@ -120,6 +120,7 @@ p {
   border-radius: 5px;
   border: solid 1px rgb(215, 215, 215);
   padding: 0 1rem;
+  color: black;
   transition: border-color 0.3s ease, opacity 0.7s ease; /* Include opacity transition here for consistency */
 }
 
