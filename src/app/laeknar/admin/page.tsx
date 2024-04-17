@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 import TitleModal from '../../../components/modal/titlemodal';
 import PersonModal from '../../../components/modal/personmodal';
 import { useRouter } from 'next/navigation';
-import SignOut from '../../../components/signoutbtn/page';
 
 type Content = {
   created_at: string;
@@ -124,7 +123,6 @@ return(
           <img className='edit' onClick={openModal1} src='../images/edit.avif' alt='edit button' />
           {isModalOpen1 && <TitleModal closeModal={closeModal1} tableName='doctorspage' what='title' />}
           <button className='signout-btn' onClick={handleLogout}>Sign Out</button>
-          <SignOut/>
 
         </div>
         <div className='image-and-intro'>
