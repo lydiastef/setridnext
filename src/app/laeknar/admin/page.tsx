@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react'
 import TitleModal from '../../../components/modal/titlemodal';
 import PersonModal from '../../../components/modal/personmodal';
 import { useRouter } from 'next/navigation';
+import NewModal from '../../../components/modal/newmodal';
+
 
 type Content = {
   created_at: string;
@@ -53,7 +55,7 @@ function fetchData() {
 const [isModalOpen1, setIsModalOpen1] = useState(false);
 const [isModalOpen2, setIsModalOpen2] = useState(false);
 const [isModalOpenp, setIsModalOpenp] = useState(-1);
-
+const [isNewModalOpen, setIsNewModalOpen] = useState(false);
 
 const get=(name:string) => {
   return doctorspage?.find(content => content.name === name)?.value || '';
@@ -69,10 +71,26 @@ const closeModal2 = () => {setIsModalOpen2(false);};
 const openModalp = (id:number) => {setIsModalOpenp(id);};
 const closeModalp = () => {setIsModalOpenp(-1);};
 
+const openNewModal = () => { setIsNewModalOpen(true); };
+const closeNewModal = () => { setIsNewModalOpen(false); };
+
 async function handleLogout() {
   await supabase.auth.signOut();
   window.location.reload();
 }
+
+const handleDeleteCard = async (id: number) => {
+  const { error } = await supabase
+    .from('staff')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    console.error(error);
+  } else {
+    window.location.reload();
+  }
+};
 
 useEffect(() => {
   const fetchDataFromTable = async (table: string) => {
@@ -136,7 +154,8 @@ return(
           </div>
         </div>
       </div>
-
+      <button className='newmodal-btn' onClick={openNewModal}>Create New Card</button>
+      {isNewModalOpen && <NewModal closeModal={closeNewModal} />}
         <div className='laeknar-container'>
           
                   {error && <p>{error}</p>}

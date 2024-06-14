@@ -111,15 +111,9 @@ body {
     border-radius: 4px;
   }
 
-  .search-icon {
-
-  }
 }
 
 @media only screen and (min-width: 1000px) {
-
-    .search-icon {
-      }
 
       .search-container {
         display: flex;

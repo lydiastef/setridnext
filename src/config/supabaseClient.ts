@@ -8,3 +8,5 @@ const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
 export default supabase;
 
+//Here are the necessary tools and information to connect and interact with Supabase, whithout exposing sensitive information in the code.
+

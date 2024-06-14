@@ -11,14 +11,23 @@ interface PersonModalProps {
 
 const PersonModal: React.FC<PersonModalProps> = ({ closeModal, tableName, id }) => {
   const [name, setName] = useState('');
+  const [doctor, setDoctor] = useState('');
   const [image, setImage] = useState('');
-  const [education, setEducation] = useState('');
-  const [experience, setExperience] = useState('');
+  const [position, setPosition] = useState('');
+  const [education1, setEducation1] = useState('');
+  const [education2, setEducation2] = useState('');
+  const [education3, setEducation3] = useState('');
+  const [education4, setEducation4] = useState('');
+  const [experience1, setExperience1] = useState('');
+  const [experience2, setExperience2] = useState('');
+  const [experience3, setExperience3] = useState('');
+  const [experience4, setExperience4] = useState('');
+
   if(!tableName) return
   const handleSave = async () => {
     const { error } = await supabase
     .from(tableName)
-    .update({ name, image, education, experience })
+    .update({ name, doctor, image, position, education1, education2, education3, education4, experience1, experience2, experience3, experience4 })
     .eq('id', id)
     location.reload()
     // Logic to save the new text
@@ -30,38 +39,72 @@ const PersonModal: React.FC<PersonModalProps> = ({ closeModal, tableName, id }) 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2 className='edit-text-h2'>Nafn</h2>
         <textarea className='title-textarea'
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Nýr texti..."
+          placeholder="Nafn"
         />
-
-<h2 className='edit-text-h2'>Mynd</h2>
+        <textarea className='title-textarea'
+          value={image}
+          onChange={(e) => setDoctor(e.target.value)}
+          placeholder="Læknir"
+        />
         <textarea className='title-textarea'
           value={image}
           onChange={(e) => setImage(e.target.value)}
-          placeholder="Nýr texti..."
+          placeholder="Mynd URL"
         />
-
-<h2 className='edit-text-h2'>Menntun</h2>
+        <input
+          className='title-input'
+          type="number"
+          name="position"
+          placeholder="Númer á læknategund (1 = blóðlæknir, 2 = gigtlæknir, 3 = hjarta, 4 = innkirtla, 5 = krabbameins, 6 = lungna, 7 = nýrna, 8 = tauga, 9 = sálfr, 10 = annað starfsfólk)"
+          value={position}
+          onChange={(e) => setPosition(e.target.value)}
+        />
         <textarea className='title-textarea'
-          value={education}
-          onChange={(e) => setEducation(e.target.value)}
-          placeholder="Nýr texti..."
+          value={education1}
+          onChange={(e) => setEducation1(e.target.value)}
+          placeholder="Menntun1"
         />
-
-<h2 className='edit-text-h2'>Reynsla</h2>
         <textarea className='title-textarea'
-          value={experience}
-          onChange={(e) => setExperience(e.target.value)}
-          placeholder="Nýr texti..."
+          value={education2}
+          onChange={(e) => setEducation2(e.target.value)}
+          placeholder="Menntun2"
+        />
+        <textarea className='title-textarea'
+          value={education3}
+          onChange={(e) => setEducation3(e.target.value)}
+          placeholder="Menntu3"
+        />
+        <textarea className='title-textarea'
+          value={education4}
+          onChange={(e) => setEducation4(e.target.value)}
+          placeholder="Menntu4"
+        />
+        <textarea className='title-textarea'
+          value={experience1}
+          onChange={(e) => setExperience1(e.target.value)}
+          placeholder="Reynsl1"
+        />
+        <textarea className='title-textarea'
+          value={experience2}
+          onChange={(e) => setExperience2(e.target.value)}
+          placeholder="Reynsla2"
+        />
+        <textarea className='title-textarea'
+          value={experience3}
+          onChange={(e) => setExperience3(e.target.value)}
+          placeholder="Reynsla3"
+        />
+        <textarea className='title-textarea'
+          value={experience4}
+          onChange={(e) => setExperience4(e.target.value)}
+          placeholder="Reynsla4"
         />
 
-        <div className='btns'>
-          <button className='cancel-btn' onClick={closeModal}>Hætta</button>
-          <button className='save-btn' onClick={handleSave}>Vista</button>
-        </div>
+        <button className='save-btn' onClick={handleSave}>Submit</button>
+        <button className='cancel-btn' onClick={closeModal}>Cancel</button>
       </div>
     </div>
   );

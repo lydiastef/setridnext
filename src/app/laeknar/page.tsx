@@ -1,10 +1,11 @@
-'use client'
+'use client' //code should run in the clients browser
 import './style.css';
 import Navbar from '../../components/navbar/page';
 import Footer from '../../components/footer/page';
 import supabase from '../../config/supabaseClient';
 import { useEffect, useState } from 'react'
-import { QueryData, QueryError } from '@supabase/supabase-js'
+import { QueryData } from '@supabase/supabase-js'
+//Tools and files needed for this page imported from different places
 
 type Content = {
     created_at: string;
@@ -57,7 +58,6 @@ const FetchData = () => {
       if (error) {
           setFetchError(`Could not fetch ${table}`);
           setState(null);
-          console.log('Error:', error);
       }
 
       if (data) {
@@ -83,7 +83,7 @@ const FetchData = () => {
         }
     };
 
-    handleHashNavigation(); // Handle hash navigation on initial render
+    handleHashNavigation(); // Handle hash navigation (#) on initial render
 
     // Listen for hash changes
     window.addEventListener('hashchange', handleHashNavigation);

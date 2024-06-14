@@ -184,6 +184,24 @@ p {
     float: right;
   }
 
+  .newmodal-btn {
+    margin: 1rem 4rem;
+    width: 152px;
+    padding: .8rem;
+    background-color: white;
+    border: solid 2px #AC0B11;
+    color: #AC0B11;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .newmodal-btn:hover {
+    border: solid 2px #7D070C;
+    color: #7D070C;
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.2);
+  }
+
 
 
 @media only screen and (min-width: 768px){
@@ -249,9 +267,15 @@ p {
     margin: 0 auto 1rem auto;
     width: 2.5rem;
     cursor: pointer;
-}
+
 }
 
+.newmodal-btn {
+    margin: 1rem 6rem;
+    width: 168px;
+    padding: 1rem;
+}
+}
 @media only screen and (min-width: 1024px){
 
     .h1 {
@@ -316,6 +340,13 @@ p {
 
     .signout-btn {
         margin: auto -10rem auto 8rem;
+    }
+
+    .newmodal-btn {
+        margin: 4rem 16rem 1rem 16rem;
+        width: 168px;
+        padding: 1rem;
+        font-size: 16px;
     }
 
 }

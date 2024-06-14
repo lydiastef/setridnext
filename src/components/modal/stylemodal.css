@@ -6,8 +6,16 @@ body {
 }
 
 .modal-overlay {
-    background-color: white;
-}
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
 
 .modal-content {
     position: absolute;
@@ -15,6 +23,9 @@ body {
     flex-direction: column;
     border: solid 1px rgb(222, 222, 222);
     border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 360px;
     padding: 1rem;
     margin: 1rem 0 0 -1rem;
     background-color: #ffffff;
@@ -31,43 +42,62 @@ body {
 
 .title-textarea {
     padding: .5rem;
-    border: solid 1.5px #d6d6d6;
+    border: solid 1px #d6d6d6;
     border-radius: 5px;
-    height: 80px;
+    height: 56px;
     background-color: white;
-}
-
-.btns {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1rem;
+    margin-bottom: .5rem;
 }
 
 .save-btn {
     border: none;
     background-color: #AC0B11;
     color: #ffffff;
-    width: 76px;
-    height: 36px;
-    padding: .5rem;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    padding: 10px 20px;
+    margin: 5px;
+    transition: background-color 0.3s
 }
 
 .cancel-btn {
-    border: solid 1.5px #AC0B11;
-    background-color: #AC0B11;
-    color: #ffffff;
-    width: 76px;
-    height: 36px;
-    padding: .5rem;
+    border: solid 2px #AC0B11;
+    background-color: white;
+    color: #AC0B11;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    padding: 10px 20px;
+    margin: 5px;
+    transition: background-color 0.3s
 }
 
-.save-btn:hover, .cancel-btn:hover {
+.save-btn:hover {
     background-color: #7D070C;
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.2);
 }
+
+.cancel-btn:hover {
+    border: solid 2px #7D070C;
+    color: #7D070C;
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+  /* Modal header */
+  .modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  /* Input fields */
+  .modal-content input {
+    padding: .5rem;
+    border: solid 1px #d6d6d6;
+    border-radius: 5px;
+    height: 56px;
+    background-color: white;
+    margin-bottom: .5rem;
+  }
+  

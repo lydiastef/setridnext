@@ -4,6 +4,10 @@ import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
 import bcrypt from 'bcryptjs';
 import supabase from './src/config/supabaseClient';
+//The authorize function handles the authentication logic. 
+//Zod validates the email and password before checking if the user exists in the database
+//The package bcrypt hashes the user's password before storing it in the database.
+//Hashing converts a password into a fixed-length string of characters, which appears random, providing a layer of security even if the user's data is exposed.
 
 type User = {
     email: string;
@@ -62,8 +66,6 @@ export const { auth, signIn, signOut } = NextAuth({
 });
 
 /*It's good practice to hash passwords before storing them in a database. 
-Hashing converts a password into a fixed-length string of characters, which appears random, 
-providing a layer of security even if the user's data is exposed.
 
 In your seed.js file, you used a package called bcrypt to hash the user's password before storing 
 it in the database. You will use it again later in this chapter to compare that the password entered 
@@ -71,8 +73,5 @@ by the user matches the one in the database. However, you will need to create a 
 the bcrypt package. This is because bcrypt relies on Node.js APIs not available in Next.js Middleware.
 
 The Credentials provider allows users to log in with a username and a password.
-
-I'm using the authorize function to handle the authentication logic. 
-I'm using zod to validate the email and password before checking if the user exists in the database:
 
 The getUser function queries the user from the database.*/
