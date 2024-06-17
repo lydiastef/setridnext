@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import './stylemodal.css';
+import React, { useState } from 'react';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import supabase from '../../config/supabaseClient';
+import './stylemodal.css';
 
 interface NewModalProps {
-    closeModal: () => void;
-  }
+  closeModal: () => void;
+  positions: { id: number, name: string }[];
+}
 
-const NewModal: React.FC<NewModalProps> = ({ closeModal }) => {
-const supabase = createClientComponentClient();
-const [formData, setFormData] = useState({
+const NewModal: React.FC<NewModalProps> = ({ closeModal, positions }) => {
+  const supabase = createClientComponentClient();
+  const [formData, setFormData] = useState({
     name: '',
     doctor: '',
     image: '',
-    position: '',
+    position_id: '', // Updated to match the column name
     education1: '',
     education2: '',
     education3: '',
@@ -21,24 +21,28 @@ const [formData, setFormData] = useState({
     experience1: '',
     experience2: '',
     experience3: '',
+    experience4: '',
     type: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: name === 'position' ? value : value });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async () => {
-    const formDataToSubmit = { ...formData, position: Number(formData.position) };
+    console.log('Submitting form data:', formData);
+
+    const formDataToSubmit = { ...formData, position_id: formData.position_id ? Number(formData.position_id) : null };
 
     const { error } = await supabase
       .from('staff')
-      .insert([formData]);
+      .insert([formDataToSubmit]);
 
     if (error) {
-      console.error(error);
+      console.error('Error inserting data:', error);
     } else {
+      console.log('Data inserted successfully');
       closeModal();
       window.location.reload();
     }
@@ -59,78 +63,81 @@ const [formData, setFormData] = useState({
           className='title-textarea'
           name="doctor"
           placeholder="Læknir"
-          value={formData.name}
+          value={formData.doctor}
           onChange={handleChange}
         />
         <textarea
           className='title-textarea'
           name="image"
           placeholder="Mynd URL"
-          value={formData.name}
+          value={formData.image}
           onChange={handleChange}
         />
-        <input
+        <select
           className='title-input'
-          type="number"
-          name="position"
-          placeholder="Númer á læknategund (1 = blóðlæknir, 2 = gigtlæknir, 3 = hjarta, 4 = innkirtla, 5 = krabbameins, 6 = lungna, 7 = nýrna, 8 = tauga, 9 = sálfr, 10 = annað starfsfólk)"
-          value={formData.position}
+          name="position_id"
+          value={formData.position_id}
           onChange={handleChange}
-        />
+        >
+          <option value="">Select Position</option>
+          {positions.map(position => (
+            <option key={position.id} value={position.id}>{position.name}</option>
+          ))}
+        </select>
         <textarea
           className='title-textarea'
           name="education1"
           placeholder="Menntun1"
-          value={formData.name}
+          value={formData.education1}
           onChange={handleChange}
         />
         <textarea
           className='title-textarea'
           name="education2"
           placeholder="Menntun2"
-          value={formData.name}
+          value={formData.education2}
           onChange={handleChange}
         />
         <textarea
           className='title-textarea'
           name="education3"
           placeholder="Menntun3"
-          value={formData.name}
+          value={formData.education3}
           onChange={handleChange}
         />
         <textarea
           className='title-textarea'
           name="education4"
           placeholder="Menntun4"
-          value={formData.name}
+          value={formData.education4}
           onChange={handleChange}
         />
         <textarea
           className='title-textarea'
           name="experience1"
           placeholder="Reynsla1"
-          value={formData.name}
+          value={formData.experience1}
           onChange={handleChange}
         />
         <textarea
           className='title-textarea'
           name="experience2"
           placeholder="Reynsla2"
-          value={formData.name}
+          value={formData.experience2}
           onChange={handleChange}
         />
         <textarea
           className='title-textarea'
           name="experience3"
           placeholder="Reynsla3"
-          value={formData.name}
+          value={formData.experience3}
           onChange={handleChange}
         />
         <textarea
           className='title-textarea'
           name="experience4"
           placeholder="Reynsla4"
-          value={formData.name}
+          value={formData.experience4}
           onChange={handleChange}
         />
         <button className='save-btn' onClick={handleSubmit}>Submit</button>
